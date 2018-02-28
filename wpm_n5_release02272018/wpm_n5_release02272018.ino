@@ -13,6 +13,8 @@
 #define T_MAX 1000000
 #define MAX_CONNECT 100000
 #define CLID "fff" NID
+#define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
+#define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 
 // for stack analytics
 extern "C" {
@@ -73,7 +75,7 @@ const char* fingerprint = "‎46 b2 c3 44 9c 59 09 8b 01 b6 f8 bd 4c fb 00 74 91
 String url2 = String("/macros/s/") + GScriptId + "/exec?cal";
 // Read from Google Spreadsheet
 //String url3 = String("/macros/s/") + GScriptId + "/exec?read";
-String payload_base =  "{\"command\": \"appendRow\",\"sheet_name\": \"แผ่น5\", \"values\": ";
+String payload_base =  URL_BASE;
 String payload = "";
 HTTPSRedirect* clientg = nullptr;
 // used to store the values of free stack and heap
