@@ -45,7 +45,6 @@ structPhase phaseID[3] = { {1, 5, 0}, {1, 4, 0}, {1, 14, 0} };
 //--> old structPhase phaseID[3] = { {1, 2, 0}, {1, 4, 0}, {1, 5, 0} };
 
 int sw_status = ON;
-int pout = 13;
 int count_connect = 0;
 char nodeID[5] = NID;
 const char* ssid = "chp-lab";
@@ -238,6 +237,8 @@ void setup()
 {
   int i;
   int timeZone = 7*3600;
+
+  pinMode(LED_BUILTIN, OUTPUT);
   #ifndef SIM_MODE
   for(i = 0; i < 3; i ++)
   {
@@ -260,7 +261,6 @@ void setup()
   client.setCallback(callback);
   
   
-  pinMode(pout, OUTPUT);
   configTime(timeZone, 0, "pool.ntp.org", "time.nist.gov");
   printf("Loading Time");
   while(!time(nullptr))
@@ -426,11 +426,11 @@ void loop()
     #endif
   
     // turn on LED
-    digitalWrite(pout, HIGH);
+    digitalWrite(LED_BUILTIN, LOW);
     pubData();
     spreadsheet();
     // turn off LED
-    digitalWrite(pout, LOW);
+    digitalWrite(LED_BUILTIN, HIGH);
 
     // Clear old data
     for(i = 0; i < 3; i++)
