@@ -7,7 +7,7 @@
 #define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "5"
+#define NID "1"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
