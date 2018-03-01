@@ -7,12 +7,15 @@
 #define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "1"
+#define NID "4"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
 #define MAX_CONNECT 100000
 #define CLID "fff" NID
+#define NUM_PHASE 3
+#define MAX_ERR 3
+#define TIME_OUT 3000
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 
@@ -76,8 +79,10 @@ void setup_wifi()
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
   {
+    digitalWrite(LED_BUILTIN, LOW); 
     delay(100);
     printf(".");
+    digitalWrite(LED_BUILTIN, HIGH);
   }
 
   printf("WiFi connected. IP address:\r\n");
@@ -118,7 +123,7 @@ void pubData()
     char power_payload[16];
     int i;
 
-    for(i = 0; i < 3 ; i++)
+    for(i = 0; i < NUM_PHASE; i++)
     {
       float f = 0, p = 0;
       String almMsg;
@@ -200,7 +205,7 @@ void callback(char* topic, byte* payload, unsigned int length)
     }
     else if((payload_str == "0") || payload_str == "false")
     {
-      printf("##################SW= of\r\n");
+      printf("##################SW= off\r\n");
       sw_status = OFF;
     }
   }
@@ -219,8 +224,15 @@ void setup()
   int timeZone = 7*3600;
 
   pinMode(LED_BUILTIN, OUTPUT);
+  for(i = 0; i < NUM_PHASE; i++)
+  {
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(100);
+  }
   #ifndef SIM_MODE
-  for(i = 0; i < 3; i ++)
+  for(i = 0; i < NUM_PHASE; i ++)
   {
     // Set pin_in to measure pulse width
     pinMode(phaseID[i].pinIn, INPUT);
@@ -229,7 +241,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-
+  Serial.println("\nAP: 4.0");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
@@ -298,7 +310,7 @@ void spreadsheet()
     flag = true;
     clientg->setPrintResponseBody(true);
     clientg->setContentTypeHeader("application/json");
-    clientg->setTimeout(3000);
+    clientg->setTimeout(TIME_OUT);
   }
 
   if (clientg != nullptr)
@@ -337,14 +349,14 @@ void spreadsheet()
     connect_count = 0;
   }
 
-  if (error_count > 3)
+  if (error_count > MAX_ERR)
   {
     error_count = 0;
     printf("Halting processor...\r\n"); 
     delete clientg;
     clientg = nullptr;
     flag = false;
-    printf("Reset cause post error count = 3\r\n");
+    printf("Reset cause post error over MAX_ERR\r\n");
   }
 }
 
@@ -372,7 +384,7 @@ void loop()
     if(sw_status == ON)
     {
       
-      for(i = 0; i < 3; i ++)
+      for(i = 0; i < NUM_PHASE; i ++)
       {
         
         // 10 < P < 100 kW
@@ -382,11 +394,12 @@ void loop()
     else if(sw_status == OFF)
     {
        printf("Restarting...\r\n");
-       for(i = 0; i < 3; i++)
+       for(i = 0; i < MAX_ERR; i++)
        {
         digitalWrite(LED_BUILTIN, LOW);
         delay(100);
         digitalWrite(LED_BUILTIN, HIGH);
+        delay(100);
        }
        ESP.restart();
     } 
@@ -413,7 +426,7 @@ void loop()
     digitalWrite(LED_BUILTIN, HIGH);
 
     // Clear old data
-    for(i = 0; i < 3; i++)
+    for(i = 0; i < NUM_PHASE; i++)
     {
       phaseID[i].duration = 0; 
     }
