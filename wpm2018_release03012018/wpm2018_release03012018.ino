@@ -1,13 +1,16 @@
+// Cr. CHATPETH KENANAN
+// Contact: eechatpeth@gmail.com
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <time.h>
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
 
-#define SIM_MODE        // Define, If need to simulation pulse in.
+//#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "4"
+#define NID "2"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -36,13 +39,13 @@ typedef struct
 // Pa = GPIO5 =D1
 // Pb = GPIO4 = D2
 // Pc = GPIO14 = D5
-structPhase phaseID[3] = { {1, 5, 0}, {1, 4, 0}, {1, 14, 0} };
+structPhase phaseID[3] = { {1, 5, 0, 0}, {1, 4, 0, 0}, {1, 14, 0, 0} };
 
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "chp-lab";
-const char* password = "0x00FF0000;";
+const char* ssid = "Ak-WiFi";
+const char* password = "5710130008";
 const char* mqttServer = "m12.cloudmqtt.com";
 const int mqttPort = 19574;
 const char* mqttUser = "qonihivg";
@@ -236,7 +239,7 @@ void setup()
   {
     // Set pin_in to measure pulse width
     pinMode(phaseID[i].pinIn, INPUT);
-    printf("PinIn= %d\r\n", phaseID.pinIn);
+    //printf("PinIn= %d\r\n", phaseID.pinIn);
   }
   #endif
   
@@ -364,7 +367,6 @@ void loop()
 {
   // V 4.0
   int i;
-  
   
   // Check connection with mqtt status
   if (!client.connected() )
