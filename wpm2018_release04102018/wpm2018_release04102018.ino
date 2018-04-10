@@ -21,6 +21,7 @@
 #define TIME_OUT 3000
 #define SLOPE "m" NID
 #define CONST "C" NID
+#define ENCRIPT_TOPIC "fff" NID
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 
@@ -128,6 +129,7 @@ void pubData()
     char power_topic[8];
     char Data[64];
     char power_payload[16];
+    char encript_payload[32];
     int i;
 
     for(i = 0; i < NUM_PHASE; i++)
@@ -190,7 +192,10 @@ void pubData()
 
       printf("Publish data topic %s\r\n", power_topic);
       client.publish(power_topic, power_payload);     
-     }   
+     }
+     Serial.println(pubMsg);
+     pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
+     client.publish(ENCRIPT_TOPIC, encript_payload);
 }
 
 void callback(char* topic, byte* payload, unsigned int length)
