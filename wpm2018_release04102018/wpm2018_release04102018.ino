@@ -65,7 +65,7 @@ PubSubClient client(espClient);
 
 const char* host = "script.google.com";
 // Link to script of google spread sheet
-const char *GScriptId = "AKfycbyJW6L0XCxnaaUaIblDZWprteCtFoaRhPemmnIvFw3vR31t75co";
+const char *GScriptId = "AKfycbwZagpM_hvvOnNXGWQtSiiLalvMtdFgTtrdm-segr6QVqRqxuw";
 const int httpsPort = 443;
 const char* fingerprint = "‎46 b2 c3 44 9c 59 09 8b 01 b6 f8 bd 4c fb 00 74 91 2f ef f6";
 String url2 = String("/macros/s/") + GScriptId + "/exec?cal";
