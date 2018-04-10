@@ -10,7 +10,7 @@
 #define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "1"
+#define NID "3"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -47,8 +47,8 @@ structPhase phaseID[3] = { {1, 5, 0, 0}, {1, 4, 0, 0}, {1, 14, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "atop802.11x";
-const char* password = "atop3352";
+const char* ssid = "chp-lab";
+const char* password = "0x00FF0000;";
 const char* mqttServer = "m12.cloudmqtt.com";
 const int mqttPort = 19574;
 const char* mqttUser = "qonihivg";
@@ -89,17 +89,15 @@ void setup_wifi()
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
   {
-    if(count_wifi > 10)
+    if(count_wifi > 100)
     {
-      WiFi.begin(ssid, password);
-      count_wifi = 0;
-      delay(500);
+      ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW); 
-    delay(100);
+    delay(256);
     printf(".");
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(100);
+    delay(256);
     count_wifi = count_wifi + 1;
   }
 
@@ -414,6 +412,10 @@ void loop()
   // V 4.0
   int i;
 
+  if(m_slope == 0)
+  {
+    reconnect();
+  }
   
   // Check connection with mqtt status
   if (!client.connected())
