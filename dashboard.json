@@ -1,0 +1,427 @@
+{
+ "version": "application/octet-stream",
+ "allow_edit": true,
+ "plugins": [],
+ "panes": [
+  {
+   "title": "Washing (Node3)",
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3/3e\"]",
+      "units": "kWhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Motor (Node2)",
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2/3e\"]",
+      "units": "kWhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Pump (Node1)",
+   "width": 1,
+   "row": {
+    "3": 1
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/1/3e\"]",
+      "units": "kWhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Air flow (Node6)",
+   "width": 1,
+   "row": {
+    "3": 9
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6/3e\"]",
+      "units": "kWhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Air condition (Node5)",
+   "width": 1,
+   "row": {
+    "3": 9
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5/3e\"]",
+      "units": "kWhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Cooling (Node4)",
+   "width": 1,
+   "row": {
+    "3": 9
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/4/3e\"]",
+      "units": "kwhr",
+      "min_value": 0,
+      "max_value": "10000000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node1",
+   "width": 1,
+   "row": {
+    "3": 17
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P0",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/1_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P1",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/1_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/1_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE2",
+   "width": 1,
+   "row": {
+    "3": 17
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P0",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P1",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE3",
+   "width": 1,
+   "row": {
+    "3": 17
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P0",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P1",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p1\"]",
+      "animate": true
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE4",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "NODE4",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/4_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/4_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/4_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE5",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P0",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P1",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5_p1\"]",
+      "animate": true
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE6",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": []
+  },
+  {
+   "title": "Node1: Peak power",
+   "width": 1,
+   "row": {
+    "3": 33
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "title": "Phase A",
+      "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
+      "filter": "1_PA, 1_PB, 1_PC",
+      "type": "line",
+      "xaxis": "W",
+      "yaxis": "t",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  }
+ ],
+ "datasources": [
+  {
+   "name": "wpm2018db",
+   "type": "netpie_microgear",
+   "settings": {
+    "name": "wpm2018db",
+    "appid": "wpm2018",
+    "key": "yiI3Sx2dB3PnZDg",
+    "secret": "BLd2YPO5eryrKlRDnxoCEKndd",
+    "topics": "/#"
+   }
+  },
+  {
+   "name": "wpm2018feed",
+   "type": "netpie_feed",
+   "settings": {
+    "name": "wpm2018feed",
+    "feedid": "wpm2018Database",
+    "apikey": "FtzABVCEyUPppAZKAmGsle2RYQBfiA6u",
+    "granularity_value": "15",
+    "granularity_unit": "seconds",
+    "since_value": "6",
+    "since_unit": "hours",
+    "interval": "15"
+   }
+  }
+ ],
+ "columns": 3,
+ "theme": "default"
+}
