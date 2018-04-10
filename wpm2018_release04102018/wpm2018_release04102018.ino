@@ -88,9 +88,10 @@ void setup_wifi()
   while (WiFi.status() != WL_CONNECTED)
   {
     digitalWrite(LED_BUILTIN, LOW); 
-    delay(100);
+    delay(50);
     printf(".");
     digitalWrite(LED_BUILTIN, HIGH);
+    delay(50);
   }
 
   printf("WiFi connected. IP address:\r\n");
@@ -102,8 +103,15 @@ void setup_wifi()
   printf("Connecting to %s\r\n", host);
   while( (clientg->connect(host, httpsPort)) != 1)
   {
+    digitalWrite(LED_BUILTIN, LOW);
     printf(".");
-    delay(256);
+    delay(100);
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(50);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(100);
   }
   printf("Connected");
   if (clientg->verify(fingerprint, host)) 
@@ -243,16 +251,18 @@ void callback(char* topic, byte* payload, unsigned int length)
 void setup()
 {
   int i;
+  String nid_str = NID; 
   int timeZone = 7*3600;
 
   pinMode(LED_BUILTIN, OUTPUT);
-  for(i = 0; i < NUM_PHASE; i++)
+  for(i = 0; i < nid_str.toInt(); i++)
   {
     digitalWrite(LED_BUILTIN, LOW);
-    delay(100);
+    delay(200);
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(100);
+    delay(200);
   }
+  delay(500);
   #ifndef SIM_MODE
   for(i = 0; i < NUM_PHASE; i ++)
   {
