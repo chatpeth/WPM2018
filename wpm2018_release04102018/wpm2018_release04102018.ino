@@ -83,15 +83,24 @@ unsigned int free_stack_before = 0;
 
 void setup_wifi()
 { 
+  int count_recon = 0;
+  int count_wifi = 0;
   printf("Node %s\r\nConnecting to %s\r\n", nodeID, ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)
   {
+    if(count_wifi > 10)
+    {
+      WiFi.begin(ssid, password);
+      count_wifi = 0;
+      delay(500);
+    }
     digitalWrite(LED_BUILTIN, LOW); 
-    delay(50);
+    delay(100);
     printf(".");
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(50);
+    delay(100);
+    count_wifi = count_wifi + 1;
   }
 
   printf("WiFi connected. IP address:\r\n");
@@ -103,6 +112,10 @@ void setup_wifi()
   printf("Connecting to %s\r\n", host);
   while( (clientg->connect(host, httpsPort)) != 1)
   {
+    if(count_recon > 5)
+    {
+      ESP.restart();
+    }
     digitalWrite(LED_BUILTIN, LOW);
     printf(".");
     delay(100);
@@ -112,6 +125,7 @@ void setup_wifi()
     delay(100);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(100);
+    count_recon = count_recon + 1;
   }
   printf("Connected");
   if (clientg->verify(fingerprint, host)) 
