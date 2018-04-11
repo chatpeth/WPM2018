@@ -10,7 +10,7 @@
 #define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "3"
+#define NID "1"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -47,8 +47,8 @@ structPhase phaseID[3] = { {1, 5, 0, 0}, {1, 4, 0, 0}, {1, 14, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "chp-lab";
-const char* password = "0x00FF0000;";
+const char* ssid = "atop802.11x";
+const char* password = "atop3352";
 const char* mqttServer = "m12.cloudmqtt.com";
 const int mqttPort = 19574;
 const char* mqttUser = "qonihivg";
@@ -93,6 +93,10 @@ void setup_wifi()
     {
       ESP.restart();
     }
+    else if(count_wifi > 10)
+    {
+      WiFi.begin(ssid, password);
+    }
     digitalWrite(LED_BUILTIN, LOW); 
     delay(256);
     printf(".");
@@ -119,10 +123,6 @@ void setup_wifi()
     delay(100);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(50);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(100);
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(100);
     count_recon = count_recon + 1;
   }
   printf("Connected");
@@ -215,7 +215,7 @@ void pubData()
      }
      Serial.println(pubMsg);
      pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
-     client.publish(ENCRIPT_TOPIC, encript_payload);
+     //client.publish(ENCRIPT_TOPIC, encript_payload);
 }
 
 void callback(char* topic, byte* payload, unsigned int length)
@@ -415,6 +415,7 @@ void loop()
   if(m_slope == 0)
   {
     reconnect();
+    
   }
   
   // Check connection with mqtt status
