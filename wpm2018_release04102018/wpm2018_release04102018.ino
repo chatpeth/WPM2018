@@ -22,6 +22,9 @@
 #define SLOPE "m" NID
 #define CONST "C" NID
 #define ENCRIPT_TOPIC "fff" NID
+#define LOG_SETTING "log_enable" NID
+#define LOG_INTERVAL "log_interval" NID
+#define POLLING_INTERVAL "polling_interval" NID
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 
@@ -57,8 +60,13 @@ const char* client_id = CLID;
 
 unsigned long now;
 long lastMsg = 0;
+long lastLog = 0;
 float m_slope = 0;
 float C_const = 0;
+int log_setting = 1;  //Log enable by default
+int log_interval = 5000;  //default 5000 ms
+int polling_interval = 5000; //default 5000 ms
+int measured_flag = 0;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -80,30 +88,31 @@ HTTPSRedirect* clientg = nullptr;
 // upon instantiation
 unsigned int free_heap_before = 0;
 unsigned int free_stack_before = 0;
+// time stamp
+String tsm_year = "";
+String tsm_mon = "";
+String tsm_day = "";
+String tsm_hour = "";
+String tsm_min = "";
+String tsm_sec = "";
 
 void setup_wifi()
 { 
   int count_recon = 0;
   int count_wifi = 0;
   printf("Node %s\r\nConnecting to %s\r\n", nodeID, ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)
+
+  if (WiFi.begin(ssid, password) != 0)
   {
-    if(count_wifi > 100)
-    {
-      ESP.restart();
-    }
-    else if(count_wifi > 10)
-    {
-      WiFi.begin(ssid, password);
-    }
-    digitalWrite(LED_BUILTIN, LOW); 
-    delay(256);
-    printf(".");
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(256);
-    count_wifi = count_wifi + 1;
-  }
+        while (WiFi.status() != WL_CONNECTED)
+        {
+            digitalWrite(LED_BUILTIN, LOW);
+            delay(500);
+            Serial.print(".");
+            digitalWrite(LED_BUILTIN, HIGH);
+            delay(500);
+        }
+   }
 
   printf("WiFi connected. IP address:\r\n");
   Serial.println(WiFi.localIP());
@@ -214,8 +223,8 @@ void pubData()
       printf("Publish data topic %s\r\n", power_topic);
       client.publish(power_topic, power_payload);     
      }
-     Serial.println(pubMsg);
-     pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
+     //Serial.println(pubMsg);
+     //pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
      //client.publish(ENCRIPT_TOPIC, encript_payload);
 }
 
@@ -252,6 +261,32 @@ void callback(char* topic, byte* payload, unsigned int length)
     C_const = payload_str.toFloat();
     printf("!!!!! C = %.2f\r\n", C_const);
   }
+  else if(topic_str == LOG_SETTING)
+  {
+    log_setting = payload_str.toInt();
+    if(log_setting == 1)
+    {
+      printf("Log enable.\r\n");
+    }
+    else if(log_setting == 0)
+    {
+      printf("Log disable.\r\n");
+    }
+    else
+    {
+      printf("ERR0x01: Unknow log status.");
+    }
+  }
+  else if(topic_str == LOG_INTERVAL)
+  {
+    log_interval = payload_str.toInt();
+    printf("Log interval = %d\r\n", log_interval);
+  }
+  else if(topic_str == POLLING_INTERVAL)
+  {
+    polling_interval = payload_str.toInt();
+    printf("Polling interval = %d\r\n", polling_interval);
+  }
 
   printf("Message arrived [%s] came into callback. The published message from Pi:\r\n", topic);
   for (int i = 0; i < length; i++)
@@ -286,7 +321,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\nAP: 4.0");
+  Serial.println("\r\nAP: 4.1");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
@@ -322,6 +357,9 @@ void reconnect()
       client.subscribe(SW);
       client.subscribe(SLOPE);
       client.subscribe(CONST);
+      client.subscribe(LOG_SETTING);
+      client.subscribe(LOG_INTERVAL);
+      client.subscribe(POLLING_INTERVAL);
       client.publish(nodeID, "Hello 505atk");
     }
     else
@@ -343,12 +381,10 @@ void spreadsheet()
   static int error_count = 0;
   static int connect_count = 0;
   static bool flag = false;
-  //configTime(7*3600, 0, "pool.ntp.org", "time.nist.gov");
-  time_t now = time(nullptr);
-  struct tm* p_tm = localtime(&now);
-  String tmpf = String(p_tm->tm_mday) + "/" + String(p_tm->tm_mon + 1) + "/" + String(p_tm->tm_year + 1900) + "," + String(p_tm->tm_hour) + ":" + String(p_tm->tm_min) + ":" + String(p_tm->tm_sec);
+
+  String tmpf = tsm_day + "/" + tsm_mon + "/" + tsm_year + "," + tsm_hour + ":" + tsm_min + ":" + tsm_sec;
+
   payload = payload_base + "\"" + phaseID[0].power + "," + phaseID[1].power + "," + phaseID[2].power + "," + tmpf + "\"}";
-  printf("Time: %02d:%02d:%02d\r\n",p_tm->tm_hour, p_tm->tm_min, p_tm->tm_sec);
 
   if (!flag)
   {
@@ -373,10 +409,11 @@ void spreadsheet()
       } 
     }
     printf("POST data to spreadsheet\r\n");
+    Serial.println(payload);
     if(clientg->POST(url2, host, payload))
     {
       connect_count++;
-      printf("Count connect = %d\r\n", connect_count);
+      printf("Log connect = %d\r\n", connect_count);
     }
     else
     {
@@ -408,38 +445,25 @@ void spreadsheet()
   }
 }
 
-void loop()
+void measurement()
 {
-  // V 4.0
-  int i;
+    int i;
+    time_t mnow = time(nullptr);
+    struct tm* p_tm = localtime(&mnow);
+    printf("Time: %02d:%02d:%02d\r\n",p_tm->tm_hour, p_tm->tm_min, p_tm->tm_sec);
 
-  if(m_slope == 0)
-  {
-    reconnect();
-    
-  }
-  
-  // Check connection with mqtt status
-  if (!client.connected())
-  {
-    reconnect();
-  }
-  client.loop();  
-  now = millis();
-  
-  // Upload everry 5 sec        
-  if(abs( (now - lastMsg) > 4996) )
-  {
-    printf("Period = %d\r\n", now - lastMsg);
-    lastMsg = now;
+    tsm_year = String(p_tm->tm_year + 1900);
+    tsm_mon = String(p_tm->tm_mon + 1);
+    tsm_day = String(p_tm->tm_mday);
+    tsm_hour = String(p_tm->tm_hour);
+    tsm_min = String(p_tm->tm_min);
+    tsm_sec = String(p_tm->tm_sec);
 
     #ifdef SIM_MODE
     if(sw_status == ON)
-    {
-      
+    {      
       for(i = 0; i < NUM_PHASE; i ++)
       {
-        
         // 10 < P < 100 kW
         phaseID[i].duration = random(600, 6000);
       }
@@ -447,13 +471,6 @@ void loop()
     else if(sw_status == OFF)
     {
        printf("Restarting...\r\n");
-       for(i = 0; i < MAX_ERR; i++)
-       {
-        digitalWrite(LED_BUILTIN, LOW);
-        delay(100);
-        digitalWrite(LED_BUILTIN, HIGH);
-        delay(100);
-       }
        ESP.restart();
     } 
     #else
@@ -466,30 +483,70 @@ void loop()
     else if(sw_status == OFF)
     {
        printf("Restarting...\r\n");
+       for(i = 0; i < MAX_ERR; i++)
+       {
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(100);
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(100);
+       }
        ESP.restart();
     }
     
     #endif
+}
 
-  // Check that node know the equition for calculating power, P = mf + c
+void loop()
+{
+  // V 4.2
+
+  if(m_slope == 0)
+  {
+    reconnect();
+  }
+  
+  // Check connection with mqtt status
+  if (!client.connected())
+  {
+    reconnect();
+  }
+  client.loop();  
+  now = millis();
+
   if(m_slope != 0)
   {
-    // turn on LED
-    digitalWrite(LED_BUILTIN, LOW);
-    pubData();
-    spreadsheet();
-    // turn off LED
-    digitalWrite(LED_BUILTIN, HIGH);
-  }
-
-
-    // Clear old data
-    for(i = 0; i < NUM_PHASE; i++)
+    // Upload every 5 sec        
+    if(abs( (now - lastMsg) > polling_interval) )
     {
-      phaseID[i].duration = 0; 
+      printf("Period = %d\r\n", now - lastMsg);
+      lastMsg = now;
+      // Check that node know the equition for calculating power, P = mf + c
+      measurement();
+      // turn on LED
+      digitalWrite(LED_BUILTIN, LOW);
+      measured_flag = 1;
+      pubData();
+      // turn off LED
+      digitalWrite(LED_BUILTIN, HIGH);  
     }
-  }  
-    
+
+    // Log data every log_interval
+    if(abs(now - lastLog) > log_interval - 4)
+    {
+      measurement();
+      printf("Log interval %d ms\r\n", now - lastLog);      
+      lastLog = now;
+      // turn on LED
+      digitalWrite(LED_BUILTIN, LOW);
+      if((log_setting == 1) && (measured_flag == 1))
+      {
+        spreadsheet();
+      }
+      // turn off LED
+      digitalWrite(LED_BUILTIN, HIGH);
+    }
+  }
+ 
   delay(random(5));  
 }
 
