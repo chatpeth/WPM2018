@@ -215,7 +215,7 @@
         "type": "function",
         "z": "700eb341.6000fc",
         "name": "et",
-        "func": "var e0 = parseFloat(msg.payload.tp0);\nvar e1 = parseFloat(msg.payload.tp1);\nvar e2 = parseFloat(msg.payload.tp2);\nmsg.payload = e0 + e1 + e2;\nmsg.topic = \"/1/3e\";\nreturn msg;",
+        "func": "var e0 = parseFloat(msg.payload.tp0);\nvar e1 = parseFloat(msg.payload.tp1);\nvar e2 = parseFloat(msg.payload.tp2);\nmsg.payload = e0 + e1 + e2;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 901.9858179092407,
@@ -988,8 +988,8 @@
         "name": "energy3Phase",
         "appid": "wpm2018",
         "auth": "yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd",
-        "topic": "topic",
-        "topicType": "msg",
+        "topic": "/1/3e",
+        "topicType": "str",
         "payload": "payload",
         "payloadType": "msg",
         "x": 1255.9166717529297,
@@ -1632,7 +1632,8 @@
         "y": 179.02777862548828,
         "wires": [
             [
-                "a98ad6e0.3ba168"
+                "a98ad6e0.3ba168",
+                "5721a644.5cfc28"
             ]
         ]
     },
@@ -2095,22 +2096,9 @@
         "y": 120,
         "wires": [
             [
-                "349a1cf8.ff58a4",
-                "d6e8fc06.a9416"
+                "349a1cf8.ff58a4"
             ]
         ]
-    },
-    {
-        "id": "d6e8fc06.a9416",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 633.0833282470703,
-        "y": 54.263893127441406,
-        "wires": []
     },
     {
         "id": "115f6b98.93d344",
@@ -2450,7 +2438,7 @@
         "z": "700eb341.6000fc",
         "group": "41eafa35.4cab14",
         "order": 5,
-        "width": "5",
+        "width": "6",
         "height": "2",
         "name": "",
         "label": "Current polling interval (ms):",
@@ -2465,7 +2453,7 @@
         "type": "debug",
         "z": "700eb341.6000fc",
         "name": "",
-        "active": true,
+        "active": false,
         "console": "false",
         "complete": "false",
         "x": 717.0729904174805,
@@ -2581,6 +2569,48 @@
                 "fadca40a.35afe8"
             ]
         ]
+    },
+    {
+        "id": "5721a644.5cfc28",
+        "type": "function",
+        "z": "700eb341.6000fc",
+        "name": "feed_obj2",
+        "func": "var my_obj = \"6_PA: \" + msg.payload[\"6_PA\"] + \", 6_PB: \" + msg.payload[\"6_PB\"] + \", 6_PC: \" + msg.payload[\"6_PC\"];\nfor(i = 7; i < 11; i++)\n{\n\tmy_obj = my_obj + \", \" + String(i) + \"_PA: \" + msg.payload[String(i) + \"_PA\"] + \", \" + String(i) + \"_PB: \" + msg.payload[String(i) + \"_PB\"] + \", \" + String(i) + \"_PC: \" + msg.payload[String(i) + \"_PC\"];\t\n}\nmsg.payload = my_obj;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460.017333984375,
+        "y": 62.010414123535156,
+        "wires": [
+            [
+                "dce5d98b.efcd08",
+                "526887e8.ba02c8"
+            ]
+        ]
+    },
+    {
+        "id": "dce5d98b.efcd08",
+        "type": "debug",
+        "z": "700eb341.6000fc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 621.0694732666016,
+        "y": 27.267364501953125,
+        "wires": []
+    },
+    {
+        "id": "526887e8.ba02c8",
+        "type": "writefeed",
+        "z": "700eb341.6000fc",
+        "name": "peak",
+        "feedid": "wpm2018Database2",
+        "apikey": "CTxOBi8JKSi3GxTdDp137BJJn6IpIheA",
+        "data": "payload",
+        "dataType": "msg",
+        "x": 605.017333984375,
+        "y": 62.010414123535156,
+        "wires": []
     },
     {
         "id": "faa41933.fa74e8",
