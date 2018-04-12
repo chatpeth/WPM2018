@@ -116,13 +116,14 @@ void setup_wifi()
   {
     if(count_recon > 5)
     {
+      delay(15000);
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
     printf(".");
-    delay(100);
+    delay(256);
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(50);
+    delay(256);
     count_recon = count_recon + 1;
   }
   printf("Connected");
