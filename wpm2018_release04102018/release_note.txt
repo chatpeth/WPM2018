@@ -1,0 +1,1 @@
+ver.04172018 add dynamic setup --> log interval, polling interval, enable-disable log from server.

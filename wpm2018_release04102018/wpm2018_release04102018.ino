@@ -344,10 +344,18 @@ void setup()
 
 void reconnect()
 {
-
+  int err_reconnect = 0;
   // Loop until we’re reconnected
   while (!client.connected())
   {
+    if(err_reconnect > 10)
+    {
+      ESP.restart();
+    }
+    else if(err_reconnect > 5)
+    {
+      setup_wifi();
+    }
     printf("Attempting MQTT connection... "); 
     // Attempt to connect
     if (client.connect(client_id, mqttUser, mqttPassword))
@@ -373,6 +381,7 @@ void reconnect()
     }
 
     printf("count_connect= %d\r\n", count_connect);  
+    err_reconnect = err_reconnect + 1;
   }
 }
 
