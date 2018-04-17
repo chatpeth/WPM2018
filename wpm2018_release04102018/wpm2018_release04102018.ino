@@ -125,7 +125,8 @@ void setup_wifi()
   {
     if(count_recon > 5)
     {
-      delay(15000);
+      //wait tcp time out at google script
+      delay(30000);
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
