@@ -1,1 +1,1 @@
-ver.04172018 add dynamic setup --> log interval, polling interval, enable-disable log from server.
+ver.04172018 add dynamic setup --> log interval, polling interval, enable-disable log from server. Remove bug: Waiting until google script tcp time out 30 sec. Remove bug: Reconnect wifi if wifi AP immediately down.

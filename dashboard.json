@@ -4,52 +4,6 @@
  "plugins": [],
  "panes": [
   {
-   "title": "Washing (Node3)",
-   "width": 1,
-   "row": {
-    "3": 1
-   },
-   "col": {
-    "3": 3
-   },
-   "col_width": 1,
-   "widgets": [
-    {
-     "type": "gauge",
-     "settings": {
-      "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3/3e\"]",
-      "units": "kWhr",
-      "min_value": 0,
-      "max_value": "10000000"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Motor (Node2)",
-   "width": 1,
-   "row": {
-    "3": 1
-   },
-   "col": {
-    "3": 2
-   },
-   "col_width": 1,
-   "widgets": [
-    {
-     "type": "gauge",
-     "settings": {
-      "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2/3e\"]",
-      "units": "kWhr",
-      "min_value": 0,
-      "max_value": "10000000"
-     }
-    }
-   ]
-  },
-  {
    "title": "Pump (Node1)",
    "width": 1,
    "row": {
@@ -58,27 +12,29 @@
    "col": {
     "3": 1
    },
-   "col_width": 1,
+   "col_width": "3",
    "widgets": [
     {
      "type": "gauge",
      "settings": {
       "value": "datasources[\"wpm2018db\"][\"/wpm2018/1/3e\"]",
-      "units": "kWhr",
+      "units": "kWh",
       "min_value": 0,
-      "max_value": "10000000"
+      "max_value": "100000"
      }
     }
    ]
   },
   {
-   "title": "Air flow (Node6)",
+   "title": "Washing (Node3)",
    "width": 1,
    "row": {
-    "3": 9
+    "3": 9,
+    "5": 9
    },
    "col": {
-    "3": 3
+    "3": 2,
+    "5": 3
    },
    "col_width": 1,
    "widgets": [
@@ -86,22 +42,24 @@
      "type": "gauge",
      "settings": {
       "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6/3e\"]",
-      "units": "kWhr",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3/3e\"]",
+      "units": "kWh",
       "min_value": 0,
-      "max_value": "10000000"
+      "max_value": "100000"
      }
     }
    ]
   },
   {
-   "title": "Air condition (Node5)",
+   "title": "Motor (Node2)",
    "width": 1,
    "row": {
-    "3": 9
+    "3": 9,
+    "5": 9
    },
    "col": {
-    "3": 2
+    "3": 1,
+    "5": 2
    },
    "col_width": 1,
    "widgets": [
@@ -109,10 +67,10 @@
      "type": "gauge",
      "settings": {
       "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5/3e\"]",
-      "units": "kWhr",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/2/3e\"]",
+      "units": "kWh",
       "min_value": 0,
-      "max_value": "10000000"
+      "max_value": "100000"
      }
     }
    ]
@@ -121,10 +79,12 @@
    "title": "Cooling (Node4)",
    "width": 1,
    "row": {
-    "3": 9
+    "3": 9,
+    "5": 9
    },
    "col": {
-    "3": 1
+    "3": 3,
+    "5": 1
    },
    "col_width": 1,
    "widgets": [
@@ -133,9 +93,128 @@
      "settings": {
       "title": "Energy",
       "value": "datasources[\"wpm2018db\"][\"/wpm2018/4/3e\"]",
-      "units": "kwhr",
+      "units": "kwh",
       "min_value": 0,
-      "max_value": "10000000"
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Air flow (Node6)",
+   "width": 1,
+   "row": {
+    "3": 17,
+    "5": 17
+   },
+   "col": {
+    "3": 2,
+    "5": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Air condition (Node5)",
+   "width": 1,
+   "row": {
+    "3": 17,
+    "5": 17
+   },
+   "col": {
+    "3": 1,
+    "5": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/5/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node7",
+   "width": 1,
+   "row": {
+    "3": 17,
+    "5": 25
+   },
+   "col": {
+    "3": 3,
+    "5": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE3",
+   "width": 1,
+   "row": {
+    "3": 33,
+    "5": 25
+   },
+   "col": {
+    "3": 3,
+    "5": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P0",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P1",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p1\"]",
+      "animate": true
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "P2",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p2\"]",
+      "animate": true,
+      "units": "W"
      }
     }
    ]
@@ -144,10 +223,12 @@
    "title": "Node1",
    "width": 1,
    "row": {
-    "3": 17
+    "3": 33,
+    "5": 25
    },
    "col": {
-    "3": 1
+    "3": 1,
+    "5": 1
    },
    "col_width": 1,
    "widgets": [
@@ -187,10 +268,12 @@
    "title": "NODE2",
    "width": 1,
    "row": {
-    "3": 17
+    "3": 33,
+    "5": 37
    },
    "col": {
-    "3": 2
+    "3": 2,
+    "5": 2
    },
    "col_width": 1,
    "widgets": [
@@ -227,22 +310,24 @@
    ]
   },
   {
-   "title": "NODE3",
+   "title": "NODE6",
    "width": 1,
    "row": {
-    "3": 17
+    "3": 41,
+    "5": 33
    },
    "col": {
-    "3": 3
+    "3": 3,
+    "5": 3
    },
    "col_width": 1,
    "widgets": [
     {
      "type": "text_widget",
      "settings": {
-      "title": "P0",
+      "title": "PA",
       "size": "regular",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p0\"]",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6_p0\"]",
       "animate": true,
       "units": "W"
      }
@@ -250,18 +335,19 @@
     {
      "type": "text_widget",
      "settings": {
-      "title": "P1",
+      "title": "PB",
       "size": "regular",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p1\"]",
-      "animate": true
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6_p1\"]",
+      "animate": true,
+      "units": "W"
      }
     },
     {
      "type": "text_widget",
      "settings": {
-      "title": "P2",
+      "title": "PC",
       "size": "regular",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/3_p2\"]",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/6_p2\"]",
       "animate": true,
       "units": "W"
      }
@@ -272,10 +358,12 @@
    "title": "NODE4",
    "width": 1,
    "row": {
-    "3": 25
+    "3": 41,
+    "5": 33
    },
    "col": {
-    "3": 1
+    "3": 1,
+    "5": 1
    },
    "col_width": 1,
    "widgets": [
@@ -314,10 +402,12 @@
    "title": "NODE5",
    "width": 1,
    "row": {
-    "3": 25
+    "3": 41,
+    "5": 45
    },
    "col": {
-    "3": 2
+    "3": 2,
+    "5": 2
    },
    "col_width": 1,
    "widgets": [
@@ -337,7 +427,8 @@
       "title": "P1",
       "size": "regular",
       "value": "datasources[\"wpm2018db\"][\"/wpm2018/5_p1\"]",
-      "animate": true
+      "animate": true,
+      "units": "W"
      }
     },
     {
@@ -353,25 +444,196 @@
    ]
   },
   {
-   "title": "NODE6",
+   "title": "Node8: Peak power",
    "width": 1,
    "row": {
-    "3": 25
+    "3": 49,
+    "5": 17
    },
    "col": {
-    "3": 3
+    "3": 2,
+    "5": 1
    },
    "col_width": 1,
-   "widgets": []
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/8_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PB",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/8_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PC",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/8_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node9: Peak power",
+   "width": 1,
+   "row": {
+    "3": 49,
+    "5": 29
+   },
+   "col": {
+    "3": 3,
+    "5": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PA",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PB",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PC",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node7: Peak power",
+   "width": 1,
+   "row": {
+    "3": 49,
+    "5": 41
+   },
+   "col": {
+    "3": 1,
+    "5": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PA",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PB",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PC",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node10: Peak power",
+   "width": 1,
+   "row": {
+    "3": 57,
+    "5": 133,
+    "21": 133
+   },
+   "col": {
+    "3": 1,
+    "5": 1,
+    "21": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PA",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10_p0\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PB",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10_p1\"]",
+      "animate": true,
+      "units": "W"
+     }
+    },
+    {
+     "type": "text_widget",
+     "settings": {
+      "title": "PC",
+      "size": "regular",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10_p2\"]",
+      "animate": true,
+      "units": "W"
+     }
+    }
+   ]
   },
   {
    "title": "Node1: Peak power",
    "width": 1,
    "row": {
-    "3": 33
+    "3": 65,
+    "5": 53
    },
    "col": {
-    "3": 1
+    "3": 1,
+    "5": 1
    },
    "col_width": "3",
    "widgets": [
@@ -382,14 +644,362 @@
       "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
       "filter": "1_PA, 1_PB, 1_PC",
       "type": "line",
-      "xaxis": "W",
-      "yaxis": "t",
+      "xaxis": "t",
+      "yaxis": "W",
       "color": "",
       "marker": false,
       "multipleaxis": false,
       "autogap": false,
       "height_block": "240",
       "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE2: Peak Power",
+   "width": 1,
+   "row": {
+    "3": 75,
+    "7": 63
+   },
+   "col": {
+    "3": 1,
+    "7": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
+      "filter": "2_PA, 2_PB, 2_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "NODE3: Peak power",
+   "width": 1,
+   "row": {
+    "3": 85,
+    "9": 73
+   },
+   "col": {
+    "3": 1,
+    "9": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
+      "filter": "3_PA, 3_PB, 3_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node4: Peak power",
+   "width": 1,
+   "row": {
+    "3": 95,
+    "11": 83
+   },
+   "col": {
+    "3": 1,
+    "11": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
+      "filter": "4_PA, 4_PB, 4_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node5: Peak power",
+   "width": 1,
+   "row": {
+    "3": 105,
+    "13": 93
+   },
+   "col": {
+    "3": 1,
+    "13": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed\"][\"data\"]",
+      "filter": "5_PA, 5_PB, 5_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node6: Peak power",
+   "width": 1,
+   "row": {
+    "3": 115,
+    "15": 103
+   },
+   "col": {
+    "3": 1,
+    "15": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed2\"][\"data\"]",
+      "filter": "6_PA, 6_PB, 6_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node7: Peak power",
+   "width": 1,
+   "row": {
+    "3": 125,
+    "17": 113
+   },
+   "col": {
+    "3": 1,
+    "17": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed2\"][\"data\"]",
+      "filter": "7_PA, 7_PB, 7_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node8: Peak power",
+   "width": 1,
+   "row": {
+    "3": 135,
+    "19": 123
+   },
+   "col": {
+    "3": 1,
+    "19": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed2\"][\"data\"]",
+      "filter": "8_PA, 8_PB, 8_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node9: Peak power",
+   "width": 1,
+   "row": {
+    "3": 145,
+    "21": 137
+   },
+   "col": {
+    "3": 1,
+    "21": 1
+   },
+   "col_width": "9",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed2\"][\"data\"]",
+      "filter": "9_PA, 9_PB, 9_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node10: Peak power",
+   "width": 1,
+   "row": {
+    "3": 155,
+    "29": 141
+   },
+   "col": {
+    "3": 1,
+    "29": 1
+   },
+   "col_width": "3",
+   "widgets": [
+    {
+     "type": "FeedView",
+     "settings": {
+      "datasource": "datasources[\"wpm2018feed2\"][\"data\"]",
+      "filter": "10_PA, 10_PB, 10_PC",
+      "type": "line",
+      "xaxis": "t",
+      "yaxis": "W",
+      "color": "",
+      "marker": false,
+      "multipleaxis": false,
+      "autogap": false,
+      "height_block": "240",
+      "height": "4"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node8",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node9",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node10",
+   "width": 1,
+   "row": {
+    "3": 25
+   },
+   "col": {
+    "3": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
      }
     }
    ]
@@ -414,6 +1024,20 @@
     "name": "wpm2018feed",
     "feedid": "wpm2018Database",
     "apikey": "FtzABVCEyUPppAZKAmGsle2RYQBfiA6u",
+    "granularity_value": "15",
+    "granularity_unit": "seconds",
+    "since_value": "6",
+    "since_unit": "hours",
+    "interval": "15"
+   }
+  },
+  {
+   "name": "wpm2018feed2",
+   "type": "netpie_feed",
+   "settings": {
+    "name": "wpm2018feed2",
+    "feedid": "wpm2018Database2",
+    "apikey": "CTxOBi8JKSi3GxTdDp137BJJn6IpIheA",
     "granularity_value": "15",
     "granularity_unit": "seconds",
     "since_value": "6",
