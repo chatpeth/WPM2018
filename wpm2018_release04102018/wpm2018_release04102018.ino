@@ -25,6 +25,9 @@
 #define LOG_SETTING "log_enable" NID
 #define LOG_INTERVAL "log_interval" NID
 #define POLLING_INTERVAL "polling_interval" NID
+#define MAX_EQUATION_REQ 10
+#define DEFAULT_SLOPE 60
+#define DEFAULT_CONST -2
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 
@@ -67,6 +70,7 @@ int log_setting = 1;  //Log enable by default
 int log_interval = 5000;  //default 5000 ms
 int polling_interval = 5000; //default 5000 ms
 int measured_flag = 0;
+int count_equation_req = MAX_EQUATION_REQ;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -333,7 +337,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\r\nAP: 4.2");
+  Serial.println("\r\nAP: 4.21");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
@@ -519,11 +523,18 @@ void measurement()
 
 void loop()
 {
-  // V 4.2
 
-  if(m_slope == 0)
+  if((m_slope == 0) && (C_const == 0))
   {
+    printf("Waiting for m and C values...\r\n");
     reconnect();
+    if(count_equation_req > MAX_EQUATION_REQ)
+    {
+      printf("Using default equation.\r\n");
+      m_slope = DEFAULT_SLOPE;
+      C_const = DEFAULT_CONST;
+    }
+    delay(32);
   }
   
   // Check connection with mqtt status
@@ -534,8 +545,9 @@ void loop()
   client.loop();  
   now = millis();
 
-  if(m_slope != 0)
+  if((m_slope != 0) && (C_const != 0))
   {
+    count_equation_req = 0;
     // Upload every 5 sec        
     if(abs( (now - lastMsg) > polling_interval) )
     {
