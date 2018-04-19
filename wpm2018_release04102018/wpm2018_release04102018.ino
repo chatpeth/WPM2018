@@ -10,7 +10,7 @@
 #define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "1"
+#define NID "10"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -100,8 +100,8 @@ void setup_wifi()
 { 
   int count_recon = 0;
   int count_wifi = 0;
-  printf("Node %s\r\nConnecting to %s\r\n", nodeID, ssid);
-
+  printf("Node %s\r\n", nodeID);
+  printf("Connecting to %s\r\n", ssid);
   if (WiFi.begin(ssid, password) != 0)
   {
         while (WiFi.status() != WL_CONNECTED)
@@ -111,6 +111,17 @@ void setup_wifi()
             Serial.print(".");
             digitalWrite(LED_BUILTIN, HIGH);
             delay(500);
+            count_wifi = count_wifi + 1;
+            if(count_wifi > 30)
+            {
+              delay(10000);
+              ESP.restart();
+            }
+            else if(count_wifi%10 == 0)
+            {
+              
+              WiFi.begin(ssid, password);
+            }
         }
    }
 
@@ -322,7 +333,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\r\nAP: 4.1");
+  Serial.println("\r\nAP: 4.2");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
