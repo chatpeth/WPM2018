@@ -55,6 +55,9 @@ int count_connect = 0;
 char nodeID[5] = NID;
 const char* ssid = "atop802.11x";
 const char* password = "atop3352";
+//IPAddress ip(192, 168, 1, 140); //set static ip
+//IPAddress gateway(192, 168, 1, 1); //set getteway
+//IPAddress subnet(255, 255, 255, 0);//set subnet
 const char* mqttServer = "m12.cloudmqtt.com";
 const int mqttPort = 19574;
 const char* mqttUser = "qonihivg";
@@ -70,7 +73,7 @@ int log_setting = 1;  //Log enable by default
 int log_interval = 5000;  //default 5000 ms
 int polling_interval = 5000; //default 5000 ms
 int measured_flag = 0;
-int count_equation_req = MAX_EQUATION_REQ;
+int count_equation_req = 0;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -106,25 +109,21 @@ void setup_wifi()
   int count_wifi = 0;
   printf("Node %s\r\n", nodeID);
   printf("Connecting to %s\r\n", ssid);
+  //WiFi.config(ip, gateway, subnet);
   if (WiFi.begin(ssid, password) != 0)
   {
         while (WiFi.status() != WL_CONNECTED)
         {
             digitalWrite(LED_BUILTIN, LOW);
-            delay(500);
+            delay(50);
             Serial.print(".");
             digitalWrite(LED_BUILTIN, HIGH);
-            delay(500);
+            delay(50);
             count_wifi = count_wifi + 1;
-            if(count_wifi > 30)
+            if(count_wifi > 1000)
             {
-              delay(10000);
+              delay(30000);
               ESP.restart();
-            }
-            else if(count_wifi%10 == 0)
-            {
-              
-              WiFi.begin(ssid, password);
             }
         }
    }
@@ -534,6 +533,7 @@ void loop()
       m_slope = DEFAULT_SLOPE;
       C_const = DEFAULT_CONST;
     }
+    count_equation_req = count_equation_req + 1;
     delay(256);
   }
   
