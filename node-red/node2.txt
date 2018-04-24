@@ -1,1 +1,2629 @@
-[{"id":"3c5f5624.34db6a","type":"mqtt in","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p0","qos":"0","broker":"faa41933.fa74e8","x":150,"y":360,"wires":[["4ecebec5.e4c7e","506ca70a.6b6728","45fc0617.6ba7c8","9c0a21f.c09b5e","23cb1915.1a8466"]]},{"id":"4e06010c.2b6cb","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p0_e","qos":"0","retain":"","broker":"faa41933.fa74e8","x":1167,"y":946,"wires":[]},{"id":"e882be34.ec863","type":"mqtt in","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p1","qos":"0","broker":"faa41933.fa74e8","x":170,"y":540,"wires":[["ae51a583.bc74b8","506ca70a.6b6728","4728ffd9.e537a","dfeefdd2.92b98","3e5040e0.e3932"]]},{"id":"b13b3045.8480f","type":"mqtt in","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p2","qos":"0","broker":"faa41933.fa74e8","x":150,"y":640,"wires":[["6efc0d94.264dd4","d0c05de4.44c81","506ca70a.6b6728","88ee73b7.6a7f8","59c0dd61.d559d4","cdc2098e.a98d98"]]},{"id":"ee770f83.582cb","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_e","qos":"0","retain":"","broker":"faa41933.fa74e8","x":1158.9339036941528,"y":891.4862728118896,"wires":[]},{"id":"36cb0230.fd03be","type":"debug","z":"5a3f5c2b.74d5d4","name":"","active":false,"console":"false","complete":"false","x":1221.0140380859375,"y":1333.7744140625,"wires":[]},{"id":"48573203.817b5c","type":"function","z":"5a3f5c2b.74d5d4","name":"e0","func":"var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;","outputs":1,"noerr":0,"x":1015.0731010437012,"y":1358.3369145393372,"wires":[["36cb0230.fd03be","dcb1038a.6ca63"]]},{"id":"8a41c137.1ae78","type":"debug","z":"5a3f5c2b.74d5d4","name":"","active":false,"console":"false","complete":"false","x":1183.0311889648438,"y":1441.2189679145813,"wires":[]},{"id":"93a58f61.74777","type":"function","z":"5a3f5c2b.74d5d4","name":"e1","func":"var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;","outputs":1,"noerr":0,"x":1006.0902214050293,"y":1468.7815012931824,"wires":[["8a41c137.1ae78","f76caf26.41135"]]},{"id":"2d6dbe4f.cf9c82","type":"debug","z":"5a3f5c2b.74d5d4","name":"","active":false,"console":"false","complete":"false","x":1194.031177520752,"y":1544.7743334770203,"wires":[]},{"id":"cbd5eba1.015038","type":"function","z":"5a3f5c2b.74d5d4","name":"e2","func":"var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;","outputs":1,"noerr":0,"x":1017.0902099609375,"y":1572.3368668556213,"wires":[["2d6dbe4f.cf9c82","e29c1c97.dec28"]]},{"id":"58804293.782e5c","type":"function","z":"5a3f5c2b.74d5d4","name":"et","func":"var e0 = parseFloat(msg.payload.tp0);\nvar e1 = parseFloat(msg.payload.tp1);\nvar e2 = parseFloat(msg.payload.tp2);\nmsg.payload = e0 + e1 + e2;\nmsg.topic = \"/2/3e\";\nreturn msg;","outputs":1,"noerr":0,"x":984.069146156311,"y":857.1286725997925,"wires":[["d15a4cc8.a9a2d","ee770f83.582cb","a51b83f6.f7fdc","553237b8.1bc548"]]},{"id":"4cd17682.995018","type":"function","z":"5a3f5c2b.74d5d4","name":"p0","func":"var p = parseFloat(msg.payload.p0);\nmsg.payload = p;\nreturn msg;","outputs":1,"noerr":0,"x":804.0000219345093,"y":1398.9999947547913,"wires":[["48573203.817b5c"]]},{"id":"4a6b1326.41677c","type":"function","z":"5a3f5c2b.74d5d4","name":"p1","func":"var p = parseFloat(msg.payload.p1);\nmsg.payload = p;\nreturn msg;","outputs":1,"noerr":0,"x":801.0172958374023,"y":1467.3335137367249,"wires":[["93a58f61.74777"]]},{"id":"b516b166.dc177","type":"function","z":"5a3f5c2b.74d5d4","name":"p2","func":"var p = parseFloat(msg.payload.p2);\nmsg.payload = p;\nreturn msg;","outputs":1,"noerr":0,"x":808.0173072814941,"y":1536.3336205482483,"wires":[["cbd5eba1.015038"]]},{"id":"1cd822a3.dfdf6d","type":"function","z":"5a3f5c2b.74d5d4","name":"tp0","func":"var tmp = parseFloat(msg.payload.p0);\nvar tp = parseFloat(msg.payload.tp0);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e0\";\nreturn msg;","outputs":1,"noerr":0,"x":808.0230722427368,"y":947.6607246398926,"wires":[["1370294.c6973d7"]]},{"id":"b6c1a95f.df0218","type":"function","z":"5a3f5c2b.74d5d4","name":"tp1","func":"var tmp = parseFloat(msg.payload.p1);\nvar tp = parseFloat(msg.payload.tp1);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e1\";\nreturn msg;","outputs":1,"noerr":0,"x":807.6835985183716,"y":1008.632040977478,"wires":[["7904776f.1a1d48"]]},{"id":"ccec0f62.c802","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p1_e","qos":"0","retain":"","broker":"faa41933.fa74e8","x":1170.6835451126099,"y":1010.6320486068726,"wires":[]},{"id":"2da4340a.3005ec","type":"function","z":"5a3f5c2b.74d5d4","name":"tp2","func":"var tmp = parseFloat(msg.payload.p2);\nvar tp = parseFloat(msg.payload.tp2);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e2\";\nreturn msg;","outputs":1,"noerr":0,"x":809.6835985183716,"y":1062.632040977478,"wires":[["913bebae.8437a8"]]},{"id":"555509cd.c7c3d8","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p2_e","qos":"0","retain":"","broker":"faa41933.fa74e8","x":1174.6834869384766,"y":1064.6320400238037,"wires":[]},{"id":"9c9b86e9.55acf8","type":"delay","z":"5a3f5c2b.74d5d4","name":"","pauseType":"delay","timeout":"100","timeoutUnits":"milliseconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":815.5239534378052,"y":856.8021955490112,"wires":[["58804293.782e5c"]]},{"id":"d5192ee1.831c5","type":"e-mail","z":"5a3f5c2b.74d5d4","server":"smtp.gmail.com","port":"465","secure":true,"name":"kchatpeth@gmail.com","dname":"","x":520,"y":760,"wires":[]},{"id":"17f9a5bf.3d1cba","type":"mqtt in","z":"5a3f5c2b.74d5d4","name":"Alarm","topic":"Alarm2","qos":"0","broker":"2460a20d.93c08e","x":237,"y":806,"wires":[["f5500c7a.345be","d5192ee1.831c5"]]},{"id":"62883634.68ccf8","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"Alarm","topic":"Alarm2","qos":"0","retain":"","broker":"2460a20d.93c08e","x":250,"y":920,"wires":[]},{"id":"39af8994.de4ee6","type":"inject","z":"5a3f5c2b.74d5d4","name":"test alarm","topic":"Alarm","payload":"Alarm from node 1","payloadType":"str","repeat":"","crontab":"","once":false,"x":100,"y":920,"wires":[["62883634.68ccf8"]]},{"id":"d9aba3f8.d5e07","type":"inject","z":"5a3f5c2b.74d5d4","name":"tsmp","topic":"tsmp","payload":"","payloadType":"date","repeat":"5","crontab":"","once":false,"x":257,"y":1026,"wires":[["38d2e33d.dce22c","21410b35.bd1fb4","d0c05de4.44c81"]]},{"id":"d0c05de4.44c81","type":"function","z":"5a3f5c2b.74d5d4","name":"checkerr","func":"var count = context.get('count') || 0;\nif(msg.topic == \"tsmp\")\n{\n    count = count + 1;\n}\nelse\n{\n    count = 0;\n}\ncontext.set('count',count);\nmsg.payload = count;\nreturn msg;","outputs":1,"noerr":0,"x":427,"y":1026,"wires":[["b4a7c93a.a80ea8"]]},{"id":"ea333d6b.e9b9c","type":"debug","z":"5a3f5c2b.74d5d4","name":"restart","active":false,"console":"false","complete":"payload","x":741,"y":1105,"wires":[]},{"id":"b4a7c93a.a80ea8","type":"switch","z":"5a3f5c2b.74d5d4","name":"err_no","property":"payload","propertyType":"msg","rules":[{"t":"gt","v":"12","vt":"str"}],"checkall":"true","outputs":1,"x":577,"y":1126,"wires":[["6c8b444d.ebdfec","ea333d6b.e9b9c"]]},{"id":"f8a50e65.24477","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"reset","topic":"sw2","qos":"0","retain":"","broker":"faa41933.fa74e8","x":937,"y":1126,"wires":[]},{"id":"6c8b444d.ebdfec","type":"function","z":"5a3f5c2b.74d5d4","name":"ESP.restart()","func":"msg.payload = \"0\";\nreturn msg;","outputs":1,"noerr":0,"x":763,"y":1150,"wires":[["f8a50e65.24477","b77498a9.087108","7c8e1373.69743c","3863daf3.d12e16"]]},{"id":"553237b8.1bc548","type":"function","z":"5a3f5c2b.74d5d4","name":"toString","func":"msg.payload= String(parseFloat(msg.payload).toFixed(2));\nreturn msg;","outputs":1,"noerr":0,"x":1157,"y":740,"wires":[["873ed56a.193c48","6d5f9dc.767b264"]]},{"id":"4ecebec5.e4c7e","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_p0","firebaseconfig":"","childpath":"/2/power/p0","method":"set","value":"msg.payload","priority":"msg.priority","x":470,"y":400,"wires":[["8b76b7b8.570d08"]]},{"id":"ae51a583.bc74b8","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_p1","firebaseconfig":"","childpath":"/2/power/p1","method":"set","value":"msg.payload","priority":"msg.priority","x":470,"y":640,"wires":[["2e724780.f513c8"]]},{"id":"6efc0d94.264dd4","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_p2","firebaseconfig":"","childpath":"/2/power/p2","method":"set","value":"msg.payload","priority":"msg.priority","x":470,"y":700,"wires":[["66de136a.83822c"]]},{"id":"dcb1038a.6ca63","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"eng0","firebaseconfig":"","childpath":"/2/energy/p0","method":"set","value":"msg.payload","priority":"msg.priority","x":1204.0175666809082,"y":1383.4446215629578,"wires":[[]]},{"id":"f76caf26.41135","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"eng1","firebaseconfig":"","childpath":"/2/energy/p1","method":"set","value":"msg.payload","priority":"msg.priority","x":1166.0346221923828,"y":1489.8891625404358,"wires":[[]]},{"id":"e29c1c97.dec28","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"eng2","firebaseconfig":"","childpath":"/2/energy/p2","method":"set","value":"msg.payload","priority":"msg.priority","x":1178.0345993041992,"y":1588.4445118904114,"wires":[[]]},{"id":"d15a4cc8.a9a2d","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_eng","firebaseconfig":"","childpath":"/2/energy/total","method":"set","value":"msg.payload","priority":"msg.priority","x":1158.0761156082153,"y":831.6216421127319,"wires":[["1bb0c84a.ed5f78"]]},{"id":"1370294.c6973d7","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_tp0","firebaseconfig":"","childpath":"/2/energy/tp0","method":"set","value":"msg.payload","priority":"msg.priority","x":989.0169801712036,"y":947.632077217102,"wires":[["4e06010c.2b6cb","f021c16e.14642"]]},{"id":"7904776f.1a1d48","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_tp1","firebaseconfig":"","childpath":"/2/energy/tp1","method":"set","value":"msg.payload","priority":"msg.priority","x":991.6836185455322,"y":1009.6320447921753,"wires":[["ccec0f62.c802","781b0275.e0b60c"]]},{"id":"913bebae.8437a8","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"2_tp2","firebaseconfig":"","childpath":"/2/energy/tp2","method":"set","value":"msg.payload","priority":"msg.priority","x":990.6836595535278,"y":1063.6320390701294,"wires":[["555509cd.c7c3d8","3ecb34f1.96ee5c"]]},{"id":"38d2e33d.dce22c","type":"firebase.once","z":"5a3f5c2b.74d5d4","name":"engt","firebaseconfig":"","childpath":"/2/energy","repeatifnull":false,"eventType":"value","queries":[],"x":629.0170068740845,"y":855.3334045410156,"wires":[["1cd822a3.dfdf6d","b6c1a95f.df0218","2da4340a.3005ec","9c9b86e9.55acf8"]]},{"id":"21410b35.bd1fb4","type":"firebase.once","z":"5a3f5c2b.74d5d4","name":"powt","firebaseconfig":"","childpath":"/2/power","repeatifnull":false,"eventType":"value","queries":[],"x":622.0173015594482,"y":1469.3334822654724,"wires":[["4cd17682.995018","4a6b1326.41677c","b516b166.dc177"]]},{"id":"8b76b7b8.570d08","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"P0_gag","group":"fb57ece8.fedf","order":1,"width":"5","height":"4","gtype":"gage","title":"PA","label":"W","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":700,"y":400,"wires":[]},{"id":"2e724780.f513c8","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"P1_gag","group":"fb57ece8.fedf","order":2,"width":"5","height":"4","gtype":"gage","title":"PB","label":"W","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":700,"y":640,"wires":[]},{"id":"66de136a.83822c","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"P2_gag","group":"fb57ece8.fedf","order":3,"width":"5","height":"4","gtype":"gage","title":"PC","label":"W","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":700,"y":700,"wires":[]},{"id":"80a67824.423208","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"","group":"29bada47.68bf86","order":0,"width":"8","height":"4","gtype":"gage","title":"Energy (kWh)","label":"kWh","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":1540,"y":820,"wires":[]},{"id":"8d7953c2.d7348","type":"ui_chart","z":"5a3f5c2b.74d5d4","name":"3PGraph","group":"fb57ece8.fedf","order":6,"width":"19","height":"8","label":"3 Phase graph","chartType":"line","legend":"true","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"100000","removeOlder":"5","removeOlderPoints":"","removeOlderUnit":"60","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":720,"y":140,"wires":[[],[]]},{"id":"a51b83f6.f7fdc","type":"ui_chart","z":"5a3f5c2b.74d5d4","name":"","group":"29bada47.68bf86","order":0,"width":"10","height":"4","label":"Energy Histrory","chartType":"line","legend":"false","xformat":"HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"","removeOlder":1,"removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":1324.9993982315063,"y":858.6216068267822,"wires":[[],[]]},{"id":"f5500c7a.345be","type":"ui_toast","z":"5a3f5c2b.74d5d4","position":"top right","displayTime":"5","highlight":"","outputs":0,"ok":"OK","cancel":"","topic":"Alarm","name":"Show alarm","x":490,"y":820,"wires":[]},{"id":"873ed56a.193c48","type":"rest publish","z":"5a3f5c2b.74d5d4","name":"energy3Phase","appid":"wpm2018","auth":"yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd","topic":"topic","topicType":"msg","payload":"payload","payloadType":"msg","x":1338,"y":740,"wires":[]},{"id":"1145daf2.d564a5","type":"inject","z":"5a3f5c2b.74d5d4","name":"","topic":"reset meter","payload":"0","payloadType":"num","repeat":"","crontab":"","once":false,"x":613.6840209960938,"y":1001.454833984375,"wires":[["d15a4cc8.a9a2d","1370294.c6973d7","7904776f.1a1d48","913bebae.8437a8"]]},{"id":"b77498a9.087108","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p0","qos":"0","retain":"","broker":"faa41933.fa74e8","x":938,"y":1181,"wires":[]},{"id":"7c8e1373.69743c","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p1","qos":"0","retain":"","broker":"faa41933.fa74e8","x":936,"y":1239,"wires":[]},{"id":"3863daf3.d12e16","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"","topic":"2_p2","qos":"0","retain":"","broker":"faa41933.fa74e8","x":939,"y":1294,"wires":[]},{"id":"a5ea61b4.a11e9","type":"inject","z":"5a3f5c2b.74d5d4","name":"force_restart","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":590,"y":1180,"wires":[["6c8b444d.ebdfec","ea333d6b.e9b9c"]]},{"id":"6d5f9dc.767b264","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"","group":"95b501bb.43c6e","order":0,"width":"4","height":"4","gtype":"gage","title":"Energy (Node2)","label":"kWhr.","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":1326,"y":781,"wires":[]},{"id":"ef0e833e.3b4ee","type":"rest publish","z":"5a3f5c2b.74d5d4","name":"power","appid":"wpm2018","auth":"yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd","topic":"topic","topicType":"msg","payload":"payload","payloadType":"msg","x":690,"y":460,"wires":[]},{"id":"506ca70a.6b6728","type":"function","z":"5a3f5c2b.74d5d4","name":"toString","func":"msg.payload= String(parseFloat(msg.payload).toFixed(2));\nmsg.topic = \"/\" +msg.topic;\nreturn msg;","outputs":1,"noerr":0,"x":480,"y":460,"wires":[["ef0e833e.3b4ee"]]},{"id":"57561498.c34e6c","type":"inject","z":"5a3f5c2b.74d5d4","name":"write_to_db","topic":"write_to_db","payload":"","payloadType":"date","repeat":"900","crontab":"","once":false,"x":165,"y":472,"wires":[["4728ffd9.e537a","88ee73b7.6a7f8","45fc0617.6ba7c8"]]},{"id":"45fc0617.6ba7c8","type":"function","z":"5a3f5c2b.74d5d4","name":"Peak","func":"var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n\n    \n}\n","outputs":1,"noerr":0,"x":470,"y":340,"wires":[["118b29d6.bf3ca6"]]},{"id":"43380abe.218fa4","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"peak0","firebaseconfig":"","childpath":"/Peak/2_PA","method":"set","value":"msg.payload","priority":"msg.priority","x":790,"y":340,"wires":[["2be6dacd.7fb2d6"]]},{"id":"4728ffd9.e537a","type":"function","z":"5a3f5c2b.74d5d4","name":"Peak","func":"var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n\n    \n}\n","outputs":1,"noerr":0,"x":470,"y":520,"wires":[["407f4522.ea206c"]]},{"id":"ece37be0.5dd268","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"peak1","firebaseconfig":"","childpath":"/Peak/2_PB","method":"set","value":"msg.payload","priority":"msg.priority","x":790,"y":520,"wires":[["25d5fb65.e28024"]]},{"id":"88ee73b7.6a7f8","type":"function","z":"5a3f5c2b.74d5d4","name":"Peak","func":"var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n\n    \n}\n","outputs":1,"noerr":0,"x":470,"y":580,"wires":[["6f1259c4.c52628"]]},{"id":"f919f0bc.f5ff2","type":"firebase modify","z":"5a3f5c2b.74d5d4","name":"peak2","firebaseconfig":"","childpath":"/Peak/2_PC","method":"set","value":"msg.payload","priority":"msg.priority","x":790,"y":580,"wires":[["4cc21f4a.52693"]]},{"id":"9c0a21f.c09b5e","type":"function","z":"5a3f5c2b.74d5d4","name":"PA","func":"msg.topic = \"PA\";\nreturn msg;","outputs":1,"noerr":0,"x":470,"y":60,"wires":[["8d7953c2.d7348","8a1beede.17d59"]]},{"id":"dfeefdd2.92b98","type":"function","z":"5a3f5c2b.74d5d4","name":"PB","func":"msg.topic = \"PB\";\nreturn msg;","outputs":1,"noerr":0,"x":470,"y":100,"wires":[["8d7953c2.d7348","8a1beede.17d59"]]},{"id":"59c0dd61.d559d4","type":"function","z":"5a3f5c2b.74d5d4","name":"PC","func":"msg.topic = \"PC\";\nreturn msg;","outputs":1,"noerr":0,"x":470,"y":140,"wires":[["8d7953c2.d7348","8a1beede.17d59"]]},{"id":"8a1beede.17d59","type":"ui_chart","z":"5a3f5c2b.74d5d4","name":"min","group":"6db12fd2.1e8b6","order":0,"width":"19","height":"6","label":"Power (W)","chartType":"line","legend":"true","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"","ymax":"","removeOlder":"15","removeOlderPoints":"","removeOlderUnit":"60","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":710,"y":60,"wires":[[],[]]},{"id":"23cb1915.1a8466","type":"function","z":"5a3f5c2b.74d5d4","name":"avg_PA","func":"var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + parseFloat(msg.payload);\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PA\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n","outputs":1,"noerr":0,"x":480,"y":200,"wires":[["4576514c.a070b"]]},{"id":"3e5040e0.e3932","type":"function","z":"5a3f5c2b.74d5d4","name":"avg_PB","func":"var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + parseFloat(msg.payload);\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PB\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n","outputs":1,"noerr":0,"x":480,"y":240,"wires":[["4576514c.a070b"]]},{"id":"cdc2098e.a98d98","type":"function","z":"5a3f5c2b.74d5d4","name":"avg_PC","func":"var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + parseFloat(msg.payload);\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PC\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n","outputs":1,"noerr":0,"x":480,"y":280,"wires":[["4576514c.a070b"]]},{"id":"4576514c.a070b","type":"ui_chart","z":"5a3f5c2b.74d5d4","name":"hour","group":"73a3cb01.288f34","order":0,"width":"19","height":"6","label":"Average power per min. (W)","chartType":"line","legend":"true","xformat":"HH:mm","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"100000","removeOlder":"6","removeOlderPoints":"","removeOlderUnit":"3600","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":true,"x":690,"y":240,"wires":[[],[]]},{"id":"118b29d6.bf3ca6","type":"delay","z":"5a3f5c2b.74d5d4","name":"","pauseType":"delay","timeout":"2","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":620,"y":340,"wires":[["43380abe.218fa4"]]},{"id":"407f4522.ea206c","type":"delay","z":"5a3f5c2b.74d5d4","name":"","pauseType":"delay","timeout":"2","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":620,"y":520,"wires":[["ece37be0.5dd268"]]},{"id":"6f1259c4.c52628","type":"delay","z":"5a3f5c2b.74d5d4","name":"","pauseType":"delay","timeout":"2","timeoutUnits":"seconds","rate":"1","nbRateUnits":"1","rateUnits":"second","randomFirst":"1","randomLast":"5","randomUnits":"seconds","drop":false,"x":620,"y":580,"wires":[["f919f0bc.f5ff2"]]},{"id":"c199ceb7.29974","type":"inject","z":"5a3f5c2b.74d5d4","name":"test value","topic":"test","payload":"10000","payloadType":"str","repeat":"","crontab":"","once":false,"x":600,"y":1260,"wires":[["9754a4fe.508e88","de4c9c09.4b823","84dc6d94.f15bb"]]},{"id":"9754a4fe.508e88","type":"random","z":"5a3f5c2b.74d5d4","name":"rand","low":"1000","high":"100000","inte":"true","property":"payload","x":761,"y":1215,"wires":[["b77498a9.087108"]]},{"id":"de4c9c09.4b823","type":"random","z":"5a3f5c2b.74d5d4","name":"rand","low":"1000","high":"100000","inte":"true","property":"payload","x":763,"y":1259,"wires":[["7c8e1373.69743c"]]},{"id":"84dc6d94.f15bb","type":"random","z":"5a3f5c2b.74d5d4","name":"rand","low":"1000","high":"100000","inte":"true","property":"payload","x":763,"y":1307,"wires":[["3863daf3.d12e16"]]},{"id":"2be6dacd.7fb2d6","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"9475bf9.9db454","order":0,"width":"3","height":"1","name":"","label":"PeakA","format":"{{msg.payload}}","layout":"row-spread","x":930,"y":340,"wires":[]},{"id":"25d5fb65.e28024","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"9475bf9.9db454","order":0,"width":"3","height":"1","name":"","label":"PeakB","format":"{{msg.payload}}","layout":"row-spread","x":930,"y":520,"wires":[]},{"id":"4cc21f4a.52693","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"9475bf9.9db454","order":0,"width":"3","height":"1","name":"","label":"PeakC","format":"{{msg.payload}}","layout":"row-spread","x":930,"y":580,"wires":[]},{"id":"63b53e98.2b806","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"29bada47.68bf86","order":0,"width":"3","height":"1","name":"EA","label":"EA","format":"{{msg.payload}}","layout":"row-spread","x":1490,"y":980,"wires":[]},{"id":"f021c16e.14642","type":"function","z":"5a3f5c2b.74d5d4","name":"Decimal_len","func":"msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;","outputs":1,"noerr":0,"x":1321,"y":980,"wires":[["63b53e98.2b806"]]},{"id":"b9452489.f54868","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"29bada47.68bf86","order":0,"width":"3","height":"1","name":"EB","label":"EB","format":"{{msg.payload}}","layout":"row-spread","x":1490,"y":1040,"wires":[]},{"id":"781b0275.e0b60c","type":"function","z":"5a3f5c2b.74d5d4","name":"Decimal_len","func":"msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;","outputs":1,"noerr":0,"x":1321,"y":1040,"wires":[["b9452489.f54868"]]},{"id":"6cd94914.561038","type":"ui_text","z":"5a3f5c2b.74d5d4","group":"29bada47.68bf86","order":0,"width":"3","height":"1","name":"","label":"EC","format":"{{msg.payload}}","layout":"row-spread","x":1490,"y":1100,"wires":[]},{"id":"3ecb34f1.96ee5c","type":"function","z":"5a3f5c2b.74d5d4","name":"Decimal_len","func":"msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;","outputs":1,"noerr":0,"x":1321,"y":1100,"wires":[["6cd94914.561038"]]},{"id":"6f61ef5d.2e72d","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"m2","topic":"m2","qos":"0","retain":"false","broker":"faa41933.fa74e8","x":490,"y":1660,"wires":[]},{"id":"a257e837.6298a8","type":"mqtt out","z":"5a3f5c2b.74d5d4","name":"C2","topic":"C2","qos":"0","retain":"false","broker":"faa41933.fa74e8","x":490,"y":1720,"wires":[]},{"id":"eeff1113.0b75d","type":"mqtt in","z":"5a3f5c2b.74d5d4","name":"NID","topic":"2","qos":"0","broker":"faa41933.fa74e8","x":130,"y":1660,"wires":[["dca7f8e0.a415e8","ffa0fc3.2cabb"]]},{"id":"dca7f8e0.a415e8","type":"function","z":"5a3f5c2b.74d5d4","name":"m","func":"msg.payload = \"60\";\nreturn msg;","outputs":1,"noerr":0,"x":290,"y":1658.9236145019531,"wires":[["6f61ef5d.2e72d"]]},{"id":"ffa0fc3.2cabb","type":"function","z":"5a3f5c2b.74d5d4","name":"C","func":"msg.payload = \"-2\";\nreturn msg;","outputs":1,"noerr":0,"x":290,"y":1720,"wires":[["a257e837.6298a8"]]},{"id":"9c56023a.a05a5","type":"function","z":"5a3f5c2b.74d5d4","name":"P_total","func":"var p_total = msg.payload[\"p0\"] + msg.payload[\"p1\"] + msg.payload[\"p2\"];\nmsg.topic = \"Ptotal\";\nmsg.payload = p_total.toFixed(2);\nreturn msg;","outputs":1,"noerr":0,"x":432,"y":1801,"wires":[["64935d6.1558fa4","8d14edc7.95cc","8aa61500.bc4fe8"]]},{"id":"64935d6.1558fa4","type":"function","z":"5a3f5c2b.74d5d4","name":"P_avg","func":"var pavg = msg.payload/3;\nmsg.payload =pavg.toFixed(2)\nmsg.topic = \"Pavg\";\nreturn msg;","outputs":1,"noerr":0,"x":612,"y":1881,"wires":[["9613a418.de9588","8aa61500.bc4fe8"]]},{"id":"8d14edc7.95cc","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"Ptotal","group":"fb57ece8.fedf","order":4,"width":"5","height":"4","gtype":"gage","title":"Ptotal","label":"W","format":"{{value}}","min":0,"max":"300000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":630,"y":1740,"wires":[]},{"id":"9613a418.de9588","type":"ui_gauge","z":"5a3f5c2b.74d5d4","name":"Pavg","group":"fb57ece8.fedf","order":5,"width":"5","height":"4","gtype":"gage","title":"Pavg","label":"W","format":"{{value}}","min":0,"max":"100000","colors":["#00b500","#e6e600","#ca3838"],"seg1":"","seg2":"","x":830,"y":1940,"wires":[]},{"id":"8aa61500.bc4fe8","type":"ui_chart","z":"5a3f5c2b.74d5d4","name":"P_grp","group":"fb57ece8.fedf","order":7,"width":"19","height":"8","label":"Power (W)","chartType":"line","legend":"true","xformat":"HH:mm:ss","interpolate":"linear","nodata":"","dot":false,"ymin":"0","ymax":"300000","removeOlder":"15","removeOlderPoints":"","removeOlderUnit":"60","cutout":0,"useOneColor":false,"colors":["#1f77b4","#aec7e8","#ff7f0e","#2ca02c","#98df8a","#d62728","#ff9896","#9467bd","#c5b0d5"],"useOldStyle":false,"x":830,"y":1800,"wires":[[],[]]},{"id":"f301bff4.a0dfa","type":"firebase.once","z":"5a3f5c2b.74d5d4","name":"power","firebaseconfig":"","childpath":"2/power","repeatifnull":false,"eventType":"value","queries":[],"x":268,"y":1802,"wires":[["eec85578.c73df8","9c56023a.a05a5"]]},{"id":"43504cfb.2cf144","type":"inject","z":"5a3f5c2b.74d5d4","name":"","topic":"","payload":"","payloadType":"date","repeat":"5","crontab":"","once":false,"x":106,"y":1802,"wires":[["f301bff4.a0dfa"]]},{"id":"eec85578.c73df8","type":"debug","z":"5a3f5c2b.74d5d4","name":"","active":false,"console":"false","complete":"false","x":432,"y":1921,"wires":[]},{"id":"1bb0c84a.ed5f78","type":"function","z":"5a3f5c2b.74d5d4","name":"Decimal_len","func":"msg.payload = parseFloat(msg.payload).toFixed(1);\nreturn msg;","outputs":1,"noerr":0,"x":1330,"y":820,"wires":[["80a67824.423208"]]},{"id":"faa41933.fa74e8","type":"mqtt-broker","z":"","broker":"m12.cloudmqtt.com","port":"19574","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"willTopic":"","willQos":"0","willPayload":"","birthTopic":"","birthQos":"0","birthPayload":""},{"id":"2460a20d.93c08e","type":"mqtt-broker","z":"","broker":"m12.cloudmqtt.com","port":"19574","clientid":"","usetls":false,"compatmode":true,"keepalive":"60","cleansession":true,"willTopic":"","willQos":"0","willPayload":"","birthTopic":"","birthQos":"0","birthPayload":""},{"id":"fb57ece8.fedf","type":"ui_group","z":"","name":"Monitor","tab":"ebeced9f.00694","order":1,"disp":true,"width":"19"},{"id":"29bada47.68bf86","type":"ui_group","z":"5a3f5c2b.74d5d4","name":"Energy","tab":"ebeced9f.00694","order":3,"disp":true,"width":"19"},{"id":"95b501bb.43c6e","type":"ui_group","z":"","name":"Energy","tab":"698253f2.fc01ec","order":2,"disp":true,"width":"19"},{"id":"6db12fd2.1e8b6","type":"ui_group","z":"","name":"Node2","tab":"81df91f1.47772","disp":true,"width":"19"},{"id":"73a3cb01.288f34","type":"ui_group","z":"","name":"Node2","tab":"fe70155f.d73d98","order":2,"disp":true,"width":"19"},{"id":"9475bf9.9db454","type":"ui_group","z":"","name":"Parameter","tab":"ebeced9f.00694","order":2,"disp":true,"width":"19"},{"id":"ebeced9f.00694","type":"ui_tab","z":"","name":"Node2","icon":"dashboard","order":2},{"id":"698253f2.fc01ec","type":"ui_tab","z":"","name":"Control","icon":"dashboard","order":11},{"id":"81df91f1.47772","type":"ui_tab","z":"","name":"Minute resolution","icon":"dashboard","order":12},{"id":"fe70155f.d73d98","type":"ui_tab","z":"","name":"Hour resolution","icon":"dashboard","order":13}]
+[
+    {
+        "id": "522fbf32.1516b",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p0",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "f1c524f4.3f8fe8",
+                "db3391b.f62997",
+                "be645c05.08d3e",
+                "a13d614d.7a276",
+                "19d50e7a.c42432"
+            ]
+        ]
+    },
+    {
+        "id": "ebec694e.72c6c8",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p0_e",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 1105,
+        "y": 1010,
+        "wires": []
+    },
+    {
+        "id": "b1901b49.0050d8",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p1",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 610,
+        "wires": [
+            [
+                "82b9da22.ba0c48",
+                "db3391b.f62997",
+                "7df17219.a40dec",
+                "7a73ccb7.8ce124"
+            ]
+        ]
+    },
+    {
+        "id": "975add76.6887b",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p2",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 730,
+        "wires": [
+            [
+                "4d01e88f.90cc88",
+                "db3391b.f62997",
+                "7ab69892.392eb8",
+                "a7557e4c.29d36"
+            ]
+        ]
+    },
+    {
+        "id": "52a3a3ad.423eec",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_e",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 1096.9339036941528,
+        "y": 955.4862728118896,
+        "wires": []
+    },
+    {
+        "id": "1cac7bc1.76b1b4",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "e0",
+        "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 1420,
+        "wires": [
+            [
+                "7494080.1014ff8"
+            ]
+        ]
+    },
+    {
+        "id": "48e86291.08411c",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "e1",
+        "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 1460,
+        "wires": [
+            [
+                "121349ab.cf6256"
+            ]
+        ]
+    },
+    {
+        "id": "59d63d76.6f34d4",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "e2",
+        "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 1500,
+        "wires": [
+            [
+                "b5540a92.b216d8"
+            ]
+        ]
+    },
+    {
+        "id": "c3a7c16a.5e0b3",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "et",
+        "func": "var e0 = parseFloat(msg.payload.tp0);\nvar e1 = parseFloat(msg.payload.tp1);\nvar e2 = parseFloat(msg.payload.tp2);\nmsg.topic = \"Energy\";\nmsg.payload = e0 + e1 + e2;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 922.069146156311,
+        "y": 921.1286725997925,
+        "wires": [
+            [
+                "4cd3dfa3.8c887",
+                "52a3a3ad.423eec",
+                "a9e04d0e.24e95",
+                "833444fb.d7eda8"
+            ]
+        ]
+    },
+    {
+        "id": "95e8caa9.b46b48",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "p0",
+        "func": "var p = parseFloat(msg.payload.p0);\nmsg.payload = p;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 1420,
+        "wires": [
+            [
+                "1cac7bc1.76b1b4"
+            ]
+        ]
+    },
+    {
+        "id": "ad1469ee.de6498",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "p1",
+        "func": "var p = parseFloat(msg.payload.p1);\nmsg.payload = p;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 1460,
+        "wires": [
+            [
+                "48e86291.08411c"
+            ]
+        ]
+    },
+    {
+        "id": "6971729c.909c8c",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "p2",
+        "func": "var p = parseFloat(msg.payload.p2);\nmsg.payload = p;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 1500,
+        "wires": [
+            [
+                "59d63d76.6f34d4"
+            ]
+        ]
+    },
+    {
+        "id": "4bc7e16a.0b0b5",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "tp0",
+        "func": "var tmp = parseFloat(msg.payload.p0);\nvar tp = parseFloat(msg.payload.tp0);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e0\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 746.0230722427368,
+        "y": 1011.6607246398926,
+        "wires": [
+            [
+                "87385d9.a28eea"
+            ]
+        ]
+    },
+    {
+        "id": "6500eb08.260fd4",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "tp1",
+        "func": "var tmp = parseFloat(msg.payload.p1);\nvar tp = parseFloat(msg.payload.tp1);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e1\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 745.6835985183716,
+        "y": 1072.632040977478,
+        "wires": [
+            [
+                "f469716a.ce29"
+            ]
+        ]
+    },
+    {
+        "id": "8b19289c.072268",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p1_e",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 1108.6835451126099,
+        "y": 1074.6320486068726,
+        "wires": []
+    },
+    {
+        "id": "35a44995.44f7d6",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "tp2",
+        "func": "var tmp = parseFloat(msg.payload.p2);\nvar tp = parseFloat(msg.payload.tp2);\nmsg.payload = tp + tmp;\nmsg.topic = \"/2/e2\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 747.6835985183716,
+        "y": 1126.632040977478,
+        "wires": [
+            [
+                "881ab549.c699e8"
+            ]
+        ]
+    },
+    {
+        "id": "242508e2.d93998",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p2_e",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 1112.6834869384766,
+        "y": 1128.6320400238037,
+        "wires": []
+    },
+    {
+        "id": "63b458e6.5812c8",
+        "type": "delay",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 753.5239534378052,
+        "y": 920.8021955490112,
+        "wires": [
+            [
+                "c3a7c16a.5e0b3"
+            ]
+        ]
+    },
+    {
+        "id": "8e2880f.b0e218",
+        "type": "e-mail",
+        "z": "8a96c21a.e6f45",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "name": "kchatpeth@gmail.com",
+        "dname": "alm",
+        "x": 355,
+        "y": 830,
+        "wires": []
+    },
+    {
+        "id": "2189e2fc.47ed3e",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "Alarm",
+        "topic": "Alarm2",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 870,
+        "wires": [
+            [
+                "307b10b8.dc074",
+                "8e2880f.b0e218"
+            ]
+        ]
+    },
+    {
+        "id": "9d3bf969.a7aaa8",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "Alarm",
+        "topic": "Alarm2",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 335,
+        "y": 950,
+        "wires": []
+    },
+    {
+        "id": "a323c63e.0a7438",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "test alarm",
+        "topic": "Alarm",
+        "payload": "Alarm from node 1",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 185,
+        "y": 950,
+        "wires": [
+            [
+                "9d3bf969.a7aaa8"
+            ]
+        ]
+    },
+    {
+        "id": "7a94938e.79bf2c",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "tsmp",
+        "topic": "tsmp",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "x": 195,
+        "y": 1090,
+        "wires": [
+            [
+                "be41bbd8.847248",
+                "71fd0c96.8d64a4",
+                "19d50e7a.c42432"
+            ]
+        ]
+    },
+    {
+        "id": "19d50e7a.c42432",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "checkerr",
+        "func": "var count = context.get('count') || 0;\nif(msg.topic == \"tsmp\")\n{\n    count = count + 1;\n}\nelse\n{\n    count = 0;\n}\ncontext.set('count',count);\nmsg.payload = count;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 400,
+        "y": 1100,
+        "wires": [
+            [
+                "84dc4ac8.884d28"
+            ]
+        ]
+    },
+    {
+        "id": "3855e729.73f858",
+        "type": "debug",
+        "z": "8a96c21a.e6f45",
+        "name": "restart",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 695,
+        "y": 1230,
+        "wires": []
+    },
+    {
+        "id": "84dc4ac8.884d28",
+        "type": "switch",
+        "z": "8a96c21a.e6f45",
+        "name": "err_no",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "60",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 515,
+        "y": 1190,
+        "wires": [
+            [
+                "1bf3b908.021927",
+                "3855e729.73f858"
+            ]
+        ]
+    },
+    {
+        "id": "19b10e83.584b51",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "restart",
+        "topic": "sw2",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 907,
+        "y": 1187,
+        "wires": []
+    },
+    {
+        "id": "1bf3b908.021927",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "ESP.restart()",
+        "func": "msg.payload = \"0\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 687,
+        "y": 1187,
+        "wires": [
+            [
+                "19b10e83.584b51",
+                "946cbca0.4f3b7",
+                "b494b484.79e4e8",
+                "4fb3f960.20ed28"
+            ]
+        ]
+    },
+    {
+        "id": "833444fb.d7eda8",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "toString",
+        "func": "msg.payload= String(parseFloat(msg.payload).toFixed(2));\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1095,
+        "y": 804,
+        "wires": [
+            [
+                "778a99e6.0b9e58",
+                "9ab55e9f.35402"
+            ]
+        ]
+    },
+    {
+        "id": "f1c524f4.3f8fe8",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_p0",
+        "firebaseconfig": "",
+        "childpath": "/2/power/p0",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 337.07623291015625,
+        "y": 435.6596984863281,
+        "wires": [
+            [
+                "e2d289de.0f25e8"
+            ]
+        ]
+    },
+    {
+        "id": "82b9da22.ba0c48",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_p1",
+        "firebaseconfig": "",
+        "childpath": "/2/power/p1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 342.1006889343262,
+        "y": 631.5655426979065,
+        "wires": [
+            [
+                "cb89d9c9.dea6b8"
+            ]
+        ]
+    },
+    {
+        "id": "4d01e88f.90cc88",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_p2",
+        "firebaseconfig": "",
+        "childpath": "/2/power/p2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 339,
+        "y": 767,
+        "wires": [
+            [
+                "f94018e8.f94278"
+            ]
+        ]
+    },
+    {
+        "id": "7494080.1014ff8",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "eng0",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/p0",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 950,
+        "y": 1420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "121349ab.cf6256",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "eng1",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/p1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 950,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b5540a92.b216d8",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "eng2",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/p2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 950,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4cd3dfa3.8c887",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_eng",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/total",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 1096.0761156082153,
+        "y": 895.6216421127319,
+        "wires": [
+            [
+                "a1fd235f.c936e"
+            ]
+        ]
+    },
+    {
+        "id": "87385d9.a28eea",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_tp0",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/tp0",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 930,
+        "y": 1020,
+        "wires": [
+            [
+                "ebec694e.72c6c8",
+                "7b0defd5.8f5a9"
+            ]
+        ]
+    },
+    {
+        "id": "f469716a.ce29",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_tp1",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/tp1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 929.6836185455322,
+        "y": 1073.6320447921753,
+        "wires": [
+            [
+                "8b19289c.072268",
+                "32cb56b9.4fb31a"
+            ]
+        ]
+    },
+    {
+        "id": "881ab549.c699e8",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "2_tp2",
+        "firebaseconfig": "",
+        "childpath": "/2/energy/tp2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 928.6836595535278,
+        "y": 1127.6320390701294,
+        "wires": [
+            [
+                "242508e2.d93998",
+                "825c9f6f.42d56"
+            ]
+        ]
+    },
+    {
+        "id": "be41bbd8.847248",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "engt",
+        "firebaseconfig": "",
+        "childpath": "/2/energy",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 567.0170068740845,
+        "y": 919.3334045410156,
+        "wires": [
+            [
+                "4bc7e16a.0b0b5",
+                "6500eb08.260fd4",
+                "35a44995.44f7d6",
+                "63b458e6.5812c8"
+            ]
+        ]
+    },
+    {
+        "id": "71fd0c96.8d64a4",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "powt",
+        "firebaseconfig": "",
+        "childpath": "/2/power",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 530,
+        "y": 1460,
+        "wires": [
+            [
+                "95e8caa9.b46b48",
+                "ad1469ee.de6498",
+                "6971729c.909c8c"
+            ]
+        ]
+    },
+    {
+        "id": "e2d289de.0f25e8",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "P0_gag",
+        "group": "bafc3e33.707df",
+        "order": 1,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "PA",
+        "label": "Watt",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 640,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cb89d9c9.dea6b8",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "P1_gag",
+        "group": "bafc3e33.707df",
+        "order": 2,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "PB",
+        "label": "Watt",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f94018e8.f94278",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "P2_gag",
+        "group": "bafc3e33.707df",
+        "order": 3,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "PC",
+        "label": "Watt",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "ea1c1e8b.6706",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "group": "337228a3.ff0698",
+        "order": 0,
+        "width": "8",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Energy (kWh)",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1438.9993896484375,
+        "y": 880.62158203125,
+        "wires": []
+    },
+    {
+        "id": "1c574db2.8a8232",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "3PGraph",
+        "group": "bafc3e33.707df",
+        "order": 8,
+        "width": "19",
+        "height": "8",
+        "label": "3 Phase graph",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100000",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 557,
+        "y": 107,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a9e04d0e.24e95",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "group": "337228a3.ff0698",
+        "order": 0,
+        "width": "10",
+        "height": "4",
+        "label": "Energy Histrory",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 1260,
+        "y": 920,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "307b10b8.dc074",
+        "type": "ui_toast",
+        "z": "8a96c21a.e6f45",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "Alarm",
+        "name": "Show alarm",
+        "x": 388.0000228881836,
+        "y": 885.0000009536743,
+        "wires": []
+    },
+    {
+        "id": "778a99e6.0b9e58",
+        "type": "rest publish",
+        "z": "8a96c21a.e6f45",
+        "name": "energy3Phase",
+        "appid": "wpm2018",
+        "auth": "yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd",
+        "topic": "/1/3e",
+        "topicType": "str",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 1276,
+        "y": 804,
+        "wires": []
+    },
+    {
+        "id": "b9e41ae9.5703c8",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "!!! reset all data off meter !!!",
+        "topic": "reset meter",
+        "payload": "0",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 507,
+        "y": 1047,
+        "wires": [
+            [
+                "87385d9.a28eea",
+                "f469716a.ce29",
+                "881ab549.c699e8",
+                "4cd3dfa3.8c887"
+            ]
+        ]
+    },
+    {
+        "id": "946cbca0.4f3b7",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p0",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 927,
+        "y": 1247,
+        "wires": []
+    },
+    {
+        "id": "b494b484.79e4e8",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p1",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 947,
+        "y": 1307,
+        "wires": []
+    },
+    {
+        "id": "4fb3f960.20ed28",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2_p2",
+        "qos": "0",
+        "retain": "",
+        "broker": "526f3bc0.73f9d4",
+        "x": 947,
+        "y": 1367,
+        "wires": []
+    },
+    {
+        "id": "e83c42ae.41cac",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "test value",
+        "topic": "test",
+        "payload": "10000",
+        "payloadType": "str",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 533,
+        "y": 1312,
+        "wires": [
+            [
+                "a401593.ff27aa8",
+                "bfae064a.43ef18",
+                "dfe9d40c.d800a8"
+            ]
+        ]
+    },
+    {
+        "id": "f3985de.1a5b5a",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "force_restart",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 500,
+        "y": 1235,
+        "wires": [
+            [
+                "1bf3b908.021927",
+                "3855e729.73f858"
+            ]
+        ]
+    },
+    {
+        "id": "9ab55e9f.35402",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "group": "c80f31aa.2d0a7",
+        "order": 2,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Energy (Node2)",
+        "label": "kWh",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 1267,
+        "y": 845,
+        "wires": []
+    },
+    {
+        "id": "db3391b.f62997",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "toString",
+        "func": "msg.payload= String(parseFloat(msg.payload).toFixed(2));\nmsg.topic = \"/\" +msg.topic;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 344,
+        "y": 485,
+        "wires": [
+            [
+                "9d2e4a73.f08418"
+            ]
+        ]
+    },
+    {
+        "id": "9d2e4a73.f08418",
+        "type": "rest publish",
+        "z": "8a96c21a.e6f45",
+        "name": "power",
+        "appid": "wpm2018",
+        "auth": "yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd",
+        "topic": "topic",
+        "topicType": "msg",
+        "payload": "payload",
+        "payloadType": "msg",
+        "x": 470,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7ae78f46.03b86",
+        "type": "ui_button",
+        "z": "8a96c21a.e6f45",
+        "name": "min resolution",
+        "group": "bafc3e33.707df",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "minute",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Minute resolution",
+        "payloadType": "str",
+        "topic": "minute_res",
+        "x": 800,
+        "y": 100,
+        "wires": [
+            [
+                "3f4b95f.7c2b06a"
+            ]
+        ]
+    },
+    {
+        "id": "3f4b95f.7c2b06a",
+        "type": "ui_ui_control",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "x": 1019,
+        "y": 92,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "47689671.cc06a8",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "min",
+        "group": "157d42a7.9986ed",
+        "order": 2,
+        "width": "19",
+        "height": "6",
+        "label": "Power (W)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 547,
+        "y": 147,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a401593.ff27aa8",
+        "type": "random",
+        "z": "8a96c21a.e6f45",
+        "name": "rand",
+        "low": "1000",
+        "high": "100000",
+        "inte": "true",
+        "property": "payload",
+        "x": 684,
+        "y": 1267,
+        "wires": [
+            [
+                "946cbca0.4f3b7"
+            ]
+        ]
+    },
+    {
+        "id": "5cf24ecd.8e462",
+        "type": "ui_button",
+        "z": "8a96c21a.e6f45",
+        "name": "hour resolution",
+        "group": "bafc3e33.707df",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "label": "hour",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "Hour resolution",
+        "payloadType": "str",
+        "topic": "hour resolution",
+        "x": 801,
+        "y": 58,
+        "wires": [
+            [
+                "3f4b95f.7c2b06a"
+            ]
+        ]
+    },
+    {
+        "id": "3e7a5db8.153302",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "337228a3.ff0698",
+        "order": 0,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "EA",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1415,
+        "y": 1033,
+        "wires": []
+    },
+    {
+        "id": "41475239.38451c",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "337228a3.ff0698",
+        "order": 0,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "EB",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1412,
+        "y": 1097,
+        "wires": []
+    },
+    {
+        "id": "da061547.e8d708",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "337228a3.ff0698",
+        "order": 0,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "EC",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1414,
+        "y": 1159,
+        "wires": []
+    },
+    {
+        "id": "bfae064a.43ef18",
+        "type": "random",
+        "z": "8a96c21a.e6f45",
+        "name": "rand",
+        "low": "1000",
+        "high": "100000",
+        "inte": "true",
+        "property": "payload",
+        "x": 686,
+        "y": 1311,
+        "wires": [
+            [
+                "b494b484.79e4e8"
+            ]
+        ]
+    },
+    {
+        "id": "dfe9d40c.d800a8",
+        "type": "random",
+        "z": "8a96c21a.e6f45",
+        "name": "rand",
+        "low": "1000",
+        "high": "100000",
+        "inte": "true",
+        "property": "payload",
+        "x": 686,
+        "y": 1359,
+        "wires": [
+            [
+                "4fb3f960.20ed28"
+            ]
+        ]
+    },
+    {
+        "id": "7b0defd5.8f5a9",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "Decimal_len",
+        "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1246,
+        "y": 1033,
+        "wires": [
+            [
+                "3e7a5db8.153302"
+            ]
+        ]
+    },
+    {
+        "id": "32cb56b9.4fb31a",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "Decimal_len",
+        "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1244,
+        "y": 1098,
+        "wires": [
+            [
+                "41475239.38451c"
+            ]
+        ]
+    },
+    {
+        "id": "825c9f6f.42d56",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "Decimal_len",
+        "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1242,
+        "y": 1160,
+        "wires": [
+            [
+                "da061547.e8d708"
+            ]
+        ]
+    },
+    {
+        "id": "a1fd235f.c936e",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "Decimal_len",
+        "func": "msg.payload = parseFloat(msg.payload).toFixed(1);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1257,
+        "y": 882,
+        "wires": [
+            [
+                "ea1c1e8b.6706"
+            ]
+        ]
+    },
+    {
+        "id": "dea7b502.93b848",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "peak0",
+        "firebaseconfig": "",
+        "childpath": "/Peak/2_PA",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 627,
+        "y": 327,
+        "wires": [
+            [
+                "25868049.111f3"
+            ]
+        ]
+    },
+    {
+        "id": "e0704f.67543fb",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "peak1",
+        "firebaseconfig": "",
+        "childpath": "/Peak/2_PB",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 650,
+        "y": 560,
+        "wires": [
+            [
+                "cdeec460.9449c8"
+            ]
+        ]
+    },
+    {
+        "id": "8a792d2c.9f3d3",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "peak2",
+        "firebaseconfig": "",
+        "childpath": "/Peak/2_PC",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 630,
+        "y": 700,
+        "wires": [
+            [
+                "74259eb0.289a3"
+            ]
+        ]
+    },
+    {
+        "id": "25868049.111f3",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "bafc3e33.707df",
+        "order": 10,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "PeakA",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 787,
+        "y": 327,
+        "wires": []
+    },
+    {
+        "id": "cdeec460.9449c8",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "bafc3e33.707df",
+        "order": 11,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "PeakB",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 790,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "74259eb0.289a3",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "bafc3e33.707df",
+        "order": 12,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "PeakC",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 770,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "abb5ea2e.e46108",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "m2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 770,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "4725e14b.91ff9",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "C2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 769.0000152587891,
+        "y": 2522.9998626708984,
+        "wires": []
+    },
+    {
+        "id": "a1082dd3.f5713",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "2",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 377.00000381469727,
+        "y": 2346.7786769866943,
+        "wires": [
+            [
+                "9103460c.22d2c8",
+                "aa14789.6ba9788",
+                "d90996ca.a671f8",
+                "9b8d9a95.291fb8",
+                "65103439.4a3bcc"
+            ]
+        ]
+    },
+    {
+        "id": "9103460c.22d2c8",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "m",
+        "func": "msg.payload = \"60\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 569.0000152587891,
+        "y": 2461.9234771728516,
+        "wires": [
+            [
+                "abb5ea2e.e46108"
+            ]
+        ]
+    },
+    {
+        "id": "aa14789.6ba9788",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "C",
+        "func": "msg.payload = \"-2\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 569.0000152587891,
+        "y": 2522.9998626708984,
+        "wires": [
+            [
+                "4725e14b.91ff9"
+            ]
+        ]
+    },
+    {
+        "id": "be645c05.08d3e",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "PA",
+        "func": "msg.topic = \"PA\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 347,
+        "y": 147,
+        "wires": [
+            [
+                "47689671.cc06a8",
+                "1c574db2.8a8232"
+            ]
+        ]
+    },
+    {
+        "id": "7df17219.a40dec",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "PB",
+        "func": "msg.topic = \"PB\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 347,
+        "y": 187,
+        "wires": [
+            [
+                "47689671.cc06a8",
+                "1c574db2.8a8232"
+            ]
+        ]
+    },
+    {
+        "id": "7ab69892.392eb8",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "PC",
+        "func": "msg.topic = \"PC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 347,
+        "y": 227,
+        "wires": [
+            [
+                "47689671.cc06a8",
+                "1c574db2.8a8232"
+            ]
+        ]
+    },
+    {
+        "id": "b84ff886.0563c8",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "P_avg",
+        "func": "var pavg = msg.payload/3;\nmsg.payload =pavg.toFixed(2)\nmsg.topic = \"Pavg\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 710,
+        "y": 1840,
+        "wires": [
+            [
+                "453b09d4.d77158",
+                "7da2e78c.2f4598",
+                "c358f015.2bd7b"
+            ]
+        ]
+    },
+    {
+        "id": "f3f2a21.645db6",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "Ptotal",
+        "group": "bafc3e33.707df",
+        "order": 6,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Ptotal",
+        "label": "W",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 710,
+        "y": 1760,
+        "wires": []
+    },
+    {
+        "id": "453b09d4.d77158",
+        "type": "ui_gauge",
+        "z": "8a96c21a.e6f45",
+        "name": "Pavg",
+        "group": "bafc3e33.707df",
+        "order": 7,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Pavg",
+        "label": "W",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 876.0000419616699,
+        "y": 1834.0002698898315,
+        "wires": []
+    },
+    {
+        "id": "7da2e78c.2f4598",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "P_grp",
+        "group": "bafc3e33.707df",
+        "order": 9,
+        "width": "19",
+        "height": "8",
+        "label": "Power (W)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "300000",
+        "removeOlder": "15",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 876.0000019073486,
+        "y": 1789.0001538991928,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "376a0dff.907a62",
+        "type": "mqtt in",
+        "z": "8a96c21a.e6f45",
+        "name": "restart_from_hmi",
+        "topic": "2_RTS",
+        "qos": "0",
+        "broker": "526f3bc0.73f9d4",
+        "x": 557,
+        "y": 1147,
+        "wires": [
+            [
+                "19b10e83.584b51"
+            ]
+        ]
+    },
+    {
+        "id": "136210c6.3ab38f",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "P_total",
+        "func": "var p_total = msg.payload[\"p0\"] + msg.payload[\"p1\"] + msg.payload[\"p2\"];\nmsg.topic = \"Ptotal\";\nmsg.payload = p_total.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 476.00000190734863,
+        "y": 1789.0001538991928,
+        "wires": [
+            [
+                "b84ff886.0563c8",
+                "f3f2a21.645db6",
+                "7da2e78c.2f4598",
+                "83028616.6ddcf8",
+                "5a91bc46.3a4714"
+            ]
+        ]
+    },
+    {
+        "id": "ef3a542b.e6cc98",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "power",
+        "firebaseconfig": "",
+        "childpath": "2/power",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 312.00000190734863,
+        "y": 1790.0001538991928,
+        "wires": [
+            [
+                "136210c6.3ab38f",
+                "a04a70ca.74a99",
+                "ac5943c9.9232e",
+                "70964c40.a38db4"
+            ]
+        ]
+    },
+    {
+        "id": "93db1752.23ba18",
+        "type": "inject",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "x": 150.00000190734863,
+        "y": 1790.0001538991928,
+        "wires": [
+            [
+                "ef3a542b.e6cc98"
+            ]
+        ]
+    },
+    {
+        "id": "c358f015.2bd7b",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "Pavg",
+        "firebaseconfig": "",
+        "childpath": "Peak/2_Pavg",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 876.0833206176758,
+        "y": 1877.9724140167236,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24310811.5589c8",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "log_enable2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 765.1562614440918,
+        "y": 2211.399872779846,
+        "wires": []
+    },
+    {
+        "id": "19f38898.c85f77",
+        "type": "ui_switch",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "label": "Log",
+        "group": "ea7f6199.45531",
+        "order": 1,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "x": 391.1598205566406,
+        "y": 2163.7578926086426,
+        "wires": [
+            [
+                "fa23fe76.876e8"
+            ]
+        ]
+    },
+    {
+        "id": "d90996ca.a671f8",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "log",
+        "firebaseconfig": "",
+        "childpath": "2/setting/log",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 554.1006965637207,
+        "y": 2268.205732345581,
+        "wires": [
+            [
+                "24310811.5589c8"
+            ]
+        ]
+    },
+    {
+        "id": "fa23fe76.876e8",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "log",
+        "firebaseconfig": "",
+        "childpath": "2/setting/log",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 557.1007614135742,
+        "y": 2164.0946130752563,
+        "wires": [
+            [
+                "24310811.5589c8"
+            ]
+        ]
+    },
+    {
+        "id": "228c043d.ca0fbc",
+        "type": "ui_template",
+        "z": "8a96c21a.e6f45",
+        "group": "ea7f6199.45531",
+        "name": "custom_template",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<a href=\"https://docs.google.com/spreadsheets/d/1JqK40cr_OtfFO47lMPsPyWso27Uhw4YqoQelxhsVGb4/edit#gid=1742858177\">Go to Log</a>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 163.15969848632812,
+        "y": 2105.080008506775,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "104da04d.91ba2",
+        "type": "ui_text_input",
+        "z": "8a96c21a.e6f45",
+        "name": "log_interval_setting",
+        "label": "Log interval (in ms: between 5000, 300000)",
+        "group": "ea7f6199.45531",
+        "order": 2,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 164.15968704223633,
+        "y": 1952.420126914978,
+        "wires": [
+            [
+                "524f30d3.6100c"
+            ]
+        ]
+    },
+    {
+        "id": "7a10111c.abc0f",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "log_interval",
+        "firebaseconfig": "",
+        "childpath": "2/setting/log_interval",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 495.1006660461426,
+        "y": 1951.3163595199585,
+        "wires": [
+            [
+                "a80279c0.a63678",
+                "1377d6da.226a59"
+            ]
+        ]
+    },
+    {
+        "id": "524f30d3.6100c",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "isDigit",
+        "func": "var input = parseInt(msg.payload);\nif (Number.isInteger(input)) \n{\n    if(input < 5000)\n    {\n        msg.payload = 5000;\n    }\n    else if(msg.payload < 900000)\n    {\n        msg.payload = input;\n    }\n    else\n    {\n        msg.payload = 900000;\n    }\n}\nelse\n{\n    msg.payload = 5000;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 337.1631851196289,
+        "y": 1949.5001783370972,
+        "wires": [
+            [
+                "7a10111c.abc0f"
+            ]
+        ]
+    },
+    {
+        "id": "1377d6da.226a59",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "log_interval2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 699.1631851196289,
+        "y": 1900.9514083862305,
+        "wires": []
+    },
+    {
+        "id": "9b8d9a95.291fb8",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "log_interval",
+        "firebaseconfig": "",
+        "childpath": "2/setting/log_interval",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 570.1006965637207,
+        "y": 2325.316816329956,
+        "wires": [
+            [
+                "60d5dc32.8fd884"
+            ]
+        ]
+    },
+    {
+        "id": "60d5dc32.8fd884",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "log_interval2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 759.1006469726562,
+        "y": 2325.3170108795166,
+        "wires": []
+    },
+    {
+        "id": "a80279c0.a63678",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "ea7f6199.45531",
+        "order": 4,
+        "width": "5",
+        "height": "2",
+        "name": "",
+        "label": "Current log interval (ms):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 731.1632385253906,
+        "y": 1951.0697135925293,
+        "wires": []
+    },
+    {
+        "id": "65103439.4a3bcc",
+        "type": "firebase.once",
+        "z": "8a96c21a.e6f45",
+        "name": "polling_interval",
+        "firebaseconfig": "",
+        "childpath": "2/setting/polling_interval",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 586.1006622314453,
+        "y": 2393.0939207077026,
+        "wires": [
+            [
+                "dfadc9b2.e4b448"
+            ]
+        ]
+    },
+    {
+        "id": "dfadc9b2.e4b448",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "polling_interval2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 805.1527976989746,
+        "y": 2392.71905708313,
+        "wires": []
+    },
+    {
+        "id": "fabae5e.4546a18",
+        "type": "ui_text_input",
+        "z": "8a96c21a.e6f45",
+        "name": "polling_interval_setting",
+        "label": "Polling interval (in ms: between 5000, 300000)",
+        "group": "ea7f6199.45531",
+        "order": 3,
+        "width": "7",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 164.10067749023438,
+        "y": 2023.8717584609985,
+        "wires": [
+            [
+                "65655c66.afac94"
+            ]
+        ]
+    },
+    {
+        "id": "65655c66.afac94",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "isDigit",
+        "func": "var input = parseInt(msg.payload);\nif (Number.isInteger(input)) \n{\n    if(input < 1000)\n    {\n        msg.payload = 1000;\n    }\n    else if(msg.payload < 900000)\n    {\n        msg.payload = input;\n        \n    }\n    else\n    {\n        msg.payload = 900000;\n    }\n    \n}\nelse\n{\n    msg.payload = 5000;\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 343.1007070541382,
+        "y": 2024.8717851638794,
+        "wires": [
+            [
+                "9281400c.f1229"
+            ]
+        ]
+    },
+    {
+        "id": "773c6344.f5423c",
+        "type": "mqtt out",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "polling_interval2",
+        "qos": "0",
+        "retain": "false",
+        "broker": "526f3bc0.73f9d4",
+        "x": 734.1006698608398,
+        "y": 2069.983416557312,
+        "wires": []
+    },
+    {
+        "id": "b1b5563c.5833c8",
+        "type": "ui_text",
+        "z": "8a96c21a.e6f45",
+        "group": "ea7f6199.45531",
+        "order": 5,
+        "width": "6",
+        "height": "2",
+        "name": "",
+        "label": "Current polling interval (ms):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 770.1006622314453,
+        "y": 2023.8716354370117,
+        "wires": []
+    },
+    {
+        "id": "9281400c.f1229",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "polling_interval",
+        "firebaseconfig": "",
+        "childpath": "2/setting/polling_interval",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 543.1006622314453,
+        "y": 2025.8716354370117,
+        "wires": [
+            [
+                "b1b5563c.5833c8",
+                "773c6344.f5423c"
+            ]
+        ]
+    },
+    {
+        "id": "97a583d9.66245",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "hour",
+        "group": "6b1df531.3d21fc",
+        "order": 2,
+        "width": "19",
+        "height": "6",
+        "label": "Average power per min. (W)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100000",
+        "removeOlder": "6",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 790,
+        "y": 1660,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "70964c40.a38db4",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "avg_PA",
+        "func": "var power = parseFloat(msg.payload[\"p0\"]);\nmsg.payload = power;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 1620,
+        "wires": [
+            [
+                "44da75fa.b7847c",
+                "e29cf934.390a18"
+            ]
+        ]
+    },
+    {
+        "id": "ac5943c9.9232e",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "avg_PB",
+        "func": "var power = parseFloat(msg.payload[\"p1\"]);\nmsg.payload = power;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 420,
+        "y": 1660,
+        "wires": [
+            [
+                "f6d549fb.532dc8",
+                "55dd0f97.ee0f6"
+            ]
+        ]
+    },
+    {
+        "id": "a04a70ca.74a99",
+        "type": "function",
+        "z": "8a96c21a.e6f45",
+        "name": "avg_PC",
+        "func": "var power = parseFloat(msg.payload[\"p2\"]);\nmsg.payload = power;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 1700,
+        "wires": [
+            [
+                "3bc28244.853f2e",
+                "fdc32b35.5f3028"
+            ]
+        ]
+    },
+    {
+        "id": "f6d549fb.532dc8",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PB/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 590,
+        "y": 1660,
+        "wires": [
+            [
+                "97a583d9.66245"
+            ]
+        ]
+    },
+    {
+        "id": "3bc28244.853f2e",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PC/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 550,
+        "y": 1700,
+        "wires": [
+            [
+                "97a583d9.66245"
+            ]
+        ]
+    },
+    {
+        "id": "44da75fa.b7847c",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PA/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 590,
+        "y": 1620,
+        "wires": [
+            [
+                "97a583d9.66245"
+            ]
+        ]
+    },
+    {
+        "id": "e29cf934.390a18",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PA/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 550,
+        "y": 1500,
+        "wires": [
+            [
+                "82464a70.11d248"
+            ]
+        ]
+    },
+    {
+        "id": "55dd0f97.ee0f6",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PB/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 590,
+        "y": 1540,
+        "wires": [
+            [
+                "82464a70.11d248"
+            ]
+        ]
+    },
+    {
+        "id": "fdc32b35.5f3028",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "PC/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 590,
+        "y": 1580,
+        "wires": [
+            [
+                "82464a70.11d248"
+            ]
+        ]
+    },
+    {
+        "id": "82464a70.11d248",
+        "type": "ui_chart",
+        "z": "8a96c21a.e6f45",
+        "name": "day",
+        "group": "d6f6a051.894c5",
+        "order": 13,
+        "width": "19",
+        "height": "6",
+        "label": "Average power per hour. (W)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100000",
+        "removeOlder": "6",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 810,
+        "y": 1580,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "83028616.6ddcf8",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "Pt/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 690,
+        "y": 1720,
+        "wires": [
+            [
+                "7f8dc301.0fe66c",
+                "7da2e78c.2f4598",
+                "aa45d510.26dc18"
+            ]
+        ]
+    },
+    {
+        "id": "7f8dc301.0fe66c",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "pavg_per_min",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_min/2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 940,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a13d614d.7a276",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 330,
+        "y": 320,
+        "wires": [
+            [
+                "dea7b502.93b848"
+            ]
+        ]
+    },
+    {
+        "id": "7a73ccb7.8ce124",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 330,
+        "y": 540,
+        "wires": [
+            [
+                "e0704f.67543fb"
+            ]
+        ]
+    },
+    {
+        "id": "a7557e4c.29d36",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 330,
+        "y": 680,
+        "wires": [
+            [
+                "8a792d2c.9f3d3"
+            ]
+        ]
+    },
+    {
+        "id": "5a91bc46.3a4714",
+        "type": "aggregator",
+        "z": "8a96c21a.e6f45",
+        "name": "",
+        "topic": "Pt/h",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 950,
+        "y": 1680,
+        "wires": [
+            [
+                "71f6e3c3.cd075c"
+            ]
+        ]
+    },
+    {
+        "id": "71f6e3c3.cd075c",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "pavg_per_hour",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_hour/2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 1140,
+        "y": 1680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa45d510.26dc18",
+        "type": "firebase modify",
+        "z": "8a96c21a.e6f45",
+        "name": "stat",
+        "firebaseconfig": "",
+        "childpath": "stat/2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 910,
+        "y": 1760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "526f3bc0.73f9d4",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "",
+        "broker": "m12.cloudmqtt.com",
+        "port": "19574",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "bafc3e33.707df",
+        "type": "ui_group",
+        "z": "",
+        "name": "Monitor",
+        "tab": "d7730e65.6a798",
+        "order": 1,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "337228a3.ff0698",
+        "type": "ui_group",
+        "z": "",
+        "name": "Energy",
+        "tab": "d7730e65.6a798",
+        "order": 3,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "c80f31aa.2d0a7",
+        "type": "ui_group",
+        "z": "",
+        "name": "Energy",
+        "tab": "4c9d051b.e8079c",
+        "order": 2,
+        "disp": true,
+        "width": "19"
+    },
+    {
+        "id": "157d42a7.9986ed",
+        "type": "ui_group",
+        "z": "",
+        "name": "Node2",
+        "tab": "55fe465b.f012b8",
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "ea7f6199.45531",
+        "type": "ui_group",
+        "z": "",
+        "name": "Parameter",
+        "tab": "d7730e65.6a798",
+        "order": 2,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "6b1df531.3d21fc",
+        "type": "ui_group",
+        "z": "",
+        "name": "Node2",
+        "tab": "e91f93bc.6096e",
+        "order": 2,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "d6f6a051.894c5",
+        "type": "ui_group",
+        "z": "",
+        "name": "Node2",
+        "tab": "78f3c983.c28028",
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "d7730e65.6a798",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Node2",
+        "icon": "dashboard",
+        "order": 2
+    },
+    {
+        "id": "4c9d051b.e8079c",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Control",
+        "icon": "dashboard",
+        "order": 11
+    },
+    {
+        "id": "55fe465b.f012b8",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Minute resolution",
+        "icon": "dashboard",
+        "order": 12
+    },
+    {
+        "id": "e91f93bc.6096e",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Hour resolution",
+        "icon": "dashboard",
+        "order": 13
+    },
+    {
+        "id": "78f3c983.c28028",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Day resolution",
+        "icon": "dashboard"
+    }
+]

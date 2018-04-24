@@ -49,7 +49,7 @@
                   <property class="tesla.scada2.model.properties.ValueProperty" tagname="E" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="60.0" posy="330.0" width="770.0" height="340.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="200000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db" autorefresh="true">
+            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="60.0" posy="330.0" width="770.0" height="340.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="200000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db1" autorefresh="true">
                <curves>
                   <curve tagname="PA" curvename="PA" linewidth="2" color="0x1a3399ff" type="0"/>
                   <curve tagname="PB" curvename="PB" linewidth="2" color="0xb31a1aff" type="0"/>
@@ -93,46 +93,30 @@
                   <property class="tesla.scada2.model.properties.ButtonControlProperty" functiontype="6" value="0" title="Enter value" screenname="Home"/>
                </property>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="30.0" posy="70.0" width="380.0" height="250.0" angle="0" lock="false">
-               <objects>
-                  <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="0.0" posy="30.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db" autorefresh="true">
-                     <curves>
-                        <curve tagname="PA" curvename="PA" linewidth="1" color="0x4d804dff" type="0"/>
-                     </curves>
-                  </objectView>
-                  <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="0.0" posy="0.0" width="60.0" height="20.0" angle="0" lock="false" text="PA (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
-               </objects>
+            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="10.0" posy="390.0" width="840.0" height="260.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db1" autorefresh="true">
+               <curves>
+                  <curve tagname="Pavg" curvename="Pavg" linewidth="1" color="0x1a3399ff" type="0"/>
+               </curves>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="440.0" posy="70.0" width="390.0" height="250.0" angle="0" lock="false">
-               <objects>
-                  <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="10.0" posy="30.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db" autorefresh="true">
-                     <curves>
-                        <curve tagname="PB" curvename="PB" linewidth="1" color="0x4d804dff" type="0"/>
-                     </curves>
-                  </objectView>
-                  <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="0.0" posy="0.0" width="60.0" height="20.0" angle="0" lock="false" text="PB (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
-               </objects>
+            <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="40.0" posy="340.0" width="60.0" height="20.0" angle="0" lock="false" text="Pavg (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="30.0" posy="100.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db1" autorefresh="true">
+               <curves>
+                  <curve tagname="PA" curvename="PA" linewidth="1" color="0x4d804dff" type="0"/>
+               </curves>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="860.0" posy="70.0" width="380.0" height="250.0" angle="0" lock="false">
-               <objects>
-                  <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="0.0" posy="30.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db" autorefresh="true">
-                     <curves>
-                        <curve tagname="PC" curvename="PC" linewidth="1" color="0x4d804dff" type="0"/>
-                     </curves>
-                  </objectView>
-                  <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="0.0" posy="0.0" width="60.0" height="20.0" angle="0" lock="false" text="PC (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
-               </objects>
+            <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="30.0" posy="70.0" width="60.0" height="20.0" angle="0" lock="false" text="PA (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="450.0" posy="100.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db1" autorefresh="true">
+               <curves>
+                  <curve tagname="PB" curvename="PB" linewidth="1" color="0x4d804dff" type="0"/>
+               </curves>
             </objectView>
-            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="10.0" posy="340.0" width="840.0" height="310.0" angle="0" lock="false">
-               <objects>
-                  <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="0.0" posy="50.0" width="840.0" height="260.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db" autorefresh="true">
-                     <curves>
-                        <curve tagname="Pavg" curvename="Pavg" linewidth="1" color="0x1a3399ff" type="0"/>
-                     </curves>
-                  </objectView>
-                  <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="30.0" posy="0.0" width="60.0" height="20.0" angle="0" lock="false" text="Pavg (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
-               </objects>
+            <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="440.0" posy="70.0" width="60.0" height="20.0" angle="0" lock="false" text="PB (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TrendHistoryDBView" name="History DB trend" posx="860.0" posy="100.0" width="380.0" height="220.0" angle="0" lock="false" color="0x000000ff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0x808080ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm" historydbname="ioteep_db1" autorefresh="true">
+               <curves>
+                  <curve tagname="PC" curvename="PC" linewidth="1" color="0x4d804dff" type="0"/>
+               </curves>
             </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="860.0" posy="70.0" width="60.0" height="20.0" angle="0" lock="false" text="PC (W)" fonttype="0" fontsize="15" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
          </objects>
          <scriptnames/>
       </window>
@@ -181,7 +165,7 @@
    <users/>
    <libraries/>
    <recipes>
-      <recipe class="tesla.scada2.model.HistoryDatabase" recipename="ioteep_db" dbname="historydatabase" tablename="histories0" insertperiod="10000" storagedbperiod="2">
+      <recipe class="tesla.scada2.model.HistoryDatabase" recipename="ioteep_db1" dbname="historydatabase1" tablename="histories01" insertperiod="10000" storagedbperiod="2">
          <ingredients>
             <ingredient tagname="PA" ingredientname="PA" dbname="PA" unit="W"/>
             <ingredient tagname="PB" ingredientname="PB" dbname="PB" unit="W"/>

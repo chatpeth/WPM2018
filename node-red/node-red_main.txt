@@ -1,360 +1,281 @@
 [
     {
-        "id": "1de6be05.9e9e72",
+        "id": "8678465b.bb2a18",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p0",
         "qos": "0",
-        "broker": "faa41933.fa74e8",
-        "x": 129.9166717529297,
-        "y": 431.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 150,
+        "y": 460,
         "wires": [
             [
-                "9bcc95a2.118118",
-                "d337e5e2.588758",
-                "7c0c2d4c.e8a3f4",
-                "6f7642eb.3b810c",
-                "482deae0.f5a284"
+                "3ba3cc1a.2d8854",
+                "9ebe53eb.e0ed",
+                "493989fa.25e328",
+                "6e927936.3a4a98",
+                "f827d234.a71e"
             ]
         ]
     },
     {
-        "id": "9bcc95a2.118118",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "Phase0 Power",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 341.92356872558594,
-        "y": 466.8055953979492,
-        "wires": []
-    },
-    {
-        "id": "75172293.5c7b2c",
+        "id": "213cc14b.e53dbe",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p0_e",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 1084.9166717529297,
-        "y": 1081.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 1105,
+        "y": 1110,
         "wires": []
     },
     {
-        "id": "ae1d5bb3.c950a8",
+        "id": "3d129fe0.0ec91",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p1",
         "qos": "0",
-        "broker": "faa41933.fa74e8",
-        "x": 154.9166717529297,
-        "y": 681.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 710,
         "wires": [
             [
-                "3883c1fd.04374e",
-                "6c14054.3af30fc",
-                "7c0c2d4c.e8a3f4",
-                "532b6b3c.a0e844",
-                "f63f34c9.fd0338"
+                "ae42b87.3172d48",
+                "9ebe53eb.e0ed",
+                "7fab1f4c.119f1",
+                "ff27a479.42a948"
             ]
         ]
     },
     {
-        "id": "3883c1fd.04374e",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "Phase1 Power",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 342.9235725402832,
-        "y": 652.8055958747864,
-        "wires": []
-    },
-    {
-        "id": "a24e0fe4.74938",
+        "id": "9c9b5012.3a4c7",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p2",
         "qos": "0",
-        "broker": "faa41933.fa74e8",
-        "x": 154.9166717529297,
-        "y": 801.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 830,
         "wires": [
             [
-                "202c4b90.f1ec34",
-                "63b209a4.1d2db8",
-                "af04de55.e8aea",
-                "7c0c2d4c.e8a3f4",
-                "31dcf0c.72c231",
-                "bbe14155.6c28e"
+                "d6f9658b.2ae468",
+                "9ebe53eb.e0ed",
+                "be2014f9.a36568",
+                "af944a5.67312b8"
             ]
         ]
     },
     {
-        "id": "202c4b90.f1ec34",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "Phase2 Power",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 349.92356872558594,
-        "y": 800.8056106567383,
-        "wires": []
-    },
-    {
-        "id": "ae4614aa.8ca738",
+        "id": "22296eb1.0465f2",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_e",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 1076.8505754470825,
-        "y": 1026.514051437378,
+        "broker": "526f3bc0.73f9d4",
+        "x": 1096.9339036941528,
+        "y": 1055.4862728118896,
         "wires": []
     },
     {
-        "id": "d7433673.992b78",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 1171.9307098388672,
-        "y": 1472.8021926879883,
-        "wires": []
-    },
-    {
-        "id": "de60ad76.4b4e8",
+        "id": "bb6f3dd.22bedc",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "e0",
         "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 965.9897727966309,
-        "y": 1497.3646931648254,
+        "x": 970,
+        "y": 1520,
         "wires": [
             [
-                "d7433673.992b78",
-                "9f8faa6e.fecbe8",
-                "75e8380.f2023c8"
+                "558c70d7.0fe74"
             ]
         ]
     },
     {
-        "id": "5cc50cd1.35dcb4",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 1133.9478607177734,
-        "y": 1580.2467465400696,
-        "wires": []
-    },
-    {
-        "id": "60b38db3.0d15c4",
+        "id": "4150da65.3e3854",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "e1",
         "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 957.006893157959,
-        "y": 1607.8092799186707,
+        "x": 970,
+        "y": 1560,
         "wires": [
             [
-                "5cc50cd1.35dcb4",
-                "4df58463.7ac0ac"
+                "d52af6b8.36d1c8"
             ]
         ]
     },
     {
-        "id": "58b41f9.6bfeae",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 1144.9478492736816,
-        "y": 1683.8021121025085,
-        "wires": []
-    },
-    {
-        "id": "236b20fa.34914",
+        "id": "e1e26a22.b23488",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "e2",
         "func": "var p = parseFloat(msg.payload);\nvar e = (5/3600)*(p/1000);\nmsg.payload = e;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 968.0068817138672,
-        "y": 1711.3646454811096,
+        "x": 970,
+        "y": 1600,
         "wires": [
             [
-                "58b41f9.6bfeae",
-                "ce620646.d99878"
+                "8eaf9360.52f0c"
             ]
         ]
     },
     {
-        "id": "754c5b0.ea1dba4",
+        "id": "2ea0ed59.d71582",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "et",
         "func": "var e0 = parseFloat(msg.payload.tp0);\nvar e1 = parseFloat(msg.payload.tp1);\nvar e2 = parseFloat(msg.payload.tp2);\nmsg.payload = e0 + e1 + e2;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 901.9858179092407,
-        "y": 992.1564512252808,
+        "x": 922.069146156311,
+        "y": 1021.1286725997925,
         "wires": [
             [
-                "99df0c4b.d53c1",
-                "ae4614aa.8ca738",
-                "fe3397cb.918838",
-                "37d28fdf.0bae9"
+                "cdd7644d.0a4528",
+                "22296eb1.0465f2",
+                "7a6bd5f5.3aab5c",
+                "da93974d.1af838"
             ]
         ]
     },
     {
-        "id": "42aa593b.e609e8",
+        "id": "1559376b.fc62d9",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "p0",
         "func": "var p = parseFloat(msg.payload.p0);\nmsg.payload = p;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 754.916693687439,
-        "y": 1538.0277733802795,
+        "x": 850,
+        "y": 1520,
         "wires": [
             [
-                "de60ad76.4b4e8"
+                "bb6f3dd.22bedc"
             ]
         ]
     },
     {
-        "id": "30f79d6.3d42062",
+        "id": "4d6aa2a5.cc06cc",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "p1",
         "func": "var p = parseFloat(msg.payload.p1);\nmsg.payload = p;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 751.933967590332,
-        "y": 1606.3612923622131,
+        "x": 850,
+        "y": 1560,
         "wires": [
             [
-                "60b38db3.0d15c4"
+                "4150da65.3e3854"
             ]
         ]
     },
     {
-        "id": "cb2c0954.d223a8",
+        "id": "984c35d.d43fbc8",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "p2",
         "func": "var p = parseFloat(msg.payload.p2);\nmsg.payload = p;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 758.9339790344238,
-        "y": 1675.3613991737366,
+        "x": 850,
+        "y": 1600,
         "wires": [
             [
-                "236b20fa.34914"
+                "e1e26a22.b23488"
             ]
         ]
     },
     {
-        "id": "1582a654.96a05a",
+        "id": "8dafb97.d542348",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "tp0",
         "func": "var tmp = parseFloat(msg.payload.p0);\nvar tp = parseFloat(msg.payload.tp0);\nmsg.payload = tp + tmp;\nmsg.topic = \"/1/e0\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 725.9397439956665,
-        "y": 1082.6885032653809,
+        "x": 746.0230722427368,
+        "y": 1111.6607246398926,
         "wires": [
             [
-                "54d14d77.b36ed4"
+                "17956fcf.650ac"
             ]
         ]
     },
     {
-        "id": "96ea032a.9d3e2",
+        "id": "78574934.e8dbd8",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "tp1",
         "func": "var tmp = parseFloat(msg.payload.p1);\nvar tp = parseFloat(msg.payload.tp1);\nmsg.payload = tp + tmp;\nmsg.topic = \"/1/e1\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 725.6002702713013,
-        "y": 1143.6598196029663,
+        "x": 745.6835985183716,
+        "y": 1172.632040977478,
         "wires": [
             [
-                "1065f8ec.cf8067"
+                "26e95bbc.36a5a4"
             ]
         ]
     },
     {
-        "id": "a7a0b445.5993f8",
+        "id": "70469202.14792c",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p1_e",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 1088.6002168655396,
-        "y": 1145.6598272323608,
+        "broker": "526f3bc0.73f9d4",
+        "x": 1108.6835451126099,
+        "y": 1174.6320486068726,
         "wires": []
     },
     {
-        "id": "ccdacd67.4433e",
+        "id": "4b4653ac.3b978c",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "tp2",
         "func": "var tmp = parseFloat(msg.payload.p2);\nvar tp = parseFloat(msg.payload.tp2);\nmsg.payload = tp + tmp;\nmsg.topic = \"/1/e2\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 727.6002702713013,
-        "y": 1197.6598196029663,
+        "x": 747.6835985183716,
+        "y": 1226.632040977478,
         "wires": [
             [
-                "70c72c89.0d1084"
+                "da4a5398.afa05"
             ]
         ]
     },
     {
-        "id": "f3103796.1143c8",
+        "id": "5917ab0d.9a2ea4",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p2_e",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 1092.6001586914062,
-        "y": 1199.659818649292,
+        "broker": "526f3bc0.73f9d4",
+        "x": 1112.6834869384766,
+        "y": 1228.6320400238037,
         "wires": []
     },
     {
-        "id": "f1c0b434.e0c788",
+        "id": "b4d69b0d.c08f98",
         "type": "delay",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "pauseType": "delay",
         "timeout": "100",
@@ -366,61 +287,61 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 733.4406251907349,
-        "y": 991.8299741744995,
+        "x": 753.5239534378052,
+        "y": 1020.8021955490112,
         "wires": [
             [
-                "754c5b0.ea1dba4"
+                "2ea0ed59.d71582"
             ]
         ]
     },
     {
-        "id": "e55a49f4.0ae198",
+        "id": "62624bc9.be3674",
         "type": "e-mail",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "server": "smtp.gmail.com",
         "port": "465",
         "secure": true,
         "name": "kchatpeth@gmail.com",
         "dname": "alm",
-        "x": 334.9166717529297,
-        "y": 901.0277786254883,
+        "x": 355,
+        "y": 930,
         "wires": []
     },
     {
-        "id": "5e2de148.547dd",
+        "id": "d47cad4d.068b6",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Alarm",
         "topic": "Alarm1",
         "qos": "0",
-        "broker": "2460a20d.93c08e",
-        "x": 154.9166717529297,
-        "y": 941.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 175,
+        "y": 970,
         "wires": [
             [
-                "d686263e.5039c8",
-                "e55a49f4.0ae198"
+                "ff4b813.66f978",
+                "62624bc9.be3674"
             ]
         ]
     },
     {
-        "id": "ac8f859b.07ef68",
+        "id": "9878870c.dfe0b8",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Alarm",
         "topic": "Alarm1",
         "qos": "0",
         "retain": "",
-        "broker": "2460a20d.93c08e",
-        "x": 314.9166717529297,
-        "y": 1021.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 335,
+        "y": 1050,
         "wires": []
     },
     {
-        "id": "f2f2d793.573408",
+        "id": "8cde9965.144ad8",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "test alarm",
         "topic": "Alarm",
         "payload": "Alarm from node 1",
@@ -428,18 +349,18 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 164.9166717529297,
-        "y": 1021.0277786254883,
+        "x": 185,
+        "y": 1050,
         "wires": [
             [
-                "ac8f859b.07ef68"
+                "9878870c.dfe0b8"
             ]
         ]
     },
     {
-        "id": "ed0920b0.3577a",
+        "id": "643c92e1.183c1c",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "tsmp",
         "topic": "tsmp",
         "payload": "",
@@ -447,342 +368,344 @@
         "repeat": "5",
         "crontab": "",
         "once": false,
-        "x": 174.9166717529297,
-        "y": 1161.0277786254883,
+        "onceDelay": "",
+        "x": 170,
+        "y": 1180,
         "wires": [
             [
-                "a8a5c130.d2911",
-                "20044350.87347c",
-                "af04de55.e8aea"
+                "53461e39.cc1fa",
+                "5c135dd1.85d4a4",
+                "f827d234.a71e"
             ]
         ]
     },
     {
-        "id": "af04de55.e8aea",
+        "id": "f827d234.a71e",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "checkerr",
         "func": "var count = context.get('count') || 0;\nif(msg.topic == \"tsmp\")\n{\n    count = count + 1;\n}\nelse\n{\n    count = 0;\n}\ncontext.set('count',count);\nmsg.payload = count;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 336.9166717529297,
-        "y": 1178.0277786254883,
+        "x": 360,
+        "y": 1260,
         "wires": [
             [
-                "3db0effa.df5ec"
+                "96c93fe.ace8bc"
             ]
         ]
     },
     {
-        "id": "e517cfc0.f5b5e",
+        "id": "fe3fc75b.769248",
         "type": "debug",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "restart",
         "active": false,
         "console": "false",
         "complete": "payload",
-        "x": 674.9166717529297,
-        "y": 1301.0277786254883,
+        "x": 695,
+        "y": 1330,
         "wires": []
     },
     {
-        "id": "3db0effa.df5ec",
+        "id": "96c93fe.ace8bc",
         "type": "switch",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "err_no",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
                 "t": "gt",
-                "v": "12",
+                "v": "60",
                 "vt": "str"
             }
         ],
         "checkall": "true",
+        "repair": false,
         "outputs": 1,
-        "x": 494.9166717529297,
-        "y": 1261.0277786254883,
+        "x": 515,
+        "y": 1290,
         "wires": [
             [
-                "533613d5.d8e4ec",
-                "e517cfc0.f5b5e"
+                "d2ed9931.dfb998",
+                "fe3fc75b.769248"
             ]
         ]
     },
     {
-        "id": "52005ff0.7995b",
+        "id": "55a6018c.4ca19",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "restart",
         "topic": "sw1",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 886.9166717529297,
-        "y": 1258.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 907,
+        "y": 1287,
         "wires": []
     },
     {
-        "id": "533613d5.d8e4ec",
+        "id": "d2ed9931.dfb998",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "ESP.restart()",
         "func": "msg.payload = \"0\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 666.9166717529297,
-        "y": 1258.0277786254883,
+        "x": 687,
+        "y": 1287,
         "wires": [
             [
-                "52005ff0.7995b",
-                "6f53cc9a.16b554",
-                "38514c.ecc1deb4",
-                "28ea6239.65df4e"
+                "55a6018c.4ca19",
+                "cfabbfc4.6f93",
+                "90969dbc.1d81",
+                "4a77f125.6a5d4"
             ]
         ]
     },
     {
-        "id": "37d28fdf.0bae9",
+        "id": "da93974d.1af838",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "toString",
         "func": "msg.payload= String(parseFloat(msg.payload).toFixed(2));\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1074.9166717529297,
-        "y": 875.0277786254883,
+        "x": 1095,
+        "y": 904,
         "wires": [
             [
-                "b77d6b4b.03a1c8",
-                "f6ea88b8.ce38e8"
+                "6a78a69f.82ddb8",
+                "e6e27a23.8d79d8"
             ]
         ]
     },
     {
-        "id": "d337e5e2.588758",
+        "id": "3ba3cc1a.2d8854",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_p0",
         "firebaseconfig": "",
         "childpath": "/1/power/p0",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 316.99290466308594,
-        "y": 506.6874771118164,
+        "x": 330,
+        "y": 480,
         "wires": [
             [
-                "3a1db084.3ad87"
+                "57579ee9.99c6a"
             ]
         ]
     },
     {
-        "id": "6c14054.3af30fc",
+        "id": "ae42b87.3172d48",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_p1",
         "firebaseconfig": "",
         "childpath": "/1/power/p1",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 322.01736068725586,
-        "y": 702.5933213233948,
+        "x": 350,
+        "y": 720,
         "wires": [
             [
-                "b822d349.20956"
+                "a9cdeca3.08dc7"
             ]
         ]
     },
     {
-        "id": "63b209a4.1d2db8",
+        "id": "d6f9658b.2ae468",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_p2",
         "firebaseconfig": "",
         "childpath": "/1/power/p2",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 318.9166717529297,
-        "y": 838.0277786254883,
+        "x": 350,
+        "y": 860,
         "wires": [
             [
-                "b98af988.3a7d98"
+                "4bee31ef.5ee28"
             ]
         ]
     },
     {
-        "id": "9f8faa6e.fecbe8",
+        "id": "558c70d7.0fe74",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "eng0",
         "firebaseconfig": "",
         "childpath": "/1/energy/p0",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 1154.934238433838,
-        "y": 1522.472400188446,
+        "x": 1090,
+        "y": 1520,
         "wires": [
             []
         ]
     },
     {
-        "id": "4df58463.7ac0ac",
+        "id": "d52af6b8.36d1c8",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "eng1",
         "firebaseconfig": "",
         "childpath": "/1/energy/p1",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 1116.9512939453125,
-        "y": 1628.916941165924,
+        "x": 1090,
+        "y": 1560,
         "wires": [
             []
         ]
     },
     {
-        "id": "ce620646.d99878",
+        "id": "8eaf9360.52f0c",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "eng2",
         "firebaseconfig": "",
         "childpath": "/1/energy/p2",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 1128.951271057129,
-        "y": 1727.4722905158997,
+        "x": 1090,
+        "y": 1600,
         "wires": [
             []
         ]
     },
     {
-        "id": "99df0c4b.d53c1",
+        "id": "cdd7644d.0a4528",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_eng",
         "firebaseconfig": "",
         "childpath": "/1/energy/total",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 1075.992787361145,
-        "y": 966.6494207382202,
+        "x": 1096.0761156082153,
+        "y": 995.6216421127319,
         "wires": [
             [
-                "7105addc.52fa54"
+                "682bbd56.100024"
             ]
         ]
     },
     {
-        "id": "54d14d77.b36ed4",
+        "id": "17956fcf.650ac",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_tp0",
         "firebaseconfig": "",
         "childpath": "/1/energy/tp0",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 906.9336519241333,
-        "y": 1082.6598558425903,
+        "x": 927.0169801712036,
+        "y": 1111.632077217102,
         "wires": [
             [
-                "75172293.5c7b2c",
-                "566a2e1d.63b98"
+                "213cc14b.e53dbe",
+                "ca45e95.74f9f18"
             ]
         ]
     },
     {
-        "id": "1065f8ec.cf8067",
+        "id": "26e95bbc.36a5a4",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_tp1",
         "firebaseconfig": "",
         "childpath": "/1/energy/tp1",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 909.6002902984619,
-        "y": 1144.6598234176636,
+        "x": 929.6836185455322,
+        "y": 1173.6320447921753,
         "wires": [
             [
-                "a7a0b445.5993f8",
-                "f016e6bb.fbc178"
+                "70469202.14792c",
+                "392b6906.d468d6"
             ]
         ]
     },
     {
-        "id": "70c72c89.0d1084",
+        "id": "da4a5398.afa05",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "1_tp2",
         "firebaseconfig": "",
         "childpath": "/1/energy/tp2",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 908.6003313064575,
-        "y": 1198.6598176956177,
+        "x": 928.6836595535278,
+        "y": 1227.6320390701294,
         "wires": [
             [
-                "f3103796.1143c8",
-                "2633d9dc.568256"
+                "5917ab0d.9a2ea4",
+                "95cd7f1d.d19ae"
             ]
         ]
     },
     {
-        "id": "a8a5c130.d2911",
+        "id": "53461e39.cc1fa",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "engt",
         "firebaseconfig": "",
         "childpath": "/1/energy",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 546.9336786270142,
-        "y": 990.3611831665039,
+        "x": 550,
+        "y": 1020,
         "wires": [
             [
-                "1582a654.96a05a",
-                "96ea032a.9d3e2",
-                "ccdacd67.4433e",
-                "f1c0b434.e0c788"
+                "8dafb97.d542348",
+                "78574934.e8dbd8",
+                "4b4653ac.3b978c",
+                "b4d69b0d.c08f98"
             ]
         ]
     },
     {
-        "id": "20044350.87347c",
+        "id": "5c135dd1.85d4a4",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "powt",
         "firebaseconfig": "",
         "childpath": "/1/power",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 572.9339733123779,
-        "y": 1608.3612608909607,
+        "x": 673.0173015594482,
+        "y": 1557.3334822654724,
         "wires": [
             [
-                "42aa593b.e609e8",
-                "30f79d6.3d42062",
-                "cb2c0954.d223a8"
+                "1559376b.fc62d9",
+                "4d6aa2a5.cc06cc",
+                "984c35d.d43fbc8"
             ]
         ]
     },
     {
-        "id": "3a1db084.3ad87",
+        "id": "57579ee9.99c6a",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P0_gag",
-        "group": "f148ef2c.acca9",
+        "group": "2e9468e.0de1e98",
         "order": 1,
         "width": "6",
         "height": "4",
@@ -799,16 +722,16 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 895.9166717529297,
-        "y": 593.0277786254883,
+        "x": 480,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "b822d349.20956",
+        "id": "a9cdeca3.08dc7",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P1_gag",
-        "group": "f148ef2c.acca9",
+        "group": "2e9468e.0de1e98",
         "order": 2,
         "width": "6",
         "height": "4",
@@ -825,16 +748,16 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 895.9166717529297,
-        "y": 793.0277786254883,
+        "x": 500,
+        "y": 720,
         "wires": []
     },
     {
-        "id": "b98af988.3a7d98",
+        "id": "4bee31ef.5ee28",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P2_gag",
-        "group": "f148ef2c.acca9",
+        "group": "2e9468e.0de1e98",
         "order": 3,
         "width": "6",
         "height": "4",
@@ -851,16 +774,16 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 895.9166717529297,
-        "y": 833.0277786254883,
+        "x": 500,
+        "y": 860,
         "wires": []
     },
     {
-        "id": "f17b2658.a4d388",
+        "id": "4bc7eb56.887ff4",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
-        "group": "e21f64e2.019128",
+        "group": "baa99e4a.ae24b",
         "order": 0,
         "width": "8",
         "height": "4",
@@ -877,17 +800,17 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 1418.9160614013672,
-        "y": 951.6493606567383,
+        "x": 1438.9993896484375,
+        "y": 980.62158203125,
         "wires": []
     },
     {
-        "id": "3abdc00a.3b70a",
+        "id": "cc7e6998.b5bde8",
         "type": "ui_chart",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "3PGraph",
-        "group": "f148ef2c.acca9",
-        "order": 8,
+        "group": "2e9468e.0de1e98",
+        "order": 9,
         "width": "19",
         "height": "8",
         "label": "3 Phase graph",
@@ -916,19 +839,19 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 536.9166717529297,
-        "y": 178.02777862548828,
+        "x": 560,
+        "y": 260,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "fe3397cb.918838",
+        "id": "7a6bd5f5.3aab5c",
         "type": "ui_chart",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
-        "group": "e21f64e2.019128",
+        "group": "baa99e4a.ae24b",
         "order": 0,
         "width": "10",
         "height": "4",
@@ -958,17 +881,17 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 1242.916069984436,
-        "y": 993.6493854522705,
+        "x": 1262.9993982315063,
+        "y": 1022.6216068267822,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "d686263e.5039c8",
+        "id": "ff4b813.66f978",
         "type": "ui_toast",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "position": "top right",
         "displayTime": "5",
         "highlight": "",
@@ -977,14 +900,14 @@
         "cancel": "",
         "topic": "Alarm",
         "name": "Show alarm",
-        "x": 367.9166946411133,
-        "y": 956.0277795791626,
+        "x": 388.0000228881836,
+        "y": 985.0000009536743,
         "wires": []
     },
     {
-        "id": "b77d6b4b.03a1c8",
+        "id": "6a78a69f.82ddb8",
         "type": "rest publish",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "energy3Phase",
         "appid": "wpm2018",
         "auth": "yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd",
@@ -992,14 +915,14 @@
         "topicType": "str",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 1255.9166717529297,
-        "y": 875.0277786254883,
+        "x": 1276,
+        "y": 904,
         "wires": []
     },
     {
-        "id": "af6b8694.544ea8",
+        "id": "dec53306.0a275",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "!!! reset all data off meter !!!",
         "topic": "reset meter",
         "payload": "0",
@@ -1007,60 +930,60 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 486.9166717529297,
-        "y": 1118.0277786254883,
+        "x": 507,
+        "y": 1147,
         "wires": [
             [
-                "54d14d77.b36ed4",
-                "1065f8ec.cf8067",
-                "70c72c89.0d1084",
-                "99df0c4b.d53c1"
+                "17956fcf.650ac",
+                "26e95bbc.36a5a4",
+                "da4a5398.afa05",
+                "cdd7644d.0a4528"
             ]
         ]
     },
     {
-        "id": "6f53cc9a.16b554",
+        "id": "cfabbfc4.6f93",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p0",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 906.9166717529297,
-        "y": 1318.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 927,
+        "y": 1347,
         "wires": []
     },
     {
-        "id": "38514c.ecc1deb4",
+        "id": "90969dbc.1d81",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p1",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 926.9166717529297,
-        "y": 1378.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 947,
+        "y": 1407,
         "wires": []
     },
     {
-        "id": "28ea6239.65df4e",
+        "id": "4a77f125.6a5d4",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "1_p2",
         "qos": "0",
         "retain": "",
-        "broker": "faa41933.fa74e8",
-        "x": 926.9166717529297,
-        "y": 1438.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 947,
+        "y": 1467,
         "wires": []
     },
     {
-        "id": "d38edb46.7720f8",
+        "id": "4b227b1a.cf4b04",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "test value",
         "topic": "test",
         "payload": "10000",
@@ -1068,32 +991,20 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 502.9166717529297,
-        "y": 1383.0277786254883,
+        "x": 523,
+        "y": 1412,
         "wires": [
             [
-                "cce5bbf9.00bd88",
-                "89a6f3cf.9afd7",
-                "bbb81c44.0d101"
+                "39162116.ec1fae",
+                "91d106c5.3cfb58",
+                "4da8098f.2bba98"
             ]
         ]
     },
     {
-        "id": "75e8380.f2023c8",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "payload",
-        "x": 1174.9166717529297,
-        "y": 1421.0277786254883,
-        "wires": []
-    },
-    {
-        "id": "9d60fd32.de0c3",
+        "id": "40cb6e59.44386",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "force_restart",
         "topic": "",
         "payload": "",
@@ -1101,27 +1012,27 @@
         "repeat": "",
         "crontab": "",
         "once": false,
-        "x": 479.9166717529297,
-        "y": 1306.0277786254883,
+        "x": 500,
+        "y": 1335,
         "wires": [
             [
-                "533613d5.d8e4ec",
-                "e517cfc0.f5b5e"
+                "d2ed9931.dfb998",
+                "fe3fc75b.769248"
             ]
         ]
     },
     {
-        "id": "f6ea88b8.ce38e8",
+        "id": "e6e27a23.8d79d8",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
-        "group": "95b501bb.43c6e",
-        "order": 0,
+        "group": "c80f31aa.2d0a7",
+        "order": 1,
         "width": "4",
         "height": "4",
         "gtype": "gage",
         "title": "Energy (Node1)",
-        "label": "kWhr.",
+        "label": "kWh",
         "format": "{{value}}",
         "min": 0,
         "max": "100000",
@@ -1132,43 +1043,30 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 1246.9166717529297,
-        "y": 916.0277786254883,
+        "x": 1267,
+        "y": 945,
         "wires": []
     },
     {
-        "id": "7c0c2d4c.e8a3f4",
+        "id": "9ebe53eb.e0ed",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "toString",
         "func": "msg.payload= String(parseFloat(msg.payload).toFixed(2));\nmsg.topic = \"/\" +msg.topic;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 323.9166717529297,
-        "y": 556.0277786254883,
+        "x": 360,
+        "y": 560,
         "wires": [
             [
-                "df260d9.f5422f",
-                "65b280ac.896b2"
+                "db2f37bd.e14648"
             ]
         ]
     },
     {
-        "id": "df260d9.f5422f",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 912.9166717529297,
-        "y": 508.0277786254883,
-        "wires": []
-    },
-    {
-        "id": "65b280ac.896b2",
+        "id": "db2f37bd.e14648",
         "type": "rest publish",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "power",
         "appid": "wpm2018",
         "auth": "yiI3Sx2dB3PnZDg:BLd2YPO5eryrKlRDnxoCEKndd",
@@ -1176,32 +1074,16 @@
         "topicType": "msg",
         "payload": "payload",
         "payloadType": "msg",
-        "x": 888.9166717529297,
-        "y": 554.0277786254883,
+        "x": 530,
+        "y": 560,
         "wires": []
     },
     {
-        "id": "6f7642eb.3b810c",
-        "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "Peak",
-        "func": "var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n\n    \n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 318.9166717529297,
-        "y": 408.0277786254883,
-        "wires": [
-            [
-                "74dbc85b.84a628"
-            ]
-        ]
-    },
-    {
-        "id": "6ba5cbb0.33e954",
+        "id": "234bd621.4ebfba",
         "type": "ui_button",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "min resolution",
-        "group": "f148ef2c.acca9",
+        "group": "2e9468e.0de1e98",
         "order": 4,
         "width": "3",
         "height": "1",
@@ -1213,31 +1095,31 @@
         "payload": "Minute resolution",
         "payloadType": "str",
         "topic": "minute_res",
-        "x": 855.9166717529297,
-        "y": 309.0277786254883,
+        "x": 860,
+        "y": 340,
         "wires": [
             [
-                "e7a21dc2.bae0a"
+                "2249f7f1.8eb9a8"
             ]
         ]
     },
     {
-        "id": "e7a21dc2.bae0a",
+        "id": "2249f7f1.8eb9a8",
         "type": "ui_ui_control",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
-        "x": 1074.9166717529297,
-        "y": 301.0277786254883,
+        "x": 1060,
+        "y": 280,
         "wires": [
             []
         ]
     },
     {
-        "id": "65f4105b.a59dd",
+        "id": "e835c4ad.da8aa8",
         "type": "ui_chart",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "min",
-        "group": "f3414c6f.61626",
+        "group": "bf6a3ea.194e5c",
         "order": 2,
         "width": "19",
         "height": "6",
@@ -1267,36 +1149,36 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 526.9166717529297,
-        "y": 218.02777862548828,
+        "x": 550,
+        "y": 300,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "cce5bbf9.00bd88",
+        "id": "39162116.ec1fae",
         "type": "random",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "rand",
         "low": "1000",
         "high": "100000",
         "inte": "true",
         "property": "payload",
-        "x": 663.9166717529297,
-        "y": 1338.0277786254883,
+        "x": 684,
+        "y": 1367,
         "wires": [
             [
-                "6f53cc9a.16b554"
+                "cfabbfc4.6f93"
             ]
         ]
     },
     {
-        "id": "d51e8b3d.af05e8",
+        "id": "572aee10.85c36",
         "type": "ui_button",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "hour resolution",
-        "group": "f148ef2c.acca9",
+        "group": "2e9468e.0de1e98",
         "order": 5,
         "width": "3",
         "height": "1",
@@ -1308,19 +1190,19 @@
         "payload": "Hour resolution",
         "payloadType": "str",
         "topic": "hour resolution",
-        "x": 856.9166717529297,
-        "y": 267.0277786254883,
+        "x": 860,
+        "y": 300,
         "wires": [
             [
-                "e7a21dc2.bae0a"
+                "2249f7f1.8eb9a8"
             ]
         ]
     },
     {
-        "id": "a0acdf1a.5edb6",
+        "id": "e6846096.1884e",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "e21f64e2.019128",
+        "z": "4c69e6e8.b973c8",
+        "group": "baa99e4a.ae24b",
         "order": 0,
         "width": "3",
         "height": "1",
@@ -1328,15 +1210,15 @@
         "label": "EA",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1394.9166717529297,
-        "y": 1104.0277786254883,
+        "x": 1415,
+        "y": 1133,
         "wires": []
     },
     {
-        "id": "ec130805.738ec8",
+        "id": "e5057cf0.c38dc",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "e21f64e2.019128",
+        "z": "4c69e6e8.b973c8",
+        "group": "baa99e4a.ae24b",
         "order": 0,
         "width": "3",
         "height": "1",
@@ -1344,15 +1226,15 @@
         "label": "EB",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1391.9166717529297,
-        "y": 1168.0277786254883,
+        "x": 1412,
+        "y": 1197,
         "wires": []
     },
     {
-        "id": "7ec2de80.59e81",
+        "id": "16a21d70.fa7773",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "e21f64e2.019128",
+        "z": "4c69e6e8.b973c8",
+        "group": "baa99e4a.ae24b",
         "order": 0,
         "width": "3",
         "height": "1",
@@ -1360,246 +1242,214 @@
         "label": "EC",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1393.9166717529297,
-        "y": 1230.0277786254883,
+        "x": 1414,
+        "y": 1259,
         "wires": []
     },
     {
-        "id": "89a6f3cf.9afd7",
+        "id": "91d106c5.3cfb58",
         "type": "random",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "rand",
         "low": "1000",
         "high": "100000",
         "inte": "true",
         "property": "payload",
-        "x": 665.9166717529297,
-        "y": 1382.0277786254883,
+        "x": 686,
+        "y": 1411,
         "wires": [
             [
-                "38514c.ecc1deb4"
+                "90969dbc.1d81"
             ]
         ]
     },
     {
-        "id": "bbb81c44.0d101",
+        "id": "4da8098f.2bba98",
         "type": "random",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "rand",
         "low": "1000",
         "high": "100000",
         "inte": "true",
         "property": "payload",
-        "x": 665.9166717529297,
-        "y": 1430.0277786254883,
+        "x": 686,
+        "y": 1459,
         "wires": [
             [
-                "28ea6239.65df4e"
+                "4a77f125.6a5d4"
             ]
         ]
     },
     {
-        "id": "566a2e1d.63b98",
+        "id": "ca45e95.74f9f18",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Decimal_len",
         "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1225.9166717529297,
-        "y": 1104.0277786254883,
+        "x": 1246,
+        "y": 1133,
         "wires": [
             [
-                "a0acdf1a.5edb6"
+                "e6846096.1884e"
             ]
         ]
     },
     {
-        "id": "f016e6bb.fbc178",
+        "id": "392b6906.d468d6",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Decimal_len",
         "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1223.9166717529297,
-        "y": 1169.0277786254883,
+        "x": 1244,
+        "y": 1198,
         "wires": [
             [
-                "ec130805.738ec8"
+                "e5057cf0.c38dc"
             ]
         ]
     },
     {
-        "id": "2633d9dc.568256",
+        "id": "95cd7f1d.d19ae",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Decimal_len",
         "func": "msg.payload = parseFloat(msg.payload).toFixed(4);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1221.9166717529297,
-        "y": 1231.0277786254883,
+        "x": 1242,
+        "y": 1260,
         "wires": [
             [
-                "7ec2de80.59e81"
+                "16a21d70.fa7773"
             ]
         ]
     },
     {
-        "id": "7105addc.52fa54",
+        "id": "682bbd56.100024",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Decimal_len",
         "func": "msg.payload = parseFloat(msg.payload).toFixed(1);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1236.9166717529297,
-        "y": 953.0277786254883,
+        "x": 1257,
+        "y": 982,
         "wires": [
             [
-                "f17b2658.a4d388"
+                "4bc7eb56.887ff4"
             ]
         ]
     },
     {
-        "id": "532b6b3c.a0e844",
-        "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "Peak",
-        "func": "var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 318.9166717529297,
-        "y": 615.0277786254883,
-        "wires": [
-            [
-                "684c0ff7.88ab8"
-            ]
-        ]
-    },
-    {
-        "id": "31dcf0c.72c231",
-        "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "Peak",
-        "func": "var max = context.get('max')||0;\nif(msg.topic == \"write_to_db\")\n{\n    max = 0;\n    context.set('max', max);\n    msg.payload = max;\n    return msg;\n}\nelse\n{\n    if(parseFloat(msg.payload) > max)\n    {\n        max = parseFloat(msg.payload);\n        msg.payload = max;\n        context.set('max', max);\n        return msg;\n    }\n}\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 319.9166717529297,
-        "y": 756.0277786254883,
-        "wires": [
-            [
-                "d9d79e67.fb109"
-            ]
-        ]
-    },
-    {
-        "id": "75727a4c.4a0754",
+        "id": "5663bb3c.862bf4",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak0",
         "firebaseconfig": "",
         "childpath": "/Peak/1_PA",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 606.9166717529297,
-        "y": 398.0277786254883,
+        "x": 630,
+        "y": 420,
         "wires": [
             [
-                "1692eee7.396df1"
+                "7ce945cf.34b8fc"
             ]
         ]
     },
     {
-        "id": "336ece00.67de22",
+        "id": "4518891c.484f08",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak1",
         "firebaseconfig": "",
         "childpath": "/Peak/1_PB",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 606.9166717529297,
-        "y": 458.0277786254883,
+        "x": 610,
+        "y": 640,
         "wires": [
             [
-                "8f12fe93.1a46c"
+                "c863b3d2.4adcb"
             ]
         ]
     },
     {
-        "id": "3c2f9e8e.b6e7d2",
+        "id": "db0d114a.c009f",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak2",
         "firebaseconfig": "",
         "childpath": "/Peak/1_PC",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 586.9166717529297,
-        "y": 658.0277786254883,
+        "x": 610,
+        "y": 780,
         "wires": [
             [
-                "ce508b73.0d5818"
+                "e96fc0ef.e0596"
             ]
         ]
     },
     {
-        "id": "1692eee7.396df1",
+        "id": "7ce945cf.34b8fc",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "f148ef2c.acca9",
-        "order": 10,
+        "z": "4c69e6e8.b973c8",
+        "group": "2e9468e.0de1e98",
+        "order": 11,
         "width": "4",
         "height": "1",
         "name": "",
         "label": "PeakA",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 766.9166717529297,
-        "y": 398.0277786254883,
+        "x": 770,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "8f12fe93.1a46c",
+        "id": "c863b3d2.4adcb",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "f148ef2c.acca9",
-        "order": 11,
+        "z": "4c69e6e8.b973c8",
+        "group": "2e9468e.0de1e98",
+        "order": 12,
         "width": "4",
         "height": "1",
         "name": "",
         "label": "PeakB",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 766.9166717529297,
-        "y": 458.0277786254883,
+        "x": 730,
+        "y": 640,
         "wires": []
     },
     {
-        "id": "ce508b73.0d5818",
+        "id": "e96fc0ef.e0596",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "f148ef2c.acca9",
-        "order": 12,
+        "z": "4c69e6e8.b973c8",
+        "group": "2e9468e.0de1e98",
+        "order": 13,
         "width": "4",
         "height": "1",
         "name": "",
         "label": "PeakC",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 746.9166717529297,
-        "y": 638.0277786254883,
+        "x": 730,
+        "y": 780,
         "wires": []
     },
     {
-        "id": "9f10631.10ba4a",
+        "id": "acd40b15.72d598",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "write_to_db",
         "topic": "write_to_db",
         "payload": "",
@@ -1607,202 +1457,130 @@
         "repeat": "900",
         "crontab": "",
         "once": false,
-        "x": 100.91667175292969,
-        "y": 321.0277786254883,
+        "x": 110,
+        "y": 100,
         "wires": [
             [
-                "6f7642eb.3b810c",
-                "4d0cfe6b.ca452",
-                "532b6b3c.a0e844",
-                "31dcf0c.72c231"
+                "85243098.cc46a"
             ]
         ]
     },
     {
-        "id": "4d0cfe6b.ca452",
+        "id": "83498087.45d48",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak",
         "firebaseconfig": "",
         "childpath": "/Peak",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 307.9166717529297,
-        "y": 179.02777862548828,
+        "x": 390,
+        "y": 100,
         "wires": [
             [
-                "a98ad6e0.3ba168",
-                "5721a644.5cfc28"
+                "f62d51c2.d432e",
+                "2226a2ea.c05ede"
             ]
         ]
     },
     {
-        "id": "349a1cf8.ff58a4",
+        "id": "4628652b.bd163c",
         "type": "writefeed",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak",
         "feedid": "wpm2018Database",
         "apikey": "FtzABVCEyUPppAZKAmGsle2RYQBfiA6u",
         "data": "payload",
         "dataType": "msg",
-        "x": 599.9166717529297,
-        "y": 117.02777862548828,
+        "x": 670,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "74dbc85b.84a628",
-        "type": "delay",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 456.9166717529297,
-        "y": 398.0277786254883,
-        "wires": [
-            [
-                "75727a4c.4a0754"
-            ]
-        ]
-    },
-    {
-        "id": "684c0ff7.88ab8",
-        "type": "delay",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 456.9166717529297,
-        "y": 618.0277786254883,
-        "wires": [
-            [
-                "336ece00.67de22"
-            ]
-        ]
-    },
-    {
-        "id": "d9d79e67.fb109",
-        "type": "delay",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 456.9166717529297,
-        "y": 758.0277786254883,
-        "wires": [
-            [
-                "3c2f9e8e.b6e7d2"
-            ]
-        ]
-    },
-    {
-        "id": "b2075dcb.33b5",
+        "id": "1a70d117.775a3f",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "m1",
         "topic": "m1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 744.9167060852051,
-        "y": 2632.8064908981323,
+        "broker": "526f3bc0.73f9d4",
+        "x": 750,
+        "y": 2560,
         "wires": []
     },
     {
-        "id": "27a46bda.9b64e4",
+        "id": "8c08e02a.01b44",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "C1",
         "topic": "C1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 743.9167213439941,
-        "y": 2695.8063535690308,
+        "broker": "526f3bc0.73f9d4",
+        "x": 749.0000152587891,
+        "y": 2622.9998626708984,
         "wires": []
     },
     {
-        "id": "5489682.19e8d98",
+        "id": "620e84e1.00667c",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "NID",
         "topic": "1",
         "qos": "0",
-        "broker": "faa41933.fa74e8",
-        "x": 356.91667556762695,
-        "y": 2417.8064556121826,
+        "broker": "526f3bc0.73f9d4",
+        "x": 377.00000381469727,
+        "y": 2446.7786769866943,
         "wires": [
             [
-                "aa5b1362.2d738",
-                "ae783bc0.5669d8",
-                "6ee91228.43aa6c",
-                "9f9cb66a.c812b8",
-                "84a6e709.e214d8"
+                "3d71ab34.4cd3a4",
+                "a6f0115f.ffc5f",
+                "2856658d.ee291a",
+                "83b4a602.a6c3e8",
+                "121bea21.2c5bd6"
             ]
         ]
     },
     {
-        "id": "aa5b1362.2d738",
+        "id": "3d71ab34.4cd3a4",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "m",
         "func": "msg.payload = \"60\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 543.9167213439941,
-        "y": 2634.729968070984,
+        "x": 549.0000152587891,
+        "y": 2561.9234771728516,
         "wires": [
             [
-                "b2075dcb.33b5"
+                "1a70d117.775a3f"
             ]
         ]
     },
     {
-        "id": "ae783bc0.5669d8",
+        "id": "a6f0115f.ffc5f",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "C",
         "func": "msg.payload = \"-2\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 543.9167213439941,
-        "y": 2695.8063535690308,
+        "x": 549.0000152587891,
+        "y": 2622.9998626708984,
         "wires": [
             [
-                "27a46bda.9b64e4"
+                "8c08e02a.01b44"
             ]
         ]
     },
     {
-        "id": "4c5e8a3a.11ccf4",
+        "id": "54a6474c.e58bf8",
         "type": "ui_button",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
-        "group": "f6cdb7bb.be7438",
+        "group": "15677098.ea690f",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -1814,20 +1592,20 @@
         "payload": "Minute resolution",
         "payloadType": "str",
         "topic": "minute_res",
-        "x": 846.99658203125,
-        "y": 176.02430725097656,
+        "x": 860,
+        "y": 220,
         "wires": [
             [
-                "e7a21dc2.bae0a"
+                "2249f7f1.8eb9a8"
             ]
         ]
     },
     {
-        "id": "15a01ffb.d5597",
+        "id": "a811f7f5.80b058",
         "type": "ui_button",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "hour resolution",
-        "group": "f3414c6f.61626",
+        "group": "bf6a3ea.194e5c",
         "order": 1,
         "width": "3",
         "height": "1",
@@ -1839,90 +1617,90 @@
         "payload": "Hour resolution",
         "payloadType": "str",
         "topic": "hour resolution",
-        "x": 850.0000610351562,
-        "y": 225.01736450195312,
+        "x": 860,
+        "y": 260,
         "wires": [
             [
-                "e7a21dc2.bae0a"
+                "2249f7f1.8eb9a8"
             ]
         ]
     },
     {
-        "id": "482deae0.f5a284",
+        "id": "493989fa.25e328",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "PA",
         "func": "msg.topic = \"PA\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 326.9166717529297,
-        "y": 218.02777862548828,
+        "x": 347,
+        "y": 247,
         "wires": [
             [
-                "65f4105b.a59dd",
-                "3abdc00a.3b70a"
+                "e835c4ad.da8aa8",
+                "cc7e6998.b5bde8"
             ]
         ]
     },
     {
-        "id": "f63f34c9.fd0338",
+        "id": "7fab1f4c.119f1",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "PB",
         "func": "msg.topic = \"PB\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 326.9166717529297,
-        "y": 258.0277786254883,
+        "x": 347,
+        "y": 287,
         "wires": [
             [
-                "65f4105b.a59dd",
-                "3abdc00a.3b70a"
+                "e835c4ad.da8aa8",
+                "cc7e6998.b5bde8"
             ]
         ]
     },
     {
-        "id": "bbe14155.6c28e",
+        "id": "be2014f9.a36568",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "PC",
         "func": "msg.topic = \"PC\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 326.9166717529297,
-        "y": 298.0277786254883,
+        "x": 347,
+        "y": 327,
         "wires": [
             [
-                "65f4105b.a59dd",
-                "3abdc00a.3b70a"
+                "e835c4ad.da8aa8",
+                "cc7e6998.b5bde8"
             ]
         ]
     },
     {
-        "id": "25db6374.3b1dec",
+        "id": "b4762118.25aff",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P_avg",
         "func": "var pavg = msg.payload/3;\nmsg.payload =pavg.toFixed(2)\nmsg.topic = \"Pavg\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 671.9167022705078,
-        "y": 1902.0280485153198,
+        "x": 692.0000305175781,
+        "y": 1931.0002698898315,
         "wires": [
             [
-                "f963bb0f.fd3178",
-                "a6253011.2215d",
-                "115f6b98.93d344"
+                "aa7cc0b8.e6a04",
+                "c2e072d0.a7b5c",
+                "c00ef5b.a1f9708"
             ]
         ]
     },
     {
-        "id": "a11f7756.e21668",
+        "id": "3876e09a.ee8ba",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Ptotal",
-        "group": "f148ef2c.acca9",
-        "order": 6,
+        "group": "2e9468e.0de1e98",
+        "order": 7,
         "width": "6",
         "height": "4",
         "gtype": "gage",
@@ -1938,17 +1716,17 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 680.916690826416,
-        "y": 1818.0280113220215,
+        "x": 710,
+        "y": 1860,
         "wires": []
     },
     {
-        "id": "f963bb0f.fd3178",
+        "id": "aa7cc0b8.e6a04",
         "type": "ui_gauge",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Pavg",
-        "group": "f148ef2c.acca9",
-        "order": 7,
+        "group": "2e9468e.0de1e98",
+        "order": 8,
         "width": "6",
         "height": "4",
         "gtype": "gage",
@@ -1964,17 +1742,17 @@
         ],
         "seg1": "",
         "seg2": "",
-        "x": 855.9167137145996,
-        "y": 1905.0280485153198,
+        "x": 876.0000419616699,
+        "y": 1934.0002698898315,
         "wires": []
     },
     {
-        "id": "a6253011.2215d",
+        "id": "c2e072d0.a7b5c",
         "type": "ui_chart",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P_grp",
-        "group": "f148ef2c.acca9",
-        "order": 9,
+        "group": "2e9468e.0de1e98",
+        "order": 10,
         "width": "19",
         "height": "8",
         "label": "Power (W)",
@@ -2003,72 +1781,74 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 855.9166736602783,
-        "y": 1860.027932524681,
+        "x": 876.0000019073486,
+        "y": 1889.0001538991928,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "4ffa591d.7976f8",
+        "id": "4e769ef7.c28b9",
         "type": "mqtt in",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "restart_from_hmi",
         "topic": "1_RTS",
         "qos": "0",
-        "broker": "faa41933.fa74e8",
-        "x": 536.9166717529297,
-        "y": 1218.0277786254883,
+        "broker": "526f3bc0.73f9d4",
+        "x": 557,
+        "y": 1247,
         "wires": [
             [
-                "52005ff0.7995b"
+                "55a6018c.4ca19"
             ]
         ]
     },
     {
-        "id": "f02245ac.4e2778",
+        "id": "cee90ab8.c4c3b8",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "P_total",
         "func": "var p_total = msg.payload[\"p0\"] + msg.payload[\"p1\"] + msg.payload[\"p2\"];\nmsg.topic = \"Ptotal\";\nmsg.payload = p_total.toFixed(2);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 455.9166736602783,
-        "y": 1860.027932524681,
+        "x": 476.00000190734863,
+        "y": 1889.0001538991928,
         "wires": [
             [
-                "25db6374.3b1dec",
-                "a11f7756.e21668",
-                "a6253011.2215d"
+                "b4762118.25aff",
+                "3876e09a.ee8ba",
+                "c2e072d0.a7b5c",
+                "99aae89b.782fb8",
+                "9deb0a44.7adb78"
             ]
         ]
     },
     {
-        "id": "35ae425.28d8cbe",
+        "id": "5e34c943.9c3ba8",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "power",
         "firebaseconfig": "",
         "childpath": "1/power",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 291.9166736602783,
-        "y": 1861.027932524681,
+        "x": 312.00000190734863,
+        "y": 1890.0001538991928,
         "wires": [
             [
-                "f02245ac.4e2778",
-                "e5c6d6d4.6c9638",
-                "2ccfa97e.1d57e6",
-                "ea94c0bc.5c58a"
+                "cee90ab8.c4c3b8",
+                "69ff6399.79342c",
+                "6e38c0e2.8ee87",
+                "de5941d6.34335"
             ]
         ]
     },
     {
-        "id": "1babc5ce.d88b2a",
+        "id": "3f12411b.69aace",
         "type": "inject",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "",
         "payload": "",
@@ -2076,66 +1856,67 @@
         "repeat": "5",
         "crontab": "",
         "once": false,
-        "x": 129.91667366027832,
-        "y": 1861.027932524681,
+        "onceDelay": "",
+        "x": 150.00000190734863,
+        "y": 1890.0001538991928,
         "wires": [
             [
-                "35ae425.28d8cbe"
+                "5e34c943.9c3ba8"
             ]
         ]
     },
     {
-        "id": "a98ad6e0.3ba168",
+        "id": "f62d51c2.d432e",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "feed_obj",
         "func": "var my_obj = \"1_PA: \" + msg.payload[\"1_PA\"] + \", 1_PB: \" + msg.payload[\"1_PB\"] + \", 1_PC: \" + msg.payload[\"1_PC\"];\nfor(i = 2; i < 6; i++)\n{\n\tmy_obj = my_obj + \", \" + String(i) + \"_PA: \" + msg.payload[String(i) + \"_PA\"] + \", \" + String(i) + \"_PB: \" + msg.payload[String(i) + \"_PB\"] + \", \" + String(i) + \"_PC: \" + msg.payload[String(i) + \"_PC\"];\t\n}\nmsg.payload = my_obj;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 460,
+        "x": 540,
         "y": 120,
         "wires": [
             [
-                "349a1cf8.ff58a4"
+                "4628652b.bd163c"
             ]
         ]
     },
     {
-        "id": "115f6b98.93d344",
+        "id": "c00ef5b.a1f9708",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Pavg",
         "firebaseconfig": "",
         "childpath": "Peak/1_Pavg",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 855.9999923706055,
-        "y": 1949.000192642212,
+        "x": 876.0833206176758,
+        "y": 1977.9724140167236,
         "wires": [
             []
         ]
     },
     {
-        "id": "499fa345.98283c",
+        "id": "3ac9abf9.2ac084",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log_setting",
         "topic": "log_enable1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 745.0729331970215,
-        "y": 2282.4276514053345,
+        "broker": "526f3bc0.73f9d4",
+        "x": 765.1562614440918,
+        "y": 2311.399872779846,
         "wires": []
     },
     {
-        "id": "f2e869cf.cca998",
+        "id": "1fc8fb5d.26dac5",
         "type": "ui_switch",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "label": "Log",
-        "group": "41eafa35.4cab14",
+        "group": "8c4462fe.6eb75",
         "order": 1,
         "width": "4",
         "height": "1",
@@ -2151,74 +1932,55 @@
         "offvalueType": "str",
         "officon": "",
         "offcolor": "",
-        "x": 371.0764923095703,
-        "y": 2234.785671234131,
+        "x": 391.1598205566406,
+        "y": 2263.7578926086426,
         "wires": [
             [
-                "f48aae0c.1624"
+                "b28f26d5.60de08"
             ]
         ]
     },
     {
-        "id": "6ee91228.43aa6c",
+        "id": "2856658d.ee291a",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log",
         "firebaseconfig": "",
         "childpath": "1/setting/log",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 534.0173683166504,
-        "y": 2339.2335109710693,
+        "x": 554.1006965637207,
+        "y": 2368.205732345581,
         "wires": [
             [
-                "499fa345.98283c"
+                "3ac9abf9.2ac084"
             ]
         ]
     },
     {
-        "id": "f48aae0c.1624",
+        "id": "b28f26d5.60de08",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log",
         "firebaseconfig": "",
         "childpath": "1/setting/log",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 537.0174331665039,
-        "y": 2235.1223917007446,
+        "x": 557.1007614135742,
+        "y": 2264.0946130752563,
         "wires": [
             [
-                "499fa345.98283c"
+                "3ac9abf9.2ac084"
             ]
         ]
     },
     {
-        "id": "6e011f96.d7405",
-        "type": "inject",
-        "z": "700eb341.6000fc",
-        "name": "enable_by_default",
-        "topic": "default_setting",
-        "payload": "1",
-        "payloadType": "str",
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "x": 160.07292938232422,
-        "y": 2234.084309577942,
-        "wires": [
-            [
-                "f2e869cf.cca998"
-            ]
-        ]
-    },
-    {
-        "id": "26aeabe8.01e344",
+        "id": "3812b2e1.886efe",
         "type": "ui_template",
-        "z": "700eb341.6000fc",
-        "group": "41eafa35.4cab14",
+        "z": "4c69e6e8.b973c8",
+        "group": "8c4462fe.6eb75",
         "name": "custom_template",
         "order": 6,
         "width": 0,
@@ -2227,19 +1989,19 @@
         "storeOutMessages": true,
         "fwdInMessages": true,
         "templateScope": "local",
-        "x": 143.0763702392578,
-        "y": 2176.107787132263,
+        "x": 163.15969848632812,
+        "y": 2205.080008506775,
         "wires": [
             []
         ]
     },
     {
-        "id": "71321836.e6f628",
+        "id": "a579f747.805248",
         "type": "ui_text_input",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log_interval_setting",
-        "label": "Log interval (in ms and more  that 5000)",
-        "group": "41eafa35.4cab14",
+        "label": "Log interval (in ms: between 5000, 300000)",
+        "group": "8c4462fe.6eb75",
         "order": 2,
         "width": "7",
         "height": "2",
@@ -2247,98 +2009,98 @@
         "mode": "text",
         "delay": "2000",
         "topic": "",
-        "x": 144.07635879516602,
-        "y": 2023.4479055404663,
+        "x": 164.15968704223633,
+        "y": 2052.420126914978,
         "wires": [
             [
-                "d40c1b19.3dbda8"
+                "88ea4671.7397c8"
             ]
         ]
     },
     {
-        "id": "836a8177.a0d94",
+        "id": "faf38b0f.2187c8",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log_interval",
         "firebaseconfig": "",
         "childpath": "1/setting/log_interval",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 475.01733779907227,
-        "y": 2022.3441381454468,
+        "x": 495.1006660461426,
+        "y": 2051.3163595199585,
         "wires": [
             [
-                "85a58058.d60ea",
-                "2190fee8.31b8b2"
+                "3fc1ef38.8386f",
+                "980d331.0696fd"
             ]
         ]
     },
     {
-        "id": "d40c1b19.3dbda8",
+        "id": "88ea4671.7397c8",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "isDigit",
         "func": "var input = parseInt(msg.payload);\nif (Number.isInteger(input)) \n{\n    if(input < 5000)\n    {\n        msg.payload = 5000;\n    }\n    else if(msg.payload < 900000)\n    {\n        msg.payload = input;\n    }\n    else\n    {\n        msg.payload = 900000;\n    }\n}\nelse\n{\n    msg.payload = 5000;\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 317.0798568725586,
-        "y": 2020.5279569625854,
+        "x": 337.1631851196289,
+        "y": 2049.500178337097,
         "wires": [
             [
-                "836a8177.a0d94"
+                "faf38b0f.2187c8"
             ]
         ]
     },
     {
-        "id": "2190fee8.31b8b2",
+        "id": "980d331.0696fd",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "",
         "topic": "log_interval1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 679.0798568725586,
-        "y": 1971.9791870117188,
+        "broker": "526f3bc0.73f9d4",
+        "x": 699.1631851196289,
+        "y": 2000.9514083862305,
         "wires": []
     },
     {
-        "id": "9f9cb66a.c812b8",
+        "id": "83b4a602.a6c3e8",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log_interval",
         "firebaseconfig": "",
         "childpath": "1/setting/log_interval",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 550.0173683166504,
-        "y": 2396.3445949554443,
+        "x": 570.1006965637207,
+        "y": 2425.316816329956,
         "wires": [
             [
-                "8cca2a93.50ace8"
+                "1d753ab7.e4c255"
             ]
         ]
     },
     {
-        "id": "8cca2a93.50ace8",
+        "id": "1d753ab7.e4c255",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "log_interval",
         "topic": "log_interval1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 739.0173187255859,
-        "y": 2396.344789505005,
+        "broker": "526f3bc0.73f9d4",
+        "x": 759.1006469726562,
+        "y": 2425.3170108795166,
         "wires": []
     },
     {
-        "id": "85a58058.d60ea",
+        "id": "3fc1ef38.8386f",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "41eafa35.4cab14",
+        "z": "4c69e6e8.b973c8",
+        "group": "8c4462fe.6eb75",
         "order": 4,
         "width": "5",
         "height": "2",
@@ -2346,48 +2108,48 @@
         "label": "Current log interval (ms):",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 711.0799102783203,
-        "y": 2022.0974922180176,
+        "x": 731.1632385253906,
+        "y": 2051.0697135925293,
         "wires": []
     },
     {
-        "id": "84a6e709.e214d8",
+        "id": "121bea21.2c5bd6",
         "type": "firebase.once",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "polling_interval",
         "firebaseconfig": "",
         "childpath": "1/setting/polling_interval",
         "repeatifnull": false,
         "eventType": "value",
         "queries": [],
-        "x": 566.017333984375,
-        "y": 2464.121699333191,
+        "x": 586.1006622314453,
+        "y": 2493.0939207077026,
         "wires": [
             [
-                "349cb518.603a1a"
+                "969ab62.f12e848"
             ]
         ]
     },
     {
-        "id": "349cb518.603a1a",
+        "id": "969ab62.f12e848",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "polling_interval",
         "topic": "polling_interval1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 785.0694694519043,
-        "y": 2463.746835708618,
+        "broker": "526f3bc0.73f9d4",
+        "x": 805.1527976989746,
+        "y": 2492.71905708313,
         "wires": []
     },
     {
-        "id": "4ce82d34.825254",
+        "id": "5865b944.54fc98",
         "type": "ui_text_input",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms and more  that 1000)",
-        "group": "41eafa35.4cab14",
+        "label": "Polling interval (in ms: between 5000, 300000)",
+        "group": "8c4462fe.6eb75",
         "order": 3,
         "width": "7",
         "height": "2",
@@ -2395,48 +2157,48 @@
         "mode": "text",
         "delay": "2000",
         "topic": "",
-        "x": 144.01734924316406,
-        "y": 2094.899537086487,
+        "x": 164.10067749023438,
+        "y": 2123.8717584609985,
         "wires": [
             [
-                "fccdad81.5e6cc"
+                "6486f1b3.ef61b"
             ]
         ]
     },
     {
-        "id": "fccdad81.5e6cc",
+        "id": "6486f1b3.ef61b",
         "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "isDigit",
         "func": "var input = parseInt(msg.payload);\nif (Number.isInteger(input)) \n{\n    if(input < 1000)\n    {\n        msg.payload = 1000;\n    }\n    else if(msg.payload < 900000)\n    {\n        msg.payload = input;\n        \n    }\n    else\n    {\n        msg.payload = 900000;\n    }\n    \n}\nelse\n{\n    msg.payload = 5000;\n}\nreturn msg;\n\n",
         "outputs": 1,
         "noerr": 0,
-        "x": 323.01737880706787,
-        "y": 2095.8995637893677,
+        "x": 343.1007070541382,
+        "y": 2124.8717851638794,
         "wires": [
             [
-                "df61db1d.c56e98"
+                "43fac87d.513438"
             ]
         ]
     },
     {
-        "id": "636bba69.ba0404",
+        "id": "a6e788f1.7cb768",
         "type": "mqtt out",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "polling_interval",
         "topic": "polling_interval1",
         "qos": "0",
         "retain": "false",
-        "broker": "faa41933.fa74e8",
-        "x": 714.0173416137695,
-        "y": 2141.0111951828003,
+        "broker": "526f3bc0.73f9d4",
+        "x": 734.1006698608398,
+        "y": 2169.983416557312,
         "wires": []
     },
     {
-        "id": "b93febcc.7ff928",
+        "id": "1d27a6ba.4e1cf9",
         "type": "ui_text",
-        "z": "700eb341.6000fc",
-        "group": "41eafa35.4cab14",
+        "z": "4c69e6e8.b973c8",
+        "group": "8c4462fe.6eb75",
         "order": 5,
         "width": "6",
         "height": "2",
@@ -2444,48 +2206,35 @@
         "label": "Current polling interval (ms):",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 750.017333984375,
-        "y": 2094.8994140625,
+        "x": 800,
+        "y": 2120,
         "wires": []
     },
     {
-        "id": "e30394aa.8ba5a8",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": false,
-        "console": "false",
-        "complete": "false",
-        "x": 717.0729904174805,
-        "y": 2188.715950012207,
-        "wires": []
-    },
-    {
-        "id": "df61db1d.c56e98",
+        "id": "43fac87d.513438",
         "type": "firebase modify",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "polling_interval",
         "firebaseconfig": "",
         "childpath": "1/setting/polling_interval",
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 523.017333984375,
-        "y": 2096.8994140625,
+        "x": 543.1006622314453,
+        "y": 2125.8716354370117,
         "wires": [
             [
-                "b93febcc.7ff928",
-                "636bba69.ba0404",
-                "e30394aa.8ba5a8"
+                "1d27a6ba.4e1cf9",
+                "a6e788f1.7cb768"
             ]
         ]
     },
     {
-        "id": "fadca40a.35afe8",
+        "id": "a62bd508.3124c8",
         "type": "ui_chart",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "hour",
-        "group": "f6cdb7bb.be7438",
+        "group": "15677098.ea690f",
         "order": 2,
         "width": "19",
         "height": "6",
@@ -2515,107 +2264,496 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 684.0173416137695,
-        "y": 1748.454957485199,
+        "x": 690,
+        "y": 1740,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "e5c6d6d4.6c9638",
+        "id": "2226a2ea.c05ede",
         "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "avg_PA",
-        "func": "var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nvar power = parseFloat(msg.payload[\"p0\"]);\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + power;\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PA\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 514.0173416137695,
-        "y": 1708.454957485199,
-        "wires": [
-            [
-                "fadca40a.35afe8"
-            ]
-        ]
-    },
-    {
-        "id": "2ccfa97e.1d57e6",
-        "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "avg_PB",
-        "func": "var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nvar power = parseFloat(msg.payload[\"p0\"]);\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + power;\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PB\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 494.01734161376953,
-        "y": 1748.454957485199,
-        "wires": [
-            [
-                "fadca40a.35afe8"
-            ]
-        ]
-    },
-    {
-        "id": "ea94c0bc.5c58a",
-        "type": "function",
-        "z": "700eb341.6000fc",
-        "name": "avg_PC",
-        "func": "var ncount = context.get('ncount') || 0;\nvar sum = context.get('sum')||0;\nvar power = parseFloat(msg.payload[\"p0\"]);\nif(ncount < 12)\n{\n    ncount = ncount + 1;\n    sum = sum + power;\n}\nelse\n{\n    msg.payload = sum/12;\n    ncount = 0;\n    sum = 0;\n    context.set('ncount',ncount);\n    context.set('sum', sum);\n    msg.topic = \"PC\";\n    return msg;\n}\ncontext.set('ncount',ncount);\ncontext.set('sum', sum);\n",
-        "outputs": 1,
-        "noerr": 0,
-        "x": 474.01734161376953,
-        "y": 1788.454957485199,
-        "wires": [
-            [
-                "fadca40a.35afe8"
-            ]
-        ]
-    },
-    {
-        "id": "5721a644.5cfc28",
-        "type": "function",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "feed_obj2",
         "func": "var my_obj = \"6_PA: \" + msg.payload[\"6_PA\"] + \", 6_PB: \" + msg.payload[\"6_PB\"] + \", 6_PC: \" + msg.payload[\"6_PC\"];\nfor(i = 7; i < 11; i++)\n{\n\tmy_obj = my_obj + \", \" + String(i) + \"_PA: \" + msg.payload[String(i) + \"_PA\"] + \", \" + String(i) + \"_PB: \" + msg.payload[String(i) + \"_PB\"] + \", \" + String(i) + \"_PC: \" + msg.payload[String(i) + \"_PC\"];\t\n}\nmsg.payload = my_obj;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 460.017333984375,
-        "y": 62.010414123535156,
+        "x": 540,
+        "y": 80,
         "wires": [
             [
-                "dce5d98b.efcd08",
-                "526887e8.ba02c8"
+                "27db72cc.2e622e"
             ]
         ]
     },
     {
-        "id": "dce5d98b.efcd08",
-        "type": "debug",
-        "z": "700eb341.6000fc",
-        "name": "",
-        "active": true,
-        "console": "false",
-        "complete": "false",
-        "x": 621.0694732666016,
-        "y": 27.267364501953125,
-        "wires": []
-    },
-    {
-        "id": "526887e8.ba02c8",
+        "id": "27db72cc.2e622e",
         "type": "writefeed",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "peak",
         "feedid": "wpm2018Database2",
         "apikey": "CTxOBi8JKSi3GxTdDp137BJJn6IpIheA",
         "data": "payload",
         "dataType": "msg",
-        "x": 605.017333984375,
-        "y": 62.010414123535156,
+        "x": 670,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "faa41933.fa74e8",
+        "id": "de5941d6.34335",
+        "type": "function",
+        "z": "4c69e6e8.b973c8",
+        "name": "avg_PA",
+        "func": "var power = parseFloat(msg.payload[\"p0\"]);\nmsg.payload = power;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 1700,
+        "wires": [
+            [
+                "3e12ae44.c92b62",
+                "b5ee318f.ae509"
+            ]
+        ]
+    },
+    {
+        "id": "6e38c0e2.8ee87",
+        "type": "function",
+        "z": "4c69e6e8.b973c8",
+        "name": "avg_PB",
+        "func": "var power = parseFloat(msg.payload[\"p1\"]);\nmsg.payload = power;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 1740,
+        "wires": [
+            [
+                "60a9c68e.8ea3b8",
+                "927008c0.b1f328"
+            ]
+        ]
+    },
+    {
+        "id": "69ff6399.79342c",
+        "type": "function",
+        "z": "4c69e6e8.b973c8",
+        "name": "avg_PC",
+        "func": "var power = parseFloat(msg.payload[\"p2\"]);\nmsg.payload = power;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 1780,
+        "wires": [
+            [
+                "3efcec70.70b9a4",
+                "d01f199d.989838"
+            ]
+        ]
+    },
+    {
+        "id": "60a9c68e.8ea3b8",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PB/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1740,
+        "wires": [
+            [
+                "a62bd508.3124c8"
+            ]
+        ]
+    },
+    {
+        "id": "3efcec70.70b9a4",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PC/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1780,
+        "wires": [
+            [
+                "a62bd508.3124c8"
+            ]
+        ]
+    },
+    {
+        "id": "3e12ae44.c92b62",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PA/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1700,
+        "wires": [
+            [
+                "a62bd508.3124c8"
+            ]
+        ]
+    },
+    {
+        "id": "b5ee318f.ae509",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PA/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1580,
+        "wires": [
+            [
+                "48d272f.522448c"
+            ]
+        ]
+    },
+    {
+        "id": "927008c0.b1f328",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PB/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1620,
+        "wires": [
+            [
+                "48d272f.522448c"
+            ]
+        ]
+    },
+    {
+        "id": "d01f199d.989838",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "PC/day",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 490,
+        "y": 1660,
+        "wires": [
+            [
+                "48d272f.522448c"
+            ]
+        ]
+    },
+    {
+        "id": "99aae89b.782fb8",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "Pt/min",
+        "intervalCount": 1,
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 690,
+        "y": 1820,
+        "wires": [
+            [
+                "51f7bcc9.f5daf4",
+                "c2e072d0.a7b5c",
+                "59c68ea5.94c21"
+            ]
+        ]
+    },
+    {
+        "id": "48d272f.522448c",
+        "type": "ui_chart",
+        "z": "4c69e6e8.b973c8",
+        "name": "day",
+        "group": "c31f0f64.3d018",
+        "order": 13,
+        "width": "19",
+        "height": "6",
+        "label": "Average power per hour. (W)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100000",
+        "removeOlder": "6",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 690,
+        "y": 1620,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6e927936.3a4a98",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 330,
+        "y": 420,
+        "wires": [
+            [
+                "5663bb3c.862bf4"
+            ]
+        ]
+    },
+    {
+        "id": "ff27a479.42a948",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 350,
+        "y": 640,
+        "wires": [
+            [
+                "4518891c.484f08"
+            ]
+        ]
+    },
+    {
+        "id": "af944a5.67312b8",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "Peak",
+        "topic": "",
+        "intervalCount": "15",
+        "intervalUnits": "m",
+        "submitIncompleteInterval": true,
+        "aggregationType": "max",
+        "x": 330,
+        "y": 780,
+        "wires": [
+            [
+                "db0d114a.c009f"
+            ]
+        ]
+    },
+    {
+        "id": "51f7bcc9.f5daf4",
+        "type": "firebase modify",
+        "z": "4c69e6e8.b973c8",
+        "name": "pavg_per_min",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_min/1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 900,
+        "y": 1800,
+        "wires": [
+            [
+                "8ee66a9d.dcc4d8"
+            ]
+        ]
+    },
+    {
+        "id": "85243098.cc46a",
+        "type": "delay",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 260,
+        "y": 100,
+        "wires": [
+            [
+                "83498087.45d48"
+            ]
+        ]
+    },
+    {
+        "id": "5cb78b2c.67cb54",
+        "type": "http request",
+        "z": "4c69e6e8.b973c8",
+        "name": "avg_per_min",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfIKyYXc56S2TBJjoqwtRms2cNmTlRJoaX01OySvfNzWRyROQ/formResponse?usp=pp_url&entry.1732737962={{payload.1}}&entry.1218485471={{payload.2}}&entry.339382278={{payload.3}}&entry.376692470={{payload.4}}&entry.687312231={{payload.5}}&entry.576090351={{payload.6}}&entry.509871658={{payload.7}}&entry.614956280={{payload.8}}&entry.1513347545={{payload.9}}&entry.1493512792={{payload.10}}",
+        "tls": "",
+        "x": 1310,
+        "y": 1800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8ee66a9d.dcc4d8",
+        "type": "firebase.once",
+        "z": "4c69e6e8.b973c8",
+        "name": "pavg_per_min",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_min",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 1100,
+        "y": 1800,
+        "wires": [
+            [
+                "5cb78b2c.67cb54"
+            ]
+        ]
+    },
+    {
+        "id": "9deb0a44.7adb78",
+        "type": "aggregator",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "topic": "Pt/h",
+        "intervalCount": 1,
+        "intervalUnits": "h",
+        "submitIncompleteInterval": true,
+        "aggregationType": "mean",
+        "x": 890,
+        "y": 1740,
+        "wires": [
+            [
+                "275b5694.436c9a"
+            ]
+        ]
+    },
+    {
+        "id": "39eec31f.4c78cc",
+        "type": "debug",
+        "z": "4c69e6e8.b973c8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 1470,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "275b5694.436c9a",
+        "type": "firebase modify",
+        "z": "4c69e6e8.b973c8",
+        "name": "pavg_per_hour",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_hour/1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 1080,
+        "y": 1740,
+        "wires": [
+            [
+                "2e7fda70.4a6706"
+            ]
+        ]
+    },
+    {
+        "id": "59c68ea5.94c21",
+        "type": "firebase modify",
+        "z": "4c69e6e8.b973c8",
+        "name": "stat",
+        "firebaseconfig": "",
+        "childpath": "stat/1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 870,
+        "y": 1840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e7444d7f.abb95",
+        "type": "http request",
+        "z": "4c69e6e8.b973c8",
+        "name": "avg_per_hour",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLScyeRp-jYYq7kK5Fem4xG3ZVmrgkSRpbX1tcY92zSE_yWIY2A/formResponse?usp=pp_url&entry.1194207777={{payload.1}}&entry.1950128019={{payload.2}}&entry.616408908={{payload.3}}&entry.1570312915={{payload.4}}&entry.1516404818={{payload.5}}&entry.1248897227={{payload.6}}&entry.932113046={{payload.7}}&entry.1148712635={{payload.8}}&entry.978989342={{payload.9}}&entry.1938898678={{payload.10}}",
+        "tls": "",
+        "x": 1480,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e7fda70.4a6706",
+        "type": "firebase.once",
+        "z": "4c69e6e8.b973c8",
+        "name": "pavg_per_hour",
+        "firebaseconfig": "",
+        "childpath": "pavg_per_hour",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 1280,
+        "y": 1740,
+        "wires": [
+            [
+                "e7444d7f.abb95",
+                "39eec31f.4c78cc"
+            ]
+        ]
+    },
+    {
+        "id": "526f3bc0.73f9d4",
         "type": "mqtt-broker",
         "z": "",
+        "name": "",
         "broker": "m12.cloudmqtt.com",
         "port": "19574",
         "clientid": "",
@@ -2631,92 +2769,84 @@
         "birthPayload": ""
     },
     {
-        "id": "2460a20d.93c08e",
-        "type": "mqtt-broker",
-        "z": "",
-        "broker": "m12.cloudmqtt.com",
-        "port": "19574",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": true,
-        "keepalive": "60",
-        "cleansession": true,
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": "",
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": ""
-    },
-    {
-        "id": "f148ef2c.acca9",
+        "id": "2e9468e.0de1e98",
         "type": "ui_group",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Node1",
-        "tab": "5a9e5e.e82ce1a4",
+        "tab": "25b5ca9c.c94776",
         "order": 1,
         "disp": true,
         "width": "19"
     },
     {
-        "id": "e21f64e2.019128",
+        "id": "baa99e4a.ae24b",
         "type": "ui_group",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Energy",
-        "tab": "5a9e5e.e82ce1a4",
+        "tab": "25b5ca9c.c94776",
         "order": 3,
         "disp": true,
         "width": "19"
     },
     {
-        "id": "95b501bb.43c6e",
+        "id": "c80f31aa.2d0a7",
         "type": "ui_group",
         "z": "",
         "name": "Energy",
-        "tab": "698253f2.fc01ec",
+        "tab": "4c9d051b.e8079c",
         "order": 2,
         "disp": true,
         "width": "19"
     },
     {
-        "id": "f3414c6f.61626",
+        "id": "bf6a3ea.194e5c",
         "type": "ui_group",
         "z": "",
         "name": "Node1",
-        "tab": "81df91f1.47772",
+        "tab": "55fe465b.f012b8",
         "disp": true,
         "width": "19"
     },
     {
-        "id": "f6cdb7bb.be7438",
+        "id": "15677098.ea690f",
         "type": "ui_group",
         "z": "",
         "name": "Node1",
-        "tab": "fe70155f.d73d98",
+        "tab": "e91f93bc.6096e",
         "order": 1,
         "disp": true,
         "width": "19"
     },
     {
-        "id": "41eafa35.4cab14",
+        "id": "8c4462fe.6eb75",
         "type": "ui_group",
         "z": "",
         "name": "Parameter",
-        "tab": "5a9e5e.e82ce1a4",
+        "tab": "25b5ca9c.c94776",
         "order": 2,
         "disp": true,
         "width": "19"
     },
     {
-        "id": "5a9e5e.e82ce1a4",
+        "id": "c31f0f64.3d018",
+        "type": "ui_group",
+        "z": "",
+        "name": "Node1",
+        "tab": "78f3c983.c28028",
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "25b5ca9c.c94776",
         "type": "ui_tab",
-        "z": "700eb341.6000fc",
+        "z": "4c69e6e8.b973c8",
         "name": "Node1",
         "icon": "dashboard",
         "order": 1
     },
     {
-        "id": "698253f2.fc01ec",
+        "id": "4c9d051b.e8079c",
         "type": "ui_tab",
         "z": "",
         "name": "Control",
@@ -2724,7 +2854,7 @@
         "order": 11
     },
     {
-        "id": "81df91f1.47772",
+        "id": "55fe465b.f012b8",
         "type": "ui_tab",
         "z": "",
         "name": "Minute resolution",
@@ -2732,11 +2862,18 @@
         "order": 12
     },
     {
-        "id": "fe70155f.d73d98",
+        "id": "e91f93bc.6096e",
         "type": "ui_tab",
         "z": "",
         "name": "Hour resolution",
         "icon": "dashboard",
         "order": 13
+    },
+    {
+        "id": "78f3c983.c28028",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Day resolution",
+        "icon": "dashboard"
     }
 ]

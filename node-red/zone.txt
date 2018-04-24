@@ -1,0 +1,599 @@
+[
+    {
+        "id": "f42a1806.efaef8",
+        "type": "ui_text_input",
+        "z": "3ac26878.de5898",
+        "name": "a",
+        "label": "zone A (e.g. 1,2,3 *not only one node)",
+        "group": "ff40dd3a.9e25e",
+        "order": 1,
+        "width": "6",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "3beecadd.d6faf6"
+            ]
+        ]
+    },
+    {
+        "id": "3beecadd.d6faf6",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "z1",
+        "firebaseconfig": "",
+        "childpath": "stat/z1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "4db56cca.bf96e4"
+            ]
+        ]
+    },
+    {
+        "id": "b89ad7a3.685968",
+        "type": "ui_text_input",
+        "z": "3ac26878.de5898",
+        "name": "b",
+        "label": "zone B",
+        "group": "ff40dd3a.9e25e",
+        "order": 2,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "37c99c1c.c78524"
+            ]
+        ]
+    },
+    {
+        "id": "37c99c1c.c78524",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "z2",
+        "firebaseconfig": "",
+        "childpath": "stat/z2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "79bdf3b3.eaba2c"
+            ]
+        ]
+    },
+    {
+        "id": "83e84e28.70076",
+        "type": "ui_text_input",
+        "z": "3ac26878.de5898",
+        "name": "c",
+        "label": "zone C",
+        "group": "ff40dd3a.9e25e",
+        "order": 3,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 150,
+        "y": 240,
+        "wires": [
+            [
+                "fc09a57f.bb6098"
+            ]
+        ]
+    },
+    {
+        "id": "fc09a57f.bb6098",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "z3",
+        "firebaseconfig": "",
+        "childpath": "stat/z3",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "61f79c19.0aaf14"
+            ]
+        ]
+    },
+    {
+        "id": "283fd7a0.f9ba68",
+        "type": "ui_text_input",
+        "z": "3ac26878.de5898",
+        "name": "d",
+        "label": "zone D",
+        "group": "ff40dd3a.9e25e",
+        "order": 4,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "a5c65539.9b8088"
+            ]
+        ]
+    },
+    {
+        "id": "a5c65539.9b8088",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "z4",
+        "firebaseconfig": "",
+        "childpath": "stat/z4",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "416c32a0.8e63ec"
+            ]
+        ]
+    },
+    {
+        "id": "286c1d5a.0ee332",
+        "type": "ui_text_input",
+        "z": "3ac26878.de5898",
+        "name": "e",
+        "label": "zone E",
+        "group": "ff40dd3a.9e25e",
+        "order": 5,
+        "width": "3",
+        "height": "2",
+        "passthru": true,
+        "mode": "text",
+        "delay": "2000",
+        "topic": "",
+        "x": 150,
+        "y": 360,
+        "wires": [
+            [
+                "6122678a.4641b8"
+            ]
+        ]
+    },
+    {
+        "id": "6122678a.4641b8",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "z5",
+        "firebaseconfig": "",
+        "childpath": "stat/z5",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "fea68956.24c1d8"
+            ]
+        ]
+    },
+    {
+        "id": "f868adde.f665f",
+        "type": "firebase.once",
+        "z": "3ac26878.de5898",
+        "name": "stat",
+        "firebaseconfig": "",
+        "childpath": "stat",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 290,
+        "y": 460,
+        "wires": [
+            [
+                "420adf62.103f6",
+                "fb4b2ca7.94e64",
+                "e20e1112.a0e17",
+                "ceabd8af.97eee8",
+                "76caead1.0e8204"
+            ]
+        ]
+    },
+    {
+        "id": "4baa864c.5cae08",
+        "type": "debug",
+        "z": "3ac26878.de5898",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 630,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fdd64925.859748",
+        "type": "inject",
+        "z": "3ac26878.de5898",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "f868adde.f665f"
+            ]
+        ]
+    },
+    {
+        "id": "420adf62.103f6",
+        "type": "function",
+        "z": "3ac26878.de5898",
+        "name": "data analytic",
+        "func": "var node_list = msg.payload.z1.split(\",\");\nvar data, power = 0;\n\nfor(data in node_list)\n{\n\n    \n    //console.log(msg.payload[node_list[data]]);\n\n    power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZA\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 460,
+        "wires": [
+            [
+                "4baa864c.5cae08",
+                "36f5678f.a3b4b8"
+            ]
+        ]
+    },
+    {
+        "id": "36f5678f.a3b4b8",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "a",
+        "firebaseconfig": "",
+        "childpath": "stat/data1",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 610,
+        "y": 460,
+        "wires": [
+            [
+                "b0f89ed3.c9b8c"
+            ]
+        ]
+    },
+    {
+        "id": "fb4b2ca7.94e64",
+        "type": "function",
+        "z": "3ac26878.de5898",
+        "name": "data analytic",
+        "func": "var node_list = msg.payload.z2.split(\",\");\nvar data, power = 0;\n\nfor(data in node_list)\n{\n\n    \n    //console.log(msg.payload[node_list[data]]);\n\n    power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZB\";\nmsg.payload = power.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 500,
+        "wires": [
+            [
+                "f419c924.51f418"
+            ]
+        ]
+    },
+    {
+        "id": "e20e1112.a0e17",
+        "type": "function",
+        "z": "3ac26878.de5898",
+        "name": "data analytic",
+        "func": "var node_list = msg.payload.z3.split(\",\");\nvar data, power = 0;\n\nfor(data in node_list)\n{\n\n    \n    //console.log(msg.payload[node_list[data]]);\n\n    power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZC\";\nmsg.payload = power.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "141fcdc1.730622"
+            ]
+        ]
+    },
+    {
+        "id": "ceabd8af.97eee8",
+        "type": "function",
+        "z": "3ac26878.de5898",
+        "name": "data analytic",
+        "func": "var node_list = msg.payload.z4.split(\",\");\nvar data, power = 0;\n\nfor(data in node_list)\n{\n\n    \n    //console.log(msg.payload[node_list[data]]);\n\n    power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZD\";\nmsg.payload = power.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "c794b856.819ac8"
+            ]
+        ]
+    },
+    {
+        "id": "76caead1.0e8204",
+        "type": "function",
+        "z": "3ac26878.de5898",
+        "name": "data analytic",
+        "func": "var node_list = msg.payload.z5.split(\",\");\nvar data, power = 0;\n\nfor(data in node_list)\n{\n\n    \n    //console.log(msg.payload[node_list[data]]);\n\n    power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZE\";\nmsg.payload = power.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 450,
+        "y": 620,
+        "wires": [
+            [
+                "95a34b4b.879a08"
+            ]
+        ]
+    },
+    {
+        "id": "f419c924.51f418",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "b",
+        "firebaseconfig": "",
+        "childpath": "stat/data2",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 610,
+        "y": 500,
+        "wires": [
+            [
+                "b0f89ed3.c9b8c"
+            ]
+        ]
+    },
+    {
+        "id": "141fcdc1.730622",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "c",
+        "firebaseconfig": "",
+        "childpath": "stat/data3",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 610,
+        "y": 540,
+        "wires": [
+            [
+                "b0f89ed3.c9b8c"
+            ]
+        ]
+    },
+    {
+        "id": "c794b856.819ac8",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "d",
+        "firebaseconfig": "",
+        "childpath": "stat/data4",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 610,
+        "y": 580,
+        "wires": [
+            [
+                "b0f89ed3.c9b8c"
+            ]
+        ]
+    },
+    {
+        "id": "95a34b4b.879a08",
+        "type": "firebase modify",
+        "z": "3ac26878.de5898",
+        "name": "e",
+        "firebaseconfig": "",
+        "childpath": "stat/data5",
+        "method": "set",
+        "value": "msg.payload",
+        "priority": "msg.priority",
+        "x": 610,
+        "y": 620,
+        "wires": [
+            [
+                "b0f89ed3.c9b8c"
+            ]
+        ]
+    },
+    {
+        "id": "b0f89ed3.c9b8c",
+        "type": "ui_chart",
+        "z": "3ac26878.de5898",
+        "name": "",
+        "group": "74f0713a.e65c3",
+        "order": 0,
+        "width": "19",
+        "height": "7",
+        "label": "Watt",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 830,
+        "y": 540,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4db56cca.bf96e4",
+        "type": "ui_text",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "order": 11,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Zone A",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "79bdf3b3.eaba2c",
+        "type": "ui_text",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "order": 12,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Zone B",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "61f79c19.0aaf14",
+        "type": "ui_text",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "order": 13,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Zone C",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "416c32a0.8e63ec",
+        "type": "ui_text",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "order": 14,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Zone D",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "fea68956.24c1d8",
+        "type": "ui_text",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "order": 15,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Zone E",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 440,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7d603724.7f2518",
+        "type": "ui_template",
+        "z": "3ac26878.de5898",
+        "group": "ff40dd3a.9e25e",
+        "name": "custom_template",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<a href=\"https://drive.google.com/open?id=1ueO4R4CuJs1TU8zt2Kd-PQQc2C05-Yg5JGtU62XL6ac\">Average per minute of this week</a>\n<a href=\"https://docs.google.com/spreadsheets/d/1nEdIzuxSczd7IrSgwrz08O34ImtYShPs0TEJbYfemFY/edit?usp=sharing\">Average per hour of this month</a>\n<a href= \"https://drive.google.com/open?id=12ZZsaHUhpaPhNsfQg4pIAsxHD1uOJ2qy\">Go to data storage</a>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ff40dd3a.9e25e",
+        "type": "ui_group",
+        "z": "",
+        "name": "Zone",
+        "tab": "bf19a3ce.f9392",
+        "order": 1,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "74f0713a.e65c3",
+        "type": "ui_group",
+        "z": "",
+        "name": "Pavg/min",
+        "tab": "bf19a3ce.f9392",
+        "order": 2,
+        "disp": true,
+        "width": "19",
+        "collapse": false
+    },
+    {
+        "id": "bf19a3ce.f9392",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
