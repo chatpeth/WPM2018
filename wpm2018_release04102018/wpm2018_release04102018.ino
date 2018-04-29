@@ -18,7 +18,7 @@
 #define CLID "fff" NID
 #define NUM_PHASE 3
 #define MAX_ERR 3
-#define TIME_OUT 3000
+#define TIME_OUT 15000
 #define SLOPE "m" NID
 #define CONST "C" NID
 #define ENCRIPT_TOPIC "fff" NID
@@ -30,6 +30,8 @@
 #define DEFAULT_CONST -2
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
+#define NUMBER_OF_SAMPLE 100
+#define HIGH_POWER
 
 // for stack analytics
 extern "C" {
@@ -120,7 +122,7 @@ void setup_wifi()
             digitalWrite(LED_BUILTIN, HIGH);
             delay(50);
             count_wifi = count_wifi + 1;
-            if(count_wifi > 1000)
+            if(count_wifi > 500)
             {
               delay(30000);
               ESP.restart();
@@ -144,7 +146,7 @@ void setup_wifi()
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
-    printf(".");
+    printf("*");
     delay(256);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(256);
@@ -336,7 +338,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\r\nAP: 4.21");
+  Serial.println("\r\nAP: 04282018");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
@@ -423,14 +425,20 @@ void spreadsheet()
 
   if (clientg != nullptr)
   {
+    int null_err = 0;
     if (!clientg->connected())
     {
-      printf("Connecting to %s\r\n", host);
-      while(clientg->connect(host, httpsPort) == 0)
+      printf("DB0xff:Reconnecting to %s\r\n", host);
+      
+      while( (clientg->connect(host, httpsPort)) != 1)
       {
-        printf(".");
-        delay(10);
+        printf("**");
+        
       } 
+      if(null_err > 3)
+      {
+        ESP.restart();
+      }
     }
     printf("POST data to spreadsheet\r\n");
     Serial.println(payload);
@@ -472,6 +480,7 @@ void spreadsheet()
 void measurement()
 {
     int i;
+    unsigned long duration1 = 0, duration2 = 0, duration3 = 0;
     time_t mnow = time(nullptr);
     struct tm* p_tm = localtime(&mnow);
     printf("Time: %02d:%02d:%02d\r\n",p_tm->tm_hour, p_tm->tm_min, p_tm->tm_sec);
@@ -500,9 +509,70 @@ void measurement()
     #else
     if(sw_status == ON)
     {
+      #ifdef HIGH_POWER
+      printf("Hight power mode\r\n");
+      unsigned long tmp_duration1 = 0, tmp_duration2 = 0, tmp_duration3 = 0;
+      tmp_duration1 = pulseIn(phaseID[0].pinIn, LOW) + pulseIn(phaseID[0].pinIn, HIGH);
+      tmp_duration2 = pulseIn(phaseID[1].pinIn, LOW) + pulseIn(phaseID[1].pinIn, HIGH);
+      tmp_duration3 = pulseIn(phaseID[2].pinIn, LOW) + pulseIn(phaseID[2].pinIn, HIGH);
+      //1000000 us = 1 Hz
+      //10000 us = 100 Hz ~ 6000 W
+      printf("tmp duration = %d, %d, %d\r\n", tmp_duration1, tmp_duration2, tmp_duration3);
+      if((tmp_duration1 != 0) && (tmp_duration1 < 10000))
+      {
+        printf("PhaseA hight frequency\r\n");
+        for(i = 0; i < NUMBER_OF_SAMPLE; i++)
+        {          
+          duration1 = duration1 + pulseIn(phaseID[0].pinIn, LOW) + pulseIn(phaseID[0].pinIn, HIGH);          
+        }
+        phaseID[0].duration = duration1/NUMBER_OF_SAMPLE;       
+      }
+      else
+      {
+        printf("PhaseA low frequency\r\n");
+        phaseID[0].duration = tmp_duration1;
+      }
+
+      if((tmp_duration2 != 0) && (tmp_duration2 < 10000))
+      {
+        printf("PhaseB hight frequency\r\n");
+        for(i = 0; i < NUMBER_OF_SAMPLE; i++)
+        {         
+          duration2 = duration2 + pulseIn(phaseID[1].pinIn, LOW) + pulseIn(phaseID[1].pinIn, HIGH);          
+        }       
+        phaseID[1].duration = duration2/NUMBER_OF_SAMPLE;        
+      }
+      else
+      {
+        printf("PhaseB low frequency\r\n");
+        phaseID[1].duration = tmp_duration2;
+      }
+
+      if((tmp_duration3 != 0) && (tmp_duration3 < 10000))
+      {
+        printf("PhaseC hight frequency\r\n");
+        for(i = 0; i < NUMBER_OF_SAMPLE; i++)
+        {         
+          duration3 = duration3 + pulseIn(phaseID[2].pinIn, LOW) + pulseIn(phaseID[2].pinIn, HIGH);         
+        }       
+        phaseID[2].duration = duration3/NUMBER_OF_SAMPLE;        
+      }
+      else
+      {
+        printf("PhaseC low frequency\r\n");
+        phaseID[2].duration = tmp_duration3;
+      }
+      
+            
+      #else
       phaseID[0].duration = pulseIn(phaseID[0].pinIn, LOW) + pulseIn(phaseID[0].pinIn, HIGH);
       phaseID[1].duration = pulseIn(phaseID[1].pinIn, LOW) + pulseIn(phaseID[1].pinIn, HIGH);
       phaseID[2].duration = pulseIn(phaseID[2].pinIn, LOW) + pulseIn(phaseID[2].pinIn, HIGH);
+
+      #endif
+      
+      
+      
     }
     else if(sw_status == OFF)
     {
@@ -534,7 +604,7 @@ void loop()
       C_const = DEFAULT_CONST;
     }
     count_equation_req = count_equation_req + 1;
-    delay(256);
+    delay(1000);
   }
   
   // Check connection with mqtt status
