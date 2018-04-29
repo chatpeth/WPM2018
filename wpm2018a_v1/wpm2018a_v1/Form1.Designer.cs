@@ -229,6 +229,7 @@
             this.Bind2_limit_txt = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.Bind3_limit_txt = new System.Windows.Forms.TextBox();
+            this.Reconnect_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -600,6 +601,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.splitContainer1.Panel1.Controls.Add(this.Reconnect_btn);
             this.splitContainer1.Panel1.Controls.Add(this.auto_fill_chk);
             this.splitContainer1.Panel1.Controls.Add(this.zone_connect_btn);
             this.splitContainer1.Panel1.Controls.Add(this.Zone_list_lbl);
@@ -2275,6 +2277,16 @@
             this.Bind3_limit_txt.TabIndex = 133;
             this.Bind3_limit_txt.Text = "100000";
             // 
+            // Reconnect_btn
+            // 
+            this.Reconnect_btn.Location = new System.Drawing.Point(262, 519);
+            this.Reconnect_btn.Name = "Reconnect_btn";
+            this.Reconnect_btn.Size = new System.Drawing.Size(75, 23);
+            this.Reconnect_btn.TabIndex = 19;
+            this.Reconnect_btn.Text = "Reconnect";
+            this.Reconnect_btn.UseVisualStyleBackColor = true;
+            this.Reconnect_btn.Click += new System.EventHandler(this.Reconnect_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2515,6 +2527,7 @@
         private System.Windows.Forms.TextBox Bind3_limit_txt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox Bind2_limit_txt;
+        private System.Windows.Forms.Button Reconnect_btn;
     }
 }
 

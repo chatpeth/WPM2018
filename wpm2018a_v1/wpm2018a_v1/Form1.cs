@@ -71,12 +71,20 @@ namespace wpm2018a_v1
         }
         private void _Client_ConnectionClosed(object sender, EventArgs e)
         {
-            
-            connection_status = _Client.Connect(Guid.NewGuid().ToString());
-            if(connection_status == 0)
+            try
             {
-                MessageBox.Show("Connection restored.");
+                connection_status = _Client.Connect(Guid.NewGuid().ToString());
+                if (connection_status == 0)
+                {
+                    MessageBox.Show("Connection restored.");
+                }
             }
+            catch
+            {
+                    
+            }
+            
+            
         }
         public void Refresh_bind(int bind_id)
         {
@@ -547,6 +555,7 @@ namespace wpm2018a_v1
             Device_lst.SelectedIndex = Device_lst.Items.Add(item);
             NID_textbox.Select();
             //MessageBox.Show((Device_lst.SelectedItem as ComboboxItem).Description.ToString());
+            Connect_btn_Click(sender, e);
         }
 
         private void Remove_btn_Click(object sender, EventArgs e)
@@ -596,6 +605,9 @@ namespace wpm2018a_v1
             item.ZID = Zone_txt.Text;
             item.List = List_txt.Text;
             Zone_lst.SelectedIndex = Zone_lst.Items.Add(item);
+            List_txt.Text = "";
+            Zone_txt.Select();
+
         }
 
         private void Remove_zone_btn_Click(object sender, EventArgs e)
@@ -681,12 +693,28 @@ namespace wpm2018a_v1
         {
             Clear_old_bind(0);
             Clear_old_bind(1);
-            Clear_old_bind(3);
+            Clear_old_bind(2);
         }
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Reconnect_btn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _Client.Connect(DateTime.Now.ToUniversalTime().ToString());
+                MessageBox.Show(DateTime.Now.ToUniversalTime().ToString());
+
+            }
+            catch
+            {
+                
+            }
+
+
         }
     }
 }

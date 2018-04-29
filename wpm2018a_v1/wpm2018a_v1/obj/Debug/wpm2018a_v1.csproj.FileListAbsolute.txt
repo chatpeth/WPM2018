@@ -9,3 +9,4 @@ C:\Users\5610110106\source\repos\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.c
 C:\Users\5610110106\source\repos\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.csproj.CoreCompileInputs.cache
 C:\Users\5610110106\source\repos\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.exe
 C:\Users\5610110106\source\repos\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.pdb
+C:\Users\5610110106\source\repos\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.csprojResolveAssemblyReference.cache
