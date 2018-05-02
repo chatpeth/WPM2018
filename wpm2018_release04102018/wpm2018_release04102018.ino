@@ -7,10 +7,10 @@
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
 
-#define SIM_MODE        // Define, If need to simulation pulse in.
+//#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "1"
+#define NID "4"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -203,7 +203,7 @@ void pubData()
         }
 
         //Calculate frequency
-        f = 1000000.00/phaseID[i].duration; 
+        f = 1000000.000000/phaseID[i].duration; 
         //Calculate power 
         p = m_slope*f + C_const;
         phaseID[i].power = p;

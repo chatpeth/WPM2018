@@ -1,0 +1,67 @@
+var c_str = context.get('c_str');
+var c = [];
+var i;
+var q = msg.payload;
+var sum = 0;
+var p = [];
+var E = 0;
+var x = [];
+var q_num = 11; 
+if(c_str === undefined)
+{
+    c_str = "";
+    for(i = 0; i < q_num; i++)
+    {
+        c_str = c_str + "0,";
+    }
+}
+c = c_str.split(",");
+for(i = 0; i < q_num; i++)
+{
+    c[i] = parseInt(c[i]);
+}
+//cumulative
+for(i = 0; i < q_num; i ++)
+{
+    if(q <= 200 + i)
+    {
+        c[i] = c[i] + 1;
+        break;
+    }
+}
+
+for(i = 0; i < q_num; i++)
+{
+    sum = sum + c[i];
+}
+for(i = 0; i < q_num; i++)
+{
+    p[i] = c[i]/sum;
+}
+
+//befor exit
+c_str = "";
+for(i = 0; i < q_num; i++)
+{
+    c_str = c_str + c[i].toString() + ",";
+}
+for(i = 0; i < q_num; i++)
+{
+    x[i] = 200 + i;
+}
+for(i = 0; i < q_num; i++)
+{
+    E = E + x[i]*p[i];
+}
+//relearn
+if(sum > 100000)
+{
+    for(i = 0; i < q_num; i++)
+    {
+        c[i] = 0;
+    }
+}
+msg.payload = E;
+msg.topic = "Expeccted";
+context.set('c_str', c_str);
+return msg;

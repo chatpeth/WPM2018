@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="wpm2018a_v1.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="NID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fff1</Value>
+    </Setting>
+    <Setting Name="Location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Home</Value>
+    </Setting>
+    <Setting Name="Bind1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fff2</Value>
+    </Setting>
+    <Setting Name="Bind2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fff3</Value>
+    </Setting>
+    <Setting Name="Bind3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fff4</Value>
+    </Setting>
+    <Setting Name="Overload1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="Overload2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="Overload3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
