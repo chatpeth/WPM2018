@@ -72,9 +72,16 @@
     {
         "id": "890de88.eb07d18",
         "type": "tab",
-        "label": "Flow 11",
+        "label": "Home",
         "disabled": false,
         "info": "Analyze data"
+    },
+    {
+        "id": "5737b0ff.9c5df",
+        "type": "tab",
+        "label": "Link url with user",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "88cb4181.e7b4f",
@@ -2868,7 +2875,8 @@
                 "38b4540e.eeac4c",
                 "ed871b00.3aea98",
                 "cccccd40.648f6",
-                "39241c74.7559f4"
+                "39241c74.7559f4",
+                "b348cf84.bfcc9"
             ]
         ]
     },
@@ -3198,7 +3206,7 @@
         "type": "ui_text_input",
         "z": "7d815a72.954044",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "df5099e4.36c528",
         "order": 3,
         "width": "7",
@@ -4330,11 +4338,11 @@
         "topic": "test",
         "payload": "10000",
         "payloadType": "str",
-        "repeat": "5",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": "",
-        "x": 533,
+        "x": 523,
         "y": 1312,
         "wires": [
             [
@@ -5069,7 +5077,8 @@
                 "85f57902.dda2b8",
                 "89175fc8.0252a",
                 "373d3b12.0e7ab4",
-                "287da961.a58666"
+                "287da961.a58666",
+                "b76b44d8.c3a558"
             ]
         ]
     },
@@ -5382,7 +5391,7 @@
         "type": "ui_text_input",
         "z": "4e59a11d.e39d5",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "1dfaf050.0dc8d",
         "order": 3,
         "width": "7",
@@ -7224,7 +7233,8 @@
                 "420396eb.433de8",
                 "9fa99da4.ab768",
                 "edf962f0.3c0d",
-                "26115c22.8047e4"
+                "26115c22.8047e4",
+                "e7eb2601.b21488"
             ]
         ]
     },
@@ -7537,7 +7547,7 @@
         "type": "ui_text_input",
         "z": "e9c9eab3.cd4f98",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms and more  that 1000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "4d620a93.5e9dd4",
         "order": 3,
         "width": "7",
@@ -7678,7 +7688,9 @@
                 "d87b441e.0e1788",
                 "b971befd.fb764",
                 "81686cfb.6cf8e",
-                "d2ad5b85.53a278"
+                "d2ad5b85.53a278",
+                "e6dcb82f.b307a8",
+                "5124ae43.02688"
             ]
         ]
     },
@@ -9189,8 +9201,8 @@
         "func": "msg.topic = \"PA\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 347,
-        "y": 167,
+        "x": 341,
+        "y": 71,
         "wires": [
             [
                 "ed880a92.bc4938",
@@ -9206,8 +9218,8 @@
         "func": "msg.topic = \"PB\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 347,
-        "y": 207,
+        "x": 341,
+        "y": 111,
         "wires": [
             [
                 "ed880a92.bc4938",
@@ -9223,8 +9235,8 @@
         "func": "msg.topic = \"PC\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 347,
-        "y": 247,
+        "x": 341,
+        "y": 151,
         "wires": [
             [
                 "ed880a92.bc4938",
@@ -9379,7 +9391,8 @@
                 "fea76b33.245098",
                 "de8d4fbf.4d7f2",
                 "d530140b.427248",
-                "3d612669.d1418a"
+                "3d612669.d1418a",
+                "affc9608.0c21e8"
             ]
         ]
     },
@@ -9673,7 +9686,7 @@
         "type": "ui_text_input",
         "z": "aa29e984.b0d368",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "fe2cc492.357d08",
         "order": 3,
         "width": "7",
@@ -11515,7 +11528,8 @@
                 "12aff825.905698",
                 "8820c6da.a425d8",
                 "3727492e.1c7bb6",
-                "abffac34.fc094"
+                "abffac34.fc094",
+                "d89c3b31.3c9088"
             ]
         ]
     },
@@ -11829,7 +11843,7 @@
         "type": "ui_text_input",
         "z": "74dd2ce0.2034c4",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "c3b7469b.9bdae8",
         "order": 3,
         "width": "7",
@@ -12972,7 +12986,7 @@
         "z": "673847a1.554548",
         "name": "",
         "group": "f0801bd3.a6d248",
-        "order": 7,
+        "order": 6,
         "width": "4",
         "height": "4",
         "gtype": "gage",
@@ -13671,7 +13685,8 @@
                 "5ff0261.c087ed8",
                 "b8569afd.e319e8",
                 "f6124777.aa5908",
-                "7dc18068.4720b"
+                "7dc18068.4720b",
+                "19821e57.6403b2"
             ]
         ]
     },
@@ -13984,7 +13999,7 @@
         "type": "ui_text_input",
         "z": "673847a1.554548",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "eb8aab18.c1f148",
         "order": 3,
         "width": "7",
@@ -15127,7 +15142,7 @@
         "z": "d79ec681.631798",
         "name": "",
         "group": "f0801bd3.a6d248",
-        "order": 6,
+        "order": 7,
         "width": "4",
         "height": "4",
         "gtype": "gage",
@@ -15826,7 +15841,8 @@
                 "c998bcd7.14ddb",
                 "b3ade723.e1b8e8",
                 "5bb039b3.ce7008",
-                "6d367e83.b83cb"
+                "6d367e83.b83cb",
+                "f9e5770.98cf188"
             ]
         ]
     },
@@ -16139,7 +16155,7 @@
         "type": "ui_text_input",
         "z": "d79ec681.631798",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "5d4cfc08.613634",
         "order": 3,
         "width": "7",
@@ -17981,7 +17997,8 @@
                 "487ff19d.21ee1",
                 "5c6304b5.5947ec",
                 "73dfe1b.0dc0d2",
-                "e5073589.35d9b8"
+                "e5073589.35d9b8",
+                "f2fa9b57.c2fe58"
             ]
         ]
     },
@@ -18295,7 +18312,7 @@
         "type": "ui_text_input",
         "z": "ddae1a9b.382958",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "4a0b351e.12158c",
         "order": 3,
         "width": "7",
@@ -20137,7 +20154,8 @@
                 "10b93469.a88fcc",
                 "71f22f.530f0dd",
                 "b769d4a1.a717f8",
-                "5cade89.6f99f18"
+                "5cade89.6f99f18",
+                "7b67baac.797fc4"
             ]
         ]
     },
@@ -20450,7 +20468,7 @@
         "type": "ui_text_input",
         "z": "37838a34.96ff66",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "a051f4ff.c1dff8",
         "order": 3,
         "width": "7",
@@ -22414,7 +22432,7 @@
         "type": "ui_text_input",
         "z": "630ae749.48d7a8",
         "name": "polling_interval_setting",
-        "label": "Polling interval (in ms: between 5000, 300000)",
+        "label": "Polling interval (in ms: between 1000, 300000)",
         "group": "b1c015b9.b9b0c8",
         "order": 3,
         "width": "7",
@@ -22521,7 +22539,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 730,
-        "y": 2160,
+        "y": 2140,
         "wires": [
             [
                 "d58e0d63.6d1da",
@@ -22565,8 +22583,8 @@
         "func": "var p_total = msg.payload[\"p0\"] + msg.payload[\"p1\"] + msg.payload[\"p2\"];\nmsg.topic = \"Ptotal\";\nmsg.payload = p_total.toFixed(2);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 513.9999713897705,
-        "y": 2117.9998840093613,
+        "x": 500,
+        "y": 2140,
         "wires": [
             [
                 "726f5aa2.b817b4",
@@ -22575,7 +22593,8 @@
                 "f4694694.a4ec68",
                 "9c762edc.a95fc",
                 "ad55ff57.fa667",
-                "653d04ad.65100c"
+                "653d04ad.65100c",
+                "c08d3dd2.24bd2"
             ]
         ]
     },
@@ -22671,8 +22690,8 @@
         "intervalUnits": "m",
         "submitIncompleteInterval": true,
         "aggregationType": "mean",
-        "x": 770,
-        "y": 2040,
+        "x": 750,
+        "y": 2020,
         "wires": [
             [
                 "473e0a94.0fb864",
@@ -26767,7 +26786,7 @@
         "label": "Zone A",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 440,
+        "x": 680,
         "y": 120,
         "wires": []
     },
@@ -26783,7 +26802,7 @@
         "label": "Zone B",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 440,
+        "x": 680,
         "y": 180,
         "wires": []
     },
@@ -26799,7 +26818,7 @@
         "label": "Zone C",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 440,
+        "x": 680,
         "y": 240,
         "wires": []
     },
@@ -26815,7 +26834,7 @@
         "label": "Zone D",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 440,
+        "x": 680,
         "y": 300,
         "wires": []
     },
@@ -26831,7 +26850,7 @@
         "label": "Zone E",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 440,
+        "x": 680,
         "y": 360,
         "wires": []
     },
@@ -27370,8 +27389,8 @@
         "method": "set",
         "value": "msg.payload",
         "priority": "msg.priority",
-        "x": 724,
-        "y": 2211,
+        "x": 710,
+        "y": 2180,
         "wires": [
             []
         ]
@@ -27607,7 +27626,7 @@
         "type": "function",
         "z": "890de88.eb07d18",
         "name": "sum power in zone",
-        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z1.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z1;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    //console.log(msg.payload.pt[node_list[data]]);\n\n    //power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZA\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z1.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z1;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    \n}\nmsg.topic = \"ZA\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 471,
@@ -27623,7 +27642,7 @@
         "type": "function",
         "z": "890de88.eb07d18",
         "name": "sum power in zone",
-        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z2.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z2;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    //console.log(msg.payload.pt[node_list[data]]);\n\n    //power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZB\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z2.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z2;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    \n}\nmsg.topic = \"ZB\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 468,
@@ -27639,7 +27658,7 @@
         "type": "function",
         "z": "890de88.eb07d18",
         "name": "sum power in zone",
-        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z3.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z3;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    //console.log(msg.payload.pt[node_list[data]]);\n\n    //power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZC\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z3.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z3;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    \n}\nmsg.topic = \"ZC\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 469,
@@ -27655,7 +27674,7 @@
         "type": "function",
         "z": "890de88.eb07d18",
         "name": "sum power in zone",
-        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z4.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z4;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    //console.log(msg.payload.pt[node_list[data]]);\n\n    //power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZD\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z4.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z4;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    \n}\nmsg.topic = \"ZD\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 466,
@@ -27671,7 +27690,7 @@
         "type": "function",
         "z": "890de88.eb07d18",
         "name": "sum power in zone",
-        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z5.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z5;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    //console.log(msg.payload.pt[node_list[data]]);\n\n    //power = power + msg.payload[node_list[data]];\n}\nmsg.topic = \"ZE\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
+        "func": "var node_list;\nvar data, power = 0;\ntry\n{\n    node_list = msg.payload.z5.split(\",\")\n}\ncatch(err)\n{\n    node_list = msg.payload.z5;\n}\nfor(data in node_list)\n{\n    power = power + msg.payload.pt[node_list[data]];\n    \n    \n}\nmsg.topic = \"ZE\";\nmsg.payload = power.toFixed(2);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "x": 467,
@@ -27691,7 +27710,7 @@
         "order": 0,
         "width": "19",
         "height": "7",
-        "label": "PT (W)",
+        "label": "Ptotal in zone (W)",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm:ss",
@@ -27717,7 +27736,7 @@
             "#c5b0d5"
         ],
         "useOldStyle": false,
-        "x": 689,
+        "x": 719,
         "y": 779,
         "wires": [
             [],
@@ -28765,7 +28784,7 @@
         "retain": "false",
         "broker": "2b14dfdb.10208",
         "x": 470,
-        "y": 1886,
+        "y": 1860,
         "wires": []
     },
     {
@@ -29504,8 +29523,8 @@
         "qos": "0",
         "retain": "false",
         "broker": "2b14dfdb.10208",
-        "x": 756,
-        "y": 2264,
+        "x": 740,
+        "y": 2220,
         "wires": []
     },
     {
@@ -30184,7 +30203,7 @@
         "type": "debug",
         "z": "74dd2ce0.2034c4",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -30227,8 +30246,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 111,
-        "y": 765,
+        "x": 70,
+        "y": 700,
         "wires": [
             [
                 "8cf91cf5.ca032"
@@ -30414,5 +30433,390 @@
                 "248da253.5a337e"
             ]
         ]
+    },
+    {
+        "id": "e6dcb82f.b307a8",
+        "type": "function",
+        "z": "aa29e984.b0d368",
+        "name": "E(x)",
+        "func": "var c_str = context.get('c_str');\nvar c = [];\nvar i;\nvar q = msg.payload;\nvar sum = 0;\nvar p = [];\nvar E = 0;\nvar x = [];\nvar q_num = 2000;\nvar start = 59000;\nif(c_str === undefined)\n{\n    c_str = \"\";\n    for(i = 0; i < q_num; i++)\n    {\n        c_str = c_str + \"0,\";\n    }\n}\nc = c_str.split(\",\");\nfor(i = 0; i < q_num; i++)\n{\n    c[i] = parseInt(c[i]);\n}\n//cumulative\nfor(i = 0; i < q_num; i ++)\n{\n    if(q <= start + i)\n    {\n        c[i] = c[i] + 1;\n        break;\n    }\n}\n\nfor(i = 0; i < q_num; i++)\n{\n    sum = sum + c[i];\n}\nfor(i = 0; i < q_num; i++)\n{\n    p[i] = c[i]/sum;\n}\n\n//befor exit\nc_str = \"\";\nfor(i = 0; i < q_num; i++)\n{\n    c_str = c_str + c[i].toString() + \",\";\n}\nfor(i = 0; i < q_num; i++)\n{\n    x[i] = start + i;\n}\nfor(i = 0; i < q_num; i++)\n{\n    E = E + x[i]*p[i];\n}\n//relearn\nif(sum > 100000)\n{\n    for(i = 0; i < q_num; i++)\n    {\n        c[i] = 0;\n    }\n}\nmsg.payload = E;\nmsg.topic = \"E(x)\";\ncontext.set('c_str', c_str);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 198,
+        "wires": [
+            [
+                "5124ae43.02688",
+                "1704fc96.7e2f43"
+            ]
+        ]
+    },
+    {
+        "id": "5124ae43.02688",
+        "type": "debug",
+        "z": "aa29e984.b0d368",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 554,
+        "y": 213,
+        "wires": []
+    },
+    {
+        "id": "90c50a95.a60d98",
+        "type": "inject",
+        "z": "7d815a72.954044",
+        "name": "",
+        "topic": "",
+        "payload": "qwer!@34",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 2760,
+        "wires": [
+            [
+                "555abd94.c92964"
+            ]
+        ]
+    },
+    {
+        "id": "27bdfc9.339b804",
+        "type": "debug",
+        "z": "7d815a72.954044",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 480,
+        "y": 2760,
+        "wires": []
+    },
+    {
+        "id": "555abd94.c92964",
+        "type": "bcrypt",
+        "z": "7d815a72.954044",
+        "name": "encript",
+        "action": "encrypt",
+        "field": "payload",
+        "hash": "payload",
+        "rounds": 10,
+        "x": 300,
+        "y": 2760,
+        "wires": [
+            [
+                "27bdfc9.339b804"
+            ]
+        ]
+    },
+    {
+        "id": "d5fc7b61.e06598",
+        "type": "firebase.once",
+        "z": "890de88.eb07d18",
+        "name": "stat/z1",
+        "firebaseconfig": "39da8d89.a03422",
+        "childpath": "stat/z1",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "3bc54e4c.c71b12"
+            ]
+        ]
+    },
+    {
+        "id": "9ab8c861.a95518",
+        "type": "firebase.once",
+        "z": "890de88.eb07d18",
+        "name": "stat/z2",
+        "firebaseconfig": "39da8d89.a03422",
+        "childpath": "stat/z2",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 470,
+        "y": 160,
+        "wires": [
+            [
+                "7baac69f.6b8f78"
+            ]
+        ]
+    },
+    {
+        "id": "d471f2c.08a081",
+        "type": "firebase.once",
+        "z": "890de88.eb07d18",
+        "name": "stat/z3",
+        "firebaseconfig": "39da8d89.a03422",
+        "childpath": "stat/z3",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "9c5b5741.df21e8"
+            ]
+        ]
+    },
+    {
+        "id": "de83231.f3969e",
+        "type": "firebase.once",
+        "z": "890de88.eb07d18",
+        "name": "stat/z4",
+        "firebaseconfig": "39da8d89.a03422",
+        "childpath": "stat/z4",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "18c75c1b.b500d4"
+            ]
+        ]
+    },
+    {
+        "id": "de63964.c088f68",
+        "type": "firebase.once",
+        "z": "890de88.eb07d18",
+        "name": "stat/z5",
+        "firebaseconfig": "39da8d89.a03422",
+        "childpath": "stat/z5",
+        "repeatifnull": false,
+        "eventType": "value",
+        "queries": [],
+        "x": 470,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63c1b6b3.77aa88",
+        "type": "inject",
+        "z": "890de88.eb07d18",
+        "name": "get zone",
+        "topic": "get zone",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "30",
+        "x": 280,
+        "y": 80,
+        "wires": [
+            [
+                "d5fc7b61.e06598",
+                "9ab8c861.a95518",
+                "d471f2c.08a081",
+                "de83231.f3969e",
+                "de63964.c088f68"
+            ]
+        ]
+    },
+    {
+        "id": "452ed620.fe6bb8",
+        "type": "mqtt in",
+        "z": "5737b0ff.9c5df",
+        "name": "",
+        "topic": "wireless.power.meter2018@gmail.com",
+        "qos": "0",
+        "broker": "2b14dfdb.10208",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "48734b4f.246844",
+                "9046848a.113a78"
+            ]
+        ]
+    },
+    {
+        "id": "48734b4f.246844",
+        "type": "debug",
+        "z": "5737b0ff.9c5df",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 830,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ce1a448d.881e98",
+        "type": "mqtt out",
+        "z": "5737b0ff.9c5df",
+        "name": "",
+        "topic": "wireless.power.meter2018@gmail.com/log",
+        "qos": "0",
+        "retain": "",
+        "broker": "2b14dfdb.10208",
+        "x": 860,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9046848a.113a78",
+        "type": "function",
+        "z": "5737b0ff.9c5df",
+        "name": "password",
+        "func": "if(msg.payload == \"getlog\")\n{\n    msg.payload = \"https://docs.google.com/spreadsheets/d/1JqK40cr_OtfFO47lMPsPyWso27Uhw4YqoQelxhsVGb4/edit?usp=sharing\";\n    msg.payload = msg.payload + \",\" + \"https://docs.google.com/spreadsheets/d/1ueO4R4CuJs1TU8zt2Kd-PQQc2C05-Yg5JGtU62XL6ac/edit?usp=sharing\";\n    msg.payload = msg.payload + \",\" + \"https://docs.google.com/spreadsheets/d/1nEdIzuxSczd7IrSgwrz08O34ImtYShPs0TEJbYfemFY/edit?usp=sharing\";\n}\nelse\n{\n    msg.payload = \"$2loginfailednvxdjkg834ivjdgru9087\";\n}\nreturn msg; \n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 580,
+        "y": 120,
+        "wires": [
+            [
+                "ce1a448d.881e98",
+                "48734b4f.246844"
+            ]
+        ]
+    },
+    {
+        "id": "f9e5770.98cf188",
+        "type": "mqtt out",
+        "z": "d79ec681.631798",
+        "name": "power",
+        "topic": "7/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 510,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "b348cf84.bfcc9",
+        "type": "mqtt out",
+        "z": "7d815a72.954044",
+        "name": "power",
+        "topic": "1/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 530,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "b76b44d8.c3a558",
+        "type": "mqtt out",
+        "z": "4e59a11d.e39d5",
+        "name": "power",
+        "topic": "2/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 530,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "e7eb2601.b21488",
+        "type": "mqtt out",
+        "z": "e9c9eab3.cd4f98",
+        "name": "power",
+        "topic": "3/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 530,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "affc9608.0c21e8",
+        "type": "mqtt out",
+        "z": "aa29e984.b0d368",
+        "name": "power",
+        "topic": "4/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 470,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "d89c3b31.3c9088",
+        "type": "mqtt out",
+        "z": "74dd2ce0.2034c4",
+        "name": "power",
+        "topic": "5/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 530,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "19821e57.6403b2",
+        "type": "mqtt out",
+        "z": "673847a1.554548",
+        "name": "power",
+        "topic": "6/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 450,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "f2fa9b57.c2fe58",
+        "type": "mqtt out",
+        "z": "ddae1a9b.382958",
+        "name": "power",
+        "topic": "8/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 490,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "7b67baac.797fc4",
+        "type": "mqtt out",
+        "z": "37838a34.96ff66",
+        "name": "power",
+        "topic": "9/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 450,
+        "y": 1900,
+        "wires": []
+    },
+    {
+        "id": "c08d3dd2.24bd2",
+        "type": "mqtt out",
+        "z": "630ae749.48d7a8",
+        "name": "power",
+        "topic": "10/p",
+        "qos": "0",
+        "retain": "",
+        "broker": "cd4056a8.8a2f28",
+        "x": 710,
+        "y": 2260,
+        "wires": []
     }
 ]

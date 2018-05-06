@@ -176,6 +176,81 @@
    ]
   },
   {
+   "title": "Node8",
+   "width": 1,
+   "row": {
+    "3": 25,
+    "5": 25
+   },
+   "col": {
+    "3": 1,
+    "5": 1
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node9",
+   "width": 1,
+   "row": {
+    "3": 25,
+    "5": 25
+   },
+   "col": {
+    "3": 2,
+    "5": 2
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Node10",
+   "width": 1,
+   "row": {
+    "3": 25,
+    "5": 25
+   },
+   "col": {
+    "3": 3,
+    "5": 3
+   },
+   "col_width": 1,
+   "widgets": [
+    {
+     "type": "gauge",
+     "settings": {
+      "title": "Energy",
+      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10/3e\"]",
+      "units": "kWh",
+      "min_value": 0,
+      "max_value": "100000"
+     }
+    }
+   ]
+  },
+  {
    "title": "NODE3",
    "width": 1,
    "row": {
@@ -934,75 +1009,6 @@
      }
     }
    ]
-  },
-  {
-   "title": "Node8",
-   "width": 1,
-   "row": {
-    "3": 25
-   },
-   "col": {
-    "3": 1
-   },
-   "col_width": 1,
-   "widgets": [
-    {
-     "type": "gauge",
-     "settings": {
-      "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/7/3e\"]",
-      "units": "kWh",
-      "min_value": 0,
-      "max_value": "100000"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Node9",
-   "width": 1,
-   "row": {
-    "3": 25
-   },
-   "col": {
-    "3": 2
-   },
-   "col_width": 1,
-   "widgets": [
-    {
-     "type": "gauge",
-     "settings": {
-      "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/9/3e\"]",
-      "units": "kWh",
-      "min_value": 0,
-      "max_value": "100000"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Node10",
-   "width": 1,
-   "row": {
-    "3": 25
-   },
-   "col": {
-    "3": 3
-   },
-   "col_width": 1,
-   "widgets": [
-    {
-     "type": "gauge",
-     "settings": {
-      "title": "Energy",
-      "value": "datasources[\"wpm2018db\"][\"/wpm2018/10/3e\"]",
-      "units": "kWh",
-      "min_value": 0,
-      "max_value": "100000"
-     }
-    }
-   ]
   }
  ],
  "datasources": [
@@ -1025,8 +1031,8 @@
     "feedid": "wpm2018Database",
     "apikey": "FtzABVCEyUPppAZKAmGsle2RYQBfiA6u",
     "granularity_value": "15",
-    "granularity_unit": "seconds",
-    "since_value": "6",
+    "granularity_unit": "minutes",
+    "since_value": "24",
     "since_unit": "hours",
     "interval": "15"
    }
@@ -1039,8 +1045,8 @@
     "feedid": "wpm2018Database2",
     "apikey": "CTxOBi8JKSi3GxTdDp137BJJn6IpIheA",
     "granularity_value": "15",
-    "granularity_unit": "seconds",
-    "since_value": "6",
+    "granularity_unit": "minutes",
+    "since_value": "24",
     "since_unit": "hours",
     "interval": "15"
    }
