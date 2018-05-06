@@ -118,5 +118,17 @@ namespace wpm2018a_v1.Properties {
                 this["Overload3"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gmail")]
+        public string Uname {
+            get {
+                return ((string)(this["Uname"]));
+            }
+            set {
+                this["Uname"] = value;
+            }
+        }
     }
 }

@@ -296,12 +296,50 @@ namespace wpm2018a_v1
             {
                 
                 String payload = Encoding.UTF8.GetString(e.Message);
-                String topic = e.Topic;             
-
+                String topic = e.Topic;
+                float value = 0;
                 Payload_lbl.Text = payload;
                 Topic_lbl.Text = topic;
                 String[] topic_level = topic.Split('/');
-                float value = Convert.ToSingle(payload);
+
+                if (topic_level[0] == Username_txt.Text)
+                {
+                                      
+                    if (payload == "$2loginfailednvxdjkg834ivjdgru9087")
+                    {
+                        MessageBox.Show("Please check your password");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            String[] myurl = payload.Split(',');
+                            foreach(string urlopen in myurl)
+                            {
+                           
+                                
+                                System.Diagnostics.Process.Start(urlopen);
+                            }
+                            
+                            
+                        }
+                        catch
+                        {
+                            //MessageBox.Show("ERR");
+                        }
+                        
+                    }
+                    return;
+                }
+                try
+                {
+                    value = Convert.ToSingle(payload);
+                }
+                catch
+                {
+
+                }
+                
                 node.id = topic_level[0];
 
 
@@ -440,6 +478,8 @@ namespace wpm2018a_v1
                     Check_msg(topic, payload, Bind3_txt.Text, 2);
                 }
 
+
+
             }));
 
             
@@ -458,6 +498,7 @@ namespace wpm2018a_v1
             Bind1_limit_txt.Text = Settings.Default["Overload1"].ToString();
             Bind2_limit_txt.Text = Settings.Default["Overload2"].ToString();
             Bind3_limit_txt.Text = Settings.Default["Overload3"].ToString();
+            Username_txt.Text = Settings.Default["Uname"].ToString();
             string tmp_path = Directory.GetCurrentDirectory();
             tmp_path = tmp_path + "\\devices.txt";
             
@@ -485,7 +526,7 @@ namespace wpm2018a_v1
             }
             catch(Exception ex)
             {
-                //Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
             tmp_path = tmp_path.Replace("device", "zone");
             try
@@ -795,6 +836,7 @@ namespace wpm2018a_v1
             Settings.Default["Overload1"] = Bind1_limit_txt.Text;
             Settings.Default["Overload2"] = Bind2_limit_txt.Text;
             Settings.Default["Overload3"] = Bind3_limit_txt.Text;
+            Settings.Default["Uname"] = Username_txt.Text;
 
 
             string[] lines = new string[50];
@@ -842,6 +884,36 @@ namespace wpm2018a_v1
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void dataLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://drive.google.com/drive/shared-with-me");
+        }
+
+        private void netpieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://netpie.io/freeboard/ioteep");
+        }
+
+        private void Login_btn_Click(object sender, EventArgs e)
+        {
+            String username_str = Username_txt.Text;
+            Login_btn.Enabled = false;
+            if(username_str != "")
+            {
+                byte[] bytes = Encoding.ASCII.GetBytes("getlog");
+                _Client.Publish(username_str, bytes);
+                _Client.Subscribe(new[] { username_str + "/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+            }
+            
+
+            
+        }
+
+        private void Username_txt_TextChanged(object sender, EventArgs e)
+        {
+            Login_btn.Enabled = true;
         }
     }
 }

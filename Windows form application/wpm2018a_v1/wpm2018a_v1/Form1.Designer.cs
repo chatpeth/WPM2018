@@ -189,10 +189,17 @@
             this.Footter = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userManualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.netpieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.log_lbl = new System.Windows.Forms.Label();
+            this.Username_txt = new System.Windows.Forms.TextBox();
+            this.Login_btn = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -564,7 +571,10 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.splitContainer1.Panel1.Controls.Add(this.Reconnect_btn);
+            this.splitContainer1.Panel1.Controls.Add(this.label40);
+            this.splitContainer1.Panel1.Controls.Add(this.Login_btn);
+            this.splitContainer1.Panel1.Controls.Add(this.Username_txt);
+            this.splitContainer1.Panel1.Controls.Add(this.log_lbl);
             this.splitContainer1.Panel1.Controls.Add(this.auto_fill_chk);
             this.splitContainer1.Panel1.Controls.Add(this.zone_connect_btn);
             this.splitContainer1.Panel1.Controls.Add(this.Zone_list_lbl);
@@ -626,7 +636,7 @@
             // 
             // Reconnect_btn
             // 
-            this.Reconnect_btn.Location = new System.Drawing.Point(262, 519);
+            this.Reconnect_btn.Location = new System.Drawing.Point(1257, 21);
             this.Reconnect_btn.Name = "Reconnect_btn";
             this.Reconnect_btn.Size = new System.Drawing.Size(75, 23);
             this.Reconnect_btn.TabIndex = 19;
@@ -1897,6 +1907,7 @@
             this.Footter.Controls.Add(this.Topic_lbl);
             this.Footter.Controls.Add(this.checkBox1);
             this.Footter.Controls.Add(this.Payload_lbl);
+            this.Footter.Controls.Add(this.Reconnect_btn);
             this.Footter.Location = new System.Drawing.Point(0, 659);
             this.Footter.Name = "Footter";
             this.Footter.Size = new System.Drawing.Size(1360, 50);
@@ -1907,6 +1918,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.analyzeToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -1919,24 +1931,25 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
+            this.dataLogToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1949,8 +1962,66 @@
             // userManualToolStripMenuItem
             // 
             this.userManualToolStripMenuItem.Name = "userManualToolStripMenuItem";
-            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userManualToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.userManualToolStripMenuItem.Text = "User manual";
+            // 
+            // dataLogToolStripMenuItem
+            // 
+            this.dataLogToolStripMenuItem.Name = "dataLogToolStripMenuItem";
+            this.dataLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dataLogToolStripMenuItem.Text = "Data log";
+            this.dataLogToolStripMenuItem.Click += new System.EventHandler(this.dataLogToolStripMenuItem_Click);
+            // 
+            // analyzeToolStripMenuItem
+            // 
+            this.analyzeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.netpieToolStripMenuItem});
+            this.analyzeToolStripMenuItem.Name = "analyzeToolStripMenuItem";
+            this.analyzeToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.analyzeToolStripMenuItem.Text = "Analyze";
+            // 
+            // netpieToolStripMenuItem
+            // 
+            this.netpieToolStripMenuItem.Name = "netpieToolStripMenuItem";
+            this.netpieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.netpieToolStripMenuItem.Text = "Netpie";
+            this.netpieToolStripMenuItem.Click += new System.EventHandler(this.netpieToolStripMenuItem_Click);
+            // 
+            // log_lbl
+            // 
+            this.log_lbl.AutoSize = true;
+            this.log_lbl.Location = new System.Drawing.Point(12, 394);
+            this.log_lbl.Name = "log_lbl";
+            this.log_lbl.Size = new System.Drawing.Size(76, 13);
+            this.log_lbl.TabIndex = 20;
+            this.log_lbl.Text = "Real Time Log";
+            // 
+            // Username_txt
+            // 
+            this.Username_txt.Location = new System.Drawing.Point(107, 419);
+            this.Username_txt.Name = "Username_txt";
+            this.Username_txt.Size = new System.Drawing.Size(216, 20);
+            this.Username_txt.TabIndex = 21;
+            this.Username_txt.TextChanged += new System.EventHandler(this.Username_txt_TextChanged);
+            // 
+            // Login_btn
+            // 
+            this.Login_btn.Location = new System.Drawing.Point(248, 490);
+            this.Login_btn.Name = "Login_btn";
+            this.Login_btn.Size = new System.Drawing.Size(75, 23);
+            this.Login_btn.TabIndex = 23;
+            this.Login_btn.Text = "Login";
+            this.Login_btn.UseVisualStyleBackColor = true;
+            this.Login_btn.Click += new System.EventHandler(this.Login_btn_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(12, 422);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(55, 13);
+            this.label40.TabIndex = 24;
+            this.label40.Text = "Username";
             // 
             // Form1
             // 
@@ -2153,6 +2224,13 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userManualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyzeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem netpieToolStripMenuItem;
+        private System.Windows.Forms.TextBox Username_txt;
+        private System.Windows.Forms.Label log_lbl;
+        private System.Windows.Forms.Button Login_btn;
+        private System.Windows.Forms.Label label40;
     }
 }
 

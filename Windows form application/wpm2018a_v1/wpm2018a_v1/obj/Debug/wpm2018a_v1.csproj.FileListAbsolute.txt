@@ -32,3 +32,4 @@ C:\Users\5610110106\Documents\WPM2018\Windows form application\wpm2018a_v1\wpm20
 C:\Users\5610110106\Documents\WPM2018\Windows form application\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.csproj.CoreCompileInputs.cache
 C:\Users\5610110106\Documents\WPM2018\Windows form application\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.exe
 C:\Users\5610110106\Documents\WPM2018\Windows form application\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.pdb
+C:\Users\5610110106\Documents\WPM2018\Windows form application\wpm2018a_v1\wpm2018a_v1\obj\Debug\wpm2018a_v1.csprojResolveAssemblyReference.cache

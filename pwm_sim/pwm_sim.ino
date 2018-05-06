@@ -1,21 +1,36 @@
-#define PWM_OUT1 5 //D1
-#define PWM_OUT2 4 //D2
-#define PWM_OUT3 14 //D5
-#define PWM_PIN 16
+// Pa = GPIO5 =D1
+// Pb = GPIO4 = D2
+// Pc = GPIO14 = D5
+
+#define PA 5
+#define PB 4
+#define PC 14
 
 
 void setup() { 
-  //pinMode(PWM_OUT1, OUTPUT);
-  pinMode(PWM_PIN, OUTPUT);
+
+  Serial.begin(115200);
+  Serial.println("\r\n PWM");
+  pinMode(PA, OUTPUT);
+  pinMode(PB, OUTPUT);
+  pinMode(PC, OUTPUT);
+  analogWriteFreq(500);
 
 }
 
 void loop() {
-  int D = 500;
-  analogWrite(PWM_PIN, 512);
-  //digitalWrite(PWM_OUT1, HIGH);
-  //delayMicroseconds(D);
-  //digitalWrite(PWM_OUT1, LOW);
-  //delayMicroseconds(D);
+
+  int ranf = random(1000);
+  if(ranf == 0)
+  {
+    ranf = 1;
+  }
+  printf("f=%d, p=%d\r\n", ranf, ranf*60 -2);
+  analogWriteFreq(ranf);
+  analogWrite(PA, 512);
+  analogWrite(PB, 512);
+  analogWrite(PC, 512);
+  delay(60000);
+
 
 }

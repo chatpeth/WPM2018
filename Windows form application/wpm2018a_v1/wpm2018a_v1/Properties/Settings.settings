@@ -26,5 +26,8 @@
     <Setting Name="Overload3" Type="System.String" Scope="User">
       <Value Profile="(Default)">10000</Value>
     </Setting>
+    <Setting Name="Uname" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Gmail</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
