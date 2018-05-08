@@ -445,6 +445,7 @@ void spreadsheet()
       {
         ESP.restart();
       }
+      null_err = null_err + 1;
     }
     printf("POST data to spreadsheet\r\n");
     Serial.println(payload);
