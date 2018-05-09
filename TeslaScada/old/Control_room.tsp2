@@ -1,0 +1,207 @@
+<project projectname="IoT EEP 2018a" projectauthor="Administrator" screenwidth="1366" screenheight="800" screendiffers="false" runscreenwidth="1200" runscreenheight="760" updateperiod="1000" eventsdbname="events" historydbname="history" username="" password="" storagedbperiod="4" notpriority="0" startscreen="Meter" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="true" bottokenname="cHdlbmdfMDQwNg==">
+   <windows>
+      <window name="Meter" color="0xffffffff" type="0" windowheight="740" windowwidth="1366" usepassword="false" password="">
+         <objects>
+            <objectView class="tesla.scada2.model.objects.RectangleView" name="Rectangle" posx="0.0" posy="0.0" width="1366.0" height="25.0" angle="0" lock="false" color="0x666666ff" linewidth="1" fill="true" fillcolor="0xe6e6e6ff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="App_Name" posx="-5.0" posy="-18.0" width="100.0" height="60.0" angle="0" lock="false" text="Wpm 4.0" fonttype="9" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="151.0" posy="335.0" width="51.0" height="29.0" angle="0" lock="false" text="E (kWhr)" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.ButtonView" name="Control Button" posx="1253.0" posy="36.0" width="80.0" height="30.0" angle="0" lock="false" text="Control &gt;" textcolor="0x999999ff" fillcolor="0xffffffff" type3d="1" fonttype="0">
+               <property key="buttoncontrol">
+                  <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="cnt" functiontype="6" value="0" title="Enter value" screenname="Control"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.RealTimeTrendView" name="Real time trend" posx="68.0" posy="386.0" width="1131.0" height="280.0" angle="0" lock="false" color="0xffffffff" linewidth="1" fill="true" fillcolor="0xffffffff" gridcolor="0xe6e6e6ff" linestyle="Solid" gridlinewidth="1" horizontally="5" vertically="4" maximum="100000.0" minimum="0.0" fontsize="10" markcolor="0x000000ff" timeformat="HH:mm:ss" defaulttimeperiod="10">
+               <curves>
+                  <curve tagname="1_energy" curvename="1e" linewidth="1" color="0x1a4d4dff" type="0"/>
+                  <curve tagname="2_energy" curvename="2e" linewidth="1" color="0x1a3399ff" type="0"/>
+                  <curve tagname="3_energy" curvename="3e" linewidth="1" color="0x331a80ff" type="0"/>
+                  <curve tagname="4_energy" curvename="4e" linewidth="1" color="0x4d1a4dff" type="0"/>
+                  <curve tagname="5_energy" curvename="5e" linewidth="1" color="0x661a33ff" type="0"/>
+                  <curve tagname="6_energy" curvename="6e" linewidth="1" color="0xb31a1aff" type="0"/>
+               </curves>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="20.0" posy="60.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="1_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="17.0" posy="211.0" width="83.0" height="45.0" angle="0" lock="false" text="Node1" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="1_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="102.0" posy="211.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="214.0" posy="60.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="2_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="211.0" posy="211.0" width="83.0" height="45.0" angle="0" lock="false" text="Node2" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="2_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="296.9347826086956" posy="211.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="411.0" posy="56.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="3_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="407.0" posy="207.0" width="83.0" height="45.0" angle="0" lock="false" text="Node3" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="3_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="493.9347826086956" posy="207.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="600.0" posy="58.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="4_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="597.0" posy="209.0" width="83.0" height="45.0" angle="0" lock="false" text="Node4" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="4_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="682.9347826086956" posy="209.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="793.0" posy="58.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="5_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="790.0" posy="209.0" width="83.0" height="45.0" angle="0" lock="false" text="Node5" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="5_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="875.9347826086956" posy="209.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GaugeView" name="Gauge" posx="970.0" posy="58.0" width="146.0" height="146.0" angle="0" lock="false" color="0xffffffff" fillcolor="0x333333ff" text="Energy" unit="kWhr." interval="4" usedigital="false">
+               <property key="rangevalue">
+                  <property class="tesla.scada2.model.properties.RangeValueProperty" tagname="6_energy" minimumvalue="0.0" maximumvalue="1.0E7" decimalpos="0" showvalue="false" showhistory="false" historycolor="0x0000ffff" timeperiod="0">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter" posx="967.0" posy="209.0" width="83.0" height="45.0" angle="0" lock="false" text="Node6" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff">
+               <property key="textinput">
+                  <property class="tesla.scada2.model.properties.TextInputProperty" tagname="6_energy" value="0" type="0" truetext="" falsetext="" textbefore="" textafter="" decimalpos="4">
+                     <textrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="1052.9347826086957" posy="209.0" width="48.06521739130435" height="45.0" angle="0" lock="false" text="kWhr." fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="66.0" posy="21.0" width="48.0" height="45.0" angle="0" lock="false" text="Node1" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="267.0" posy="22.0" width="48.0" height="45.0" angle="0" lock="false" text="Node2" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="464.0" posy="18.0" width="48.0" height="45.0" angle="0" lock="false" text="Node3" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="651.0" posy="21.0" width="48.0" height="45.0" angle="0" lock="false" text="Node4" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="847.0" posy="21.0" width="48.0" height="45.0" angle="0" lock="false" text="Node5" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="1024.0" posy="18.0" width="48.0" height="45.0" angle="0" lock="false" text="Node6" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+         </objects>
+         <scriptnames/>
+      </window>
+      <window name="Control" color="0xffffffff" type="0" windowheight="740" windowwidth="1366" usepassword="true" password="cGFzc3dvcmQ=">
+         <objects>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="85.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW1"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.PumpMotorView" name="Motor" posx="382.0" posy="56.0" width="134.0" height="91.0" angle="0" lock="false" fillcolor="0x808080ff" type3d="0">
+               <property key="fillcolor">
+                  <property class="tesla.scada2.model.properties.FillColorProperty" tagname="SW1" value="false" type="0" truecolor="0xb3b3b3ff" falsecolor="0x99cc99ff">
+                     <colorrange/>
+                  </property>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.RectangleView" name="Rectangle" posx="0.0" posy="0.0" width="1366.0" height="25.0" angle="0" lock="false" color="0x666666ff" linewidth="1" fill="true" fillcolor="0xe6e6e6ff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="App_Name" posx="-23.0" posy="-7.0" width="100.0" height="41.0" angle="0" lock="false" text="Control" fonttype="15" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.ButtonView" name="Control Button" posx="1277.0" posy="30.0" width="80.0" height="30.0" angle="0" lock="false" text="Meter &gt;" textcolor="0x999999ff" fillcolor="0xffffffff" type3d="1" fonttype="0">
+               <property key="buttoncontrol">
+                  <property class="tesla.scada2.model.properties.ButtonControlProperty" tagname="cnt" functiontype="6" value="0" title="Enter value" screenname="Meter"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="153.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW2"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="223.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW3"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="294.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW4"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="363.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW5"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.SwitchAppleView" name="Apple switch" posx="224.0" posy="422.0" width="63.0" height="33.0" angle="0" lock="false" text="" textcolor="0x000000ff" fillcolor="0x16e616ff" texton="" textoff="" type3d="0">
+               <property key="switchcontrol">
+                  <property class="tesla.scada2.model.properties.SwitchControlProperty" tagname="SW6"/>
+               </property>
+            </objectView>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="78.0" width="48.0" height="45.0" angle="0" lock="false" text="Node1" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="138.0" width="48.0" height="45.0" angle="0" lock="false" text="Node2" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="217.0" width="48.0" height="45.0" angle="0" lock="false" text="Node3" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="291.0" width="48.0" height="45.0" angle="0" lock="false" text="Node4" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="351.0" width="48.0" height="45.0" angle="0" lock="false" text="Node5" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="kWhr meter unit" posx="79.0" posy="421.0" width="48.0" height="45.0" angle="0" lock="false" text="Node6" fonttype="0" fontsize="12" textplacement="1" textcolor="0x000000ff" useborder="false" bordercolor="0x000000ff" linewidth="4" fill="false" fillcolor="0xffffffff"/>
+         </objects>
+         <scriptnames/>
+      </window>
+   </windows>
+   <scripts>
+      <script name="controlScript" color="0xd3d3d3ff" type="0" windowheight="568" windowwidth="320">
+         <objects/>
+         <links/>
+      </script>
+   </scripts>
+   <servers>
+      <server class="tesla.scada2.model.servers.MQTTServer" name="MQTTEEPServer" interval="1000" uri="tcp://m12.cloudmqtt.com:19574" username="qonihivg" password="UNIemBQQpGw8" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
+   </servers>
+   <tags>
+      <tag name="1_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=1_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="2_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=2_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="3_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=3_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="4_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=4_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="5_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=5_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="6_energy" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=6_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW1" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw1;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW2" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw2;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW3" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw3;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW4" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw4;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW5" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw5;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="SW6" datatype="0" accessmode="1" initialpv="true" numberofelements="10" elementtype="-1" pvinputserver="MQTTEEPServer" pvinputsource="t=sw6;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTEEPServer" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+   </tags>
+   <users/>
+   <libraries/>
+   <recipes/>
+   <sounds/>
+   <mqttpublisher enabled="true" broker="tcp://m12.cloudmqtt.com:19574" username="qonihivg" password="UNIemBQQpGw8" Qos="0" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
+   <emailclient enableclient="false" host="smtp.gmail.com" port="587" tlsssl="0" auth="true"/>
+</project>

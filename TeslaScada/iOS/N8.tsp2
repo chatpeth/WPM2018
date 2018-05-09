@@ -1,0 +1,83 @@
+<project projectname="WPM iOS" projectauthor="Chatpeth" screenwidth="320" screenheight="568" screendiffers="false" runscreenwidth="800" runscreenheight="600" updateperiod="1000" eventsdbname="events" historydbname="history" storagedbperiod="2" notpriority="100" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="false" bottokenname="">
+   <windows>
+      <window name="Home" color="0xd3d3d3ff" type="0" windowheight="568" windowwidth="320" usepassword="false" password="">
+         <objects>
+            <objectView class="tesla.scada2.model.objects.BorderView" name="Border" posx="0.0" posy="0.0" width="320.0" height="40.0" angle="0" lock="false" color="0x000000ff" linewidth="2" fill="true" fillcolor="0x808080ff" inner="true"/>
+            <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="10.0" posy="10.0" width="110.0" height="30.0" angle="0" lock="false" text="Node8" fonttype="0" fontsize="20" textplacement="1" textcolor="0xffffffff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
+            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="60.0" posy="80.0" width="190.0" height="400.0" angle="0" lock="false">
+               <objects>
+                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="242.42424242424244" width="190.0" height="76.76767676767678" angle="0" lock="false" text="Pavg (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                     <property key="value">
+                        <property class="tesla.scada2.model.properties.ValueProperty" tagname="Pavg" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
+                     </property>
+                  </objectView>
+                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="323.23232323232327" width="190.0" height="76.76767676767678" angle="0" lock="false" text="Energy (kWh)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                     <property key="value">
+                        <property class="tesla.scada2.model.properties.ValueProperty" tagname="E" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
+                     </property>
+                  </objectView>
+                  <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="0.0" posy="0.0" width="190.0" height="238.3838383838384" angle="0" lock="false">
+                     <objects>
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="0.0" width="190.0" height="77.88025179329529" angle="0" lock="false" text="PA (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                           <property key="value">
+                              <property class="tesla.scada2.model.properties.ValueProperty" tagname="PA" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
+                           </property>
+                        </objectView>
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="80.80808080808082" width="190.0" height="77.88025179329529" angle="0" lock="false" text="PB (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                           <property key="value">
+                              <property class="tesla.scada2.model.properties.ValueProperty" tagname="PB" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
+                           </property>
+                        </objectView>
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="161.61616161616163" width="190.0" height="77.88025179329529" angle="0" lock="false" text="PC (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                           <property key="value">
+                              <property class="tesla.scada2.model.properties.ValueProperty" tagname="PC" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
+                           </property>
+                        </objectView>
+                     </objects>
+                  </objectView>
+               </objects>
+            </objectView>
+         </objects>
+         <scriptnames/>
+      </window>
+   </windows>
+   <scripts>
+      <script name="Script0" color="0xd3d3d3ff" type="0" windowheight="568" windowwidth="320">
+         <objects>
+            <scriptObject class="tesla.scada2.model.scriptobjects.InputTagScriptObject" posx="10.0" posy="70.0" tagname="PA"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.InputTagScriptObject" posx="10.0" posy="120.0" tagname="PB"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.InputTagScriptObject" posx="80.0" posy="170.0" tagname="PC"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.InputValueScriptObject" posx="140.0" posy="220.0" value="3"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.DivisionScriptObject" posx="220.0" posy="180.0"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.AdditionScriptObject" posx="80.0" posy="70.0"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.AdditionScriptObject" posx="150.0" posy="120.0"/>
+            <scriptObject class="tesla.scada2.model.scriptobjects.OutputTagScriptObject" posx="240.0" posy="290.0" tagname="Pavg"/>
+         </objects>
+         <links>
+            <link FBDInId="0" FBDOutId="5" InId="0" OutId="0"/>
+            <link FBDInId="1" FBDOutId="5" InId="0" OutId="1"/>
+            <link FBDInId="5" FBDOutId="6" InId="0" OutId="0"/>
+            <link FBDInId="2" FBDOutId="6" InId="0" OutId="1"/>
+            <link FBDInId="6" FBDOutId="4" InId="0" OutId="0"/>
+            <link FBDInId="3" FBDOutId="4" InId="0" OutId="1"/>
+            <link FBDInId="4" FBDOutId="7" InId="0" OutId="0"/>
+         </links>
+      </script>
+   </scripts>
+   <servers>
+      <server class="tesla.scada2.model.servers.MQTTServer" name="MQTTServer1" interval="1000" uri="tcp://m12.cloudmqtt.com:19574" username="qonihivg" password="UNIemBQQpGw8" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
+   </servers>
+   <tags>
+      <tag name="E" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTServer1" pvinputsource="t=8_e;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTServer1" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="false" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="PA" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTServer1" pvinputsource="t=8_p0;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTServer1" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="PB" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTServer1" pvinputsource="t=8_p1;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTServer1" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="PC" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTServer1" pvinputsource="t=8_p2;qos=0;r=0;json=" outputdiffers="false" pvoutputserver="MQTTServer1" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+      <tag name="Pavg" datatype="5" accessmode="1" initialpv="0.0" numberofelements="10" elementtype="-1" pvinputserver="MQTTServer1" outputdiffers="false" pvoutputserver="MQTTServer1" enablescaling="false" rawvaluemax="100.0" rawvaluemin="0.0" euvaluemax="100.0" euvaluemin="0.0" offset="0.0" enablehistorizing="true" storageperiod="1000" storeindb="false" enablealarming="false" enablehihi="false" hihilimit="1.0" hihipriority="50" enablehi="false" hilimit="0.0" hipriority="500" enablelo="false" lolimit="0.0" lopriority="500" enablelolo="false" lololimit="0.0" lolopriority="50" enablenormal="false" normalpriority="900" deadband="0.0" opcuaevent="false"/>
+   </tags>
+   <users/>
+   <libraries/>
+   <recipes/>
+   <sounds/>
+   <mqttpublisher enabled="false" broker="tcp://m11.cloudmqtt.com:16160" Qos="0" enablessl="false" enableclientcert="false" pem="false" protocol="TLSv1.2"/>
+   <emailclient enableclient="false" host="smtp.gmail.com" port="587" tlsssl="0" auth="true"/>
+</project>

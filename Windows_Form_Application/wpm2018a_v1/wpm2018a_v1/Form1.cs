@@ -31,7 +31,16 @@ namespace wpm2018a_v1
         {
             InitializeComponent();
             //_Client = new MqttClient(IPAddress.Parse("192.168.100.11"));
-            _Client = new MqttClient(my_broker);
+            try
+            {
+                _Client = new MqttClient(my_broker);
+            }
+            catch
+            {
+                MessageBox.Show("Check your internet connection!", "WPM2018");
+                System.Environment.Exit(0);
+            }
+            
             //byte connection_result = _Client.Connect(Guid.NewGuid().ToString());
             //_Client.Subscribe(new[] { "fff1/pa" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
             _Client.ConnectionClosed += _Client_ConnectionClosed;
@@ -79,6 +88,12 @@ namespace wpm2018a_v1
                 connection_status = _Client.Connect(Guid.NewGuid().ToString());
                 if (connection_status == 0)
                 {
+                    foreach (ComboboxItem topic in Device_lst.Items)
+                    {
+                        string sub_topic = topic.NID.ToString();
+                        //MessageBox.Show(sub_topic);
+                        _Client.Subscribe(new[] { sub_topic + "/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+                    }
                     MessageBox.Show("Connection restored.");
                 }
             }
@@ -118,7 +133,8 @@ namespace wpm2018a_v1
                 }
                 catch
                 {
-                    MessageBox.Show("Please enter number.", "Warning!");
+                    //MessageBox.Show("Please enter number.", "Warning!");
+                    Bind1_limit_txt.Text = "10000";
                     return;
                 }
                 if(bind_node[bind_id].pt > limit)
@@ -157,7 +173,8 @@ namespace wpm2018a_v1
                 }
                 catch
                 {
-                    MessageBox.Show("Please enter number.", "Warning!");
+                    //MessageBox.Show("Please enter number.", "Warning!");
+                    Bind1_limit_txt.Text = "10000";
                     return;
                 }
                 if (bind_node[bind_id].pt > limit)
@@ -195,7 +212,8 @@ namespace wpm2018a_v1
                 }
                 catch
                 {
-                    MessageBox.Show("Please enter number.", "Warning!");
+                    //MessageBox.Show("Please enter number.", "Warning!");
+                    Bind1_limit_txt.Text = "10000";
                     return;
                 }
                 if (bind_node[bind_id].pt > limit)
@@ -810,11 +828,17 @@ namespace wpm2018a_v1
             {
                 _Client.Connect(DateTime.Now.ToUniversalTime().ToString());
                 MessageBox.Show(DateTime.Now.ToUniversalTime().ToString());
+                foreach(ComboboxItem topic in Device_lst.Items)
+                {
+                    string sub_topic = topic.NID.ToString();
+                    //MessageBox.Show(sub_topic);
+                    _Client.Subscribe(new[] { sub_topic + "/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+                }
 
             }
             catch
             {
-                
+                return;
             }
 
 
