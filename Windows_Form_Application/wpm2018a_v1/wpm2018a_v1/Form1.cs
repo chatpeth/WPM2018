@@ -939,5 +939,10 @@ namespace wpm2018a_v1
         {
             Login_btn.Enabled = true;
         }
+
+        private void userManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://drive.google.com/file/d/1NLPPlMqJMzbN1LHAUj85MlvTWcEXkHsJ/view?usp=sharing");
+        }
     }
 }
