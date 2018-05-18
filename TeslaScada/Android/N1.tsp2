@@ -1,34 +1,33 @@
 <project projectname="WPM iOS" projectauthor="Chatpeth" screenwidth="320" screenheight="568" screendiffers="false" runscreenwidth="800" runscreenheight="600" updateperiod="1000" eventsdbname="events" historydbname="history" storagedbperiod="2" notpriority="100" defaultfont="0" certificatename="TeslaSCADA2" certperiod="3650" showserverevents="true" usetelegrambot="false" bottokenuse="false" bottokenname="">
    <windows>
-      <window name="Home" color="0xd3d3d3ff" type="0" windowheight="1460" windowwidth="750" usepassword="false" password="">
+      <window name="Home" color="0xd3d3d3ff" type="0" windowheight="1460" windowwidth="1280" usepassword="false" password="">
          <objects>
-            <objectView class="tesla.scada2.model.objects.BorderView" name="Border" posx="0.0" posy="0.0" width="750.0" height="60.0" angle="0" lock="false" color="0x000000ff" linewidth="2" fill="true" fillcolor="0x808080ff" inner="true"/>
             <objectView class="tesla.scada2.model.objects.TextView" name="Text" posx="10.0" posy="10.0" width="260.0" height="40.0" angle="0" lock="false" text="WPM2018a" fonttype="0" fontsize="40" textplacement="1" textcolor="0xffffffff" useborder="false" bordercolor="0x000000ff" linewidth="2" fill="false" fillcolor="0xffffffff"/>
-            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="140.0" posy="220.0" width="480.0" height="800.0" angle="0" lock="false">
+            <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="140.0" posy="160.0" width="880.0" height="1070.0" angle="0" lock="false">
                <objects>
-                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="484.8484848484849" width="480.0" height="153.53535353535355" angle="0" lock="false" text="Pavg (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="648.4848484848485" width="879.9999999999999" height="205.35353535353536" angle="0" lock="false" text="Pavg (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
                      <property key="value">
                         <property class="tesla.scada2.model.properties.ValueProperty" tagname="Pavg" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                      </property>
                   </objectView>
-                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="646.4646464646465" width="480.0" height="153.53535353535355" angle="0" lock="false" text="Energy (kWh)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                  <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="864.6464646464648" width="879.9999999999999" height="205.35353535353536" angle="0" lock="false" text="Energy (kWh)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
                      <property key="value">
                         <property class="tesla.scada2.model.properties.ValueProperty" tagname="E" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                      </property>
                   </objectView>
-                  <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="0.0" posy="0.0" width="480.0" height="476.76767676767685" angle="0" lock="false">
+                  <objectView class="tesla.scada2.model.objects.GroupObjectView" name="Group Object" posx="0.0" posy="0.0" width="879.9999999999999" height="637.6767676767677" angle="0" lock="false">
                      <objects>
-                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="0.0" width="480.0" height="155.76050358659057" angle="0" lock="false" text="PA (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="0.0" width="879.9999999999999" height="208.32967354706489" angle="0" lock="false" text="PA (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
                            <property key="value">
                               <property class="tesla.scada2.model.properties.ValueProperty" tagname="PA" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                            </property>
                         </objectView>
-                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="161.61616161616163" width="480.0" height="155.76050358659057" angle="0" lock="false" text="PB (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="216.1616161616162" width="879.9999999999999" height="208.32967354706489" angle="0" lock="false" text="PB (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
                            <property key="value">
                               <property class="tesla.scada2.model.properties.ValueProperty" tagname="PB" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                            </property>
                         </objectView>
-                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="323.23232323232327" width="480.0" height="155.76050358659057" angle="0" lock="false" text="PC (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
+                        <objectView class="tesla.scada2.model.objects.Digital8DigitMeterView" name="8 digit meter" posx="0.0" posy="432.3232323232324" width="879.9999999999999" height="208.32967354706489" angle="0" lock="false" text="PC (W)" textcolor="0x90ee90ff" bordercolor="0xa9a9a9ff" fillcolor="0x000000ff" type3d="0">
                            <property key="value">
                               <property class="tesla.scada2.model.properties.ValueProperty" tagname="PC" minimumvalue="0.0" maximumvalue="1000000.0" decimalpos="2"/>
                            </property>
