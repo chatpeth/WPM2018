@@ -4,7 +4,8 @@
  *  Github: @electronicsguy
  *  Copyright (C) 2017 Sujay Phadke <electronicsguy123@gmail.com>
  *  All rights reserved.
- *
+ *	Debug by Chatpeth
+ *	Release 5/8/2018 
  */
 
 #include "HTTPSRedirect.h"

@@ -10,7 +10,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "1"
+#define NID "10"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -439,13 +439,13 @@ void spreadsheet()
       while( (clientg->connect(host, httpsPort)) != 1)
       {
         printf("**");
-        
+        if(null_err > 3)
+        {
+          ESP.restart();
+        }
+        null_err = null_err + 1;
       } 
-      if(null_err > 3)
-      {
-        ESP.restart();
-      }
-      null_err = null_err + 1;
+      
     }
     printf("POST data to spreadsheet\r\n");
     Serial.println(payload);
