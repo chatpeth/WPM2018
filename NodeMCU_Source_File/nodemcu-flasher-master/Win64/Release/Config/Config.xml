@@ -22,7 +22,7 @@
   </Data>
   <Data name="FrameConfigLine1.FilePath">
     <Type>String</Type>
-    <Value>C:\Users\5610110106\Desktop\wpm02262018\wpm_n5_release02272018\wpm_n5_release02272018.ino.nodemcu.bin</Value>
+    <Value>C:\Users\eeresearch\Documents\WPM2018\n9_fw.ino.nodemcu.bin</Value>
   </Data>
   <Data name="FrameConfigLine1.Offset">
     <Type>String</Type>
@@ -72,38 +72,6 @@
     <Type>String</Type>
     <Value/>
   </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine5.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
   <Data name="FrameConfigLine5.Offset">
     <Type>String</Type>
     <Value/>
@@ -112,35 +80,7 @@
     <Type>Boolean</Type>
     <Value>False</Value>
   </Data>
-  <Data name="FrameConfigLine6.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine6.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
   <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine6.Offset">
     <Type>String</Type>
     <Value/>
   </Data>
@@ -152,35 +92,7 @@
     <Type>Boolean</Type>
     <Value>False</Value>
   </Data>
-  <Data name="FrameConfigLine7.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
-  <Data name="FrameConfigLine7.Checked">
-    <Type>Boolean</Type>
-    <Value>False</Value>
-  </Data>
   <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.FilePath">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
-    <Type>String</Type>
-    <Value/>
-  </Data>
-  <Data name="FrameConfigLine7.Offset">
     <Type>String</Type>
     <Value/>
   </Data>
