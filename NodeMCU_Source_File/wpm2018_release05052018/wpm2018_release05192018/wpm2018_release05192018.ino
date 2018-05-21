@@ -10,7 +10,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "9"
+#define NID "10"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -27,9 +27,9 @@
 #define LOG_INTERVAL "log_interval" NID
 #define POLLING_INTERVAL "polling_interval" NID
 #define MAX_EQUATION_REQ 10
-#define DEFAULT_SLOPE 60
-#define DEFAULT_CONST -2
-#define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
+#define DEFAULT_SLOPE 1424
+#define DEFAULT_CONST 204
+#define SHEET_NAME "\"node" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 #define NUMBER_OF_SAMPLE 20
 //#define HIGH_POWER
@@ -56,8 +56,8 @@ structPhase phaseID[3] = { {1, 5, 0, 0}, {1, 4, 0, 0}, {1, 14, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "PowerMeterIoT_WiFi";
-const char* password = "password";
+const char* ssid = "atop802.11x";
+const char* password = "atop3352";
 //IPAddress ip(192, 168, 1, 140); //set static ip
 //IPAddress gateway(192, 168, 1, 1); //set getteway
 //IPAddress subnet(255, 255, 255, 0);//set subnet
