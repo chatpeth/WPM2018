@@ -127,7 +127,7 @@ void setup_wifi()
             digitalWrite(LED_BUILTIN, HIGH);
             delay(50);
             count_wifi = count_wifi + 1;
-            if(count_wifi > 500)
+            if(count_wifi > 200)
             {
               delay(30000);
               ESP.restart();
@@ -702,4 +702,3 @@ void loop()
  
   delay(random(5));  
 }
-
