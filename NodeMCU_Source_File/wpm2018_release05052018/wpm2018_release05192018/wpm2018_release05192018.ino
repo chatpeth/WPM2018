@@ -19,7 +19,7 @@
 #define CLID "fff" NID
 #define NUM_PHASE 3
 #define MAX_ERR 3
-#define TIME_OUT 15000
+#define TIME_OUT 5000
 #define SLOPE "m" NID
 #define CONST "C" NID
 #define ENCRIPT_TOPIC "fff" NID
