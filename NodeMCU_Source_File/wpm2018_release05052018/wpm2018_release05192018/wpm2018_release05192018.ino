@@ -10,7 +10,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "10"
+#define NID "9"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -32,7 +32,7 @@
 #define SHEET_NAME "\"แผ่น" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 #define NUMBER_OF_SAMPLE 20
-#define HIGH_POWER
+//#define HIGH_POWER
 
 // for stack analytics
 extern "C" {
@@ -596,9 +596,28 @@ void measurement()
       
             
       #else
-      phaseID[0].duration = pulseIn(phaseID[0].pinIn, LOW) + pulseIn(phaseID[0].pinIn, HIGH);
-      phaseID[1].duration = pulseIn(phaseID[1].pinIn, LOW) + pulseIn(phaseID[1].pinIn, HIGH);
-      phaseID[2].duration = pulseIn(phaseID[2].pinIn, LOW) + pulseIn(phaseID[2].pinIn, HIGH);
+      // 1 Sample
+      unsigned long low_tmp_duration[3];
+      int i;
+      for(i = 0; i < 3; i++)
+      {
+        low_tmp_duration[i] = pulseIn(phaseID[i].pinIn, LOW);
+      }
+      
+      for(i = 0; i < 3; i ++)
+      {
+        if(low_tmp_duration[i] == 0)
+        {
+          // P = 0 W
+           phaseID[i].duration = 0;
+        }
+        else
+        {
+          phaseID[i].duration = low_tmp_duration[i] + pulseIn(phaseID[i].pinIn, HIGH);
+        }
+      }
+      
+     
 
       #endif
       

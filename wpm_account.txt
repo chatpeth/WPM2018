@@ -1,0 +1,24 @@
+1.Netpie
+url:https://netpie.io/freeboard/ioteep
+Username:wireless.power.meter2018@gmail.com
+qwer!@34
+
+2.Dashboard
+url:<raspberryPiIpAddr>::1880/ui
+Username:default
+Password:default
+
+3.Node-Red
+url:<raspberryPiIpAddr>::1880
+Username:admin
+Password:qwer!@34
+
+4.G-mail
+url:https://drive.google.com/drive/shared-with-me
+Username:   wireless.power.meter2018@gmail.com        
+Password:0x00FF0000;
+
+5.Raspberry pi
+Username: pi
+Password: pweng_0406
+
