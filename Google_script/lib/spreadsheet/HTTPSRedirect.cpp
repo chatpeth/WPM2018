@@ -349,9 +349,11 @@ unsigned int HTTPSRedirect::getResponseStatus(void){
   // Skip any empty lines
   do{
 	  //Serial.println("***********************************DB0xD1");
-	  	if (err_count > 1)
+	 if (err_count > 1)
 	{
-		ESP.restart();
+
+		//ESP.restart();
+		return false;
 	}
     line = readStringUntil('\n');
 	err_count = err_count + 1;

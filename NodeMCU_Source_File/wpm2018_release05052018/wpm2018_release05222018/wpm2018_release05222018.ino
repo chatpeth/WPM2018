@@ -4,6 +4,7 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <time.h>
+#include <AXWIFI.h>
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
 
@@ -37,6 +38,7 @@
 #define DISPLAY
 #define LOOP_BACK_PWM
 #define PWM_OUT 0  //D3
+#define INTEN 12
 
 #ifdef DISPLAY
 #include <SPI.h>
@@ -83,6 +85,7 @@ const char* client_id = CLID;
 unsigned long now;
 long lastMsg = 0;
 long lastLog = 0;
+long lastMeasure = 0;
 float m_slope = 0;
 float C_const = 0;
 int log_setting = 1;  //Log enable by default
@@ -128,7 +131,9 @@ void setup_wifi()
   int count_wifi = 0;
   printf("Node %s\r\n", nodeID);
   printf("Connecting to %s\r\n", ssid);
-  
+  #ifdef DISPLAY
+  ax.SledShow(0, 0, INTEN, 0);
+  #endif
   
   //WiFi.config(ip, gateway, subnet);
   Serial.print("MAC: ");
@@ -143,14 +148,31 @@ void setup_wifi()
             digitalWrite(LED_BUILTIN, HIGH);
             delay(50);
             count_wifi = count_wifi + 1;
-            if(count_wifi > 200)
+            if(count_wifi > 100)
             {
+              #ifdef DISPLAY
+              ax.SledShow(0, 0, 0, INTEN);
+              #endif
               delay(30000);
+              #ifdef DISPLAY
+              ax.SledShow(0, 0, INTEN, 0);
+              #endif
+              WiFi.begin(ssid, password);
+            }
+            else if(count_wifi > 200)
+            {
+              #ifdef DISPLAY
+              ax.SledShow(0, 0, 0, 0);
+              #endif
               ESP.restart();
             }
         }
+          
    }
 
+  #ifdef DISPLAY
+  ax.SledShow(0, INTEN, 0, 0);
+  #endif
   printf("WiFi connected. IP address:\r\n");
   Serial.println(WiFi.localIP());
   
@@ -202,6 +224,10 @@ void pubData()
     char encript_payload[32];
     char log_num[8];
     int i;
+
+    #ifdef DISPLAY
+    ax.SledShow(0, INTEN, INTEN, 0);
+    #endif
 
     for(i = 0; i < NUM_PHASE; i++)
     {
@@ -271,6 +297,10 @@ void pubData()
      //Serial.println(pubMsg);
      //pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
      //client.publish(ENCRIPT_TOPIC, encript_payload);
+
+     #ifdef DISPLAY
+     ax.SledShow(0, INTEN, 0, 0);
+     #endif
 }
 
 void calculate_power()
@@ -310,6 +340,7 @@ void calculate_power()
   }
   OLED.setCursor(0, 0);
   OLED.display();
+
   
   #endif
 }
@@ -434,6 +465,8 @@ void setup()
   OLED.setTextSize(1);
   OLED.println("Node: " NID);
   OLED.display();
+  ax.begin();
+  ax.SledTypeGRB();
   #endif
 
   #ifdef LOOP_BACK_PWM
@@ -446,6 +479,9 @@ void setup()
 
 void reconnect()
 {
+  #ifdef DISPLAY
+  ax.SledShow(0, 0, INTEN, 0);
+  #endif
   int err_reconnect = 0;
   // Loop until we’re reconnected
   while (!client.connected())
@@ -485,6 +521,9 @@ void reconnect()
     printf("count_connect= %d\r\n", count_connect);  
     err_reconnect = err_reconnect + 1;
   }
+  #ifdef DISPLAY
+  ax.SledShow(0, INTEN, 0, 0);
+  #endif
 }
 
 void spreadsheet()
@@ -517,8 +556,16 @@ void spreadsheet()
       while( (clientg->connect(host, httpsPort)) != 1)
       {
         printf("**");
-        if(null_err > 3)
+        if(null_err > 2)
         {
+          #ifdef DISPLAY
+          ax.SledShow(1, 0, INTEN, 0);
+          #endif
+          setup_wifi();
+        }
+        else if(null_err > 4)
+        {
+          null_err = 0;
           ESP.restart();
         }
         null_err = null_err + 1;
@@ -527,10 +574,18 @@ void spreadsheet()
     }
     printf("POST data to spreadsheet\r\n");
     Serial.println(payload);
-    if(clientg->POST(url2, host, payload))
+    #ifdef DISPLAY
+    ax.SledShow(1, 0, 0, INTEN);
+    #endif
+    int post_result = clientg->POST(url2, host, payload);
+    printf("post_result= %d\r\n", post_result);
+    if(post_result != false)
     {
       connect_count++;
       printf("Log connect = %d\r\n", connect_count);
+      #ifdef DISPLAY
+      ax.SledShow(1, INTEN, 0, 0);
+      #endif
     }
     else
     {
@@ -538,6 +593,11 @@ void spreadsheet()
       error_count = error_count + 1;
       DPRINT("Error-count while connecting: ");
       DPRINTLN(error_count);
+      #ifdef DISPLAY
+      ax.SledShow(1, 0, INTEN, 0);
+      #endif
+      setup_wifi();
+      return;
     }
   }
   else
@@ -791,9 +851,10 @@ void loop()
       digitalWrite(LED_BUILTIN, HIGH);
     }
 
-    if(abs (now - lastMsg) > 1000)
+    if(abs (now - lastMeasure) > 1000)
     {
       measurement();
+      lastMeasure = now;
     }
   }
  
