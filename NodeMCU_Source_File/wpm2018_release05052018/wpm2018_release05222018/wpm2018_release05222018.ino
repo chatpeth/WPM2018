@@ -12,7 +12,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "10"
+#define NID "5"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -36,16 +36,16 @@
 #define NUMBER_OF_SAMPLE 20
 #define HIGH_POWER
 #define PULSE_TIME_OUT 500000
-//#define DISPLAY
+#define DISPLAY
 #define LOOP_BACK_PWM
 #define PWM_OUT 0  //D3
-//#define INTEN 12
+#define INTEN 12
 #define DIGITAL_OUTPUT "DO/" NID
 #define DO1_PIN 2 //D4
 #define DHTPIN    10       
 #define DHTTYPE   DHT22       
 DHT dht(DHTPIN, DHTTYPE);
-//#define env_monit
+#define env_monit
 
 #ifdef DISPLAY
 #include <SPI.h>
@@ -78,8 +78,8 @@ structPhase phaseID[3] = { {1, 13, 0, 0}, {1, 14, 0, 0}, {1, 12, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "atop802.11x";
-const char* password = "atop3352";
+const char* ssid = "PowerMeterIOT_WiFi";
+const char* password = "password";
 IPAddress ip(192, 168, 0, 140); //set static ip
 IPAddress gateway(192, 168, 0, 100); //set getteway
 IPAddress subnet(255, 255, 255, 0);//set subnet
