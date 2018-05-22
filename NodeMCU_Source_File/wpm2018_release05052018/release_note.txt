@@ -1,2 +1,10 @@
 ver.04172018 add dynamic setup --> log interval, polling interval, enable-disable log from server. Remove bug: Waiting until google script tcp time out 30 sec. Remove bug: Reconnect wifi if wifi AP immediately down.
 ver.04192018 add default equation P = m*f + C, m = 60, C = -2
+
+ver.05222018 add OLED, Up speed measurement, add loop back pwm for testing. 
+Input:
+Pa = GPIO13 = D7
+Pb = GPIO14 = D5
+Pc = GPIO12 = D6
+Sim PWM output:
+GPIO0 = D3

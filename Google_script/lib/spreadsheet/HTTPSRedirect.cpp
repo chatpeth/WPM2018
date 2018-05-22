@@ -32,47 +32,41 @@ void HTTPSRedirect::Init(void){
 // This is the main function which is similar to the method
 // print() from WifiClient or WifiClientSecure
 bool HTTPSRedirect::printRedir(void){
-	Serial.println("***********************************DB0xC0");
+	//Serial.println("***********************************DB0xC0");
 	
   unsigned int httpStatus;
   
   // Check if connection to host is alive
   if (!connected()){
-    Serial.println("Error! Not connected to host.");
+    //Serial.println("Error! Not connected to host.");
     return false;
   }
 
   // Clear the input stream of any junk data before making the request
-  int my_max_err = 0;
   while (available())
   {
-	  if(my_max_err > 50)
-	  {
-		  ESP.restart();
-	  }
-	  Serial.println("***********************************DB0xC1");
+	  //Serial.println("***********************************DB0xC1");
 	  read();
-	  Serial.println("***********************************DB0xC2");
-	  my_max_err = my_max_err + 1;
+	  //Serial.println("***********************************DB0xC2");
   }
   // Create HTTP/1.1 compliant request string
   // HTTP/1.1 complaint request packet must exist
-  Serial.println("***********************************DB0xC3");
+  //Serial.println("***********************************DB0xC3");
   DPRINTLN(_Request);
-  Serial.println("***********************************DB0xC4");
+  //Serial.println("***********************************DB0xC4");
   
   // Make the actual HTTPS request using the method 
   // print() from the WifiClientSecure class
   // Make sure the input stream is cleared (as above) before making the call
-  Serial.println("***********************************DB0xC5_debug_return1");
+  //Serial.println("***********************************DB0xC5");
   print(_Request);
-  Serial.println("***********************************DB0xC6");
+  //Serial.println("***********************************DB0xC6");
   // Read HTTP Response Status lines
   while (connected()) {
-	  Serial.println("***********************************DB0xC7");
+	  //Serial.println("***********************************DB0xC7");
     
     httpStatus = getResponseStatus();
-	Serial.println("***********************************DB0xC7.1");
+	//Serial.println("***********************************DB0xC7.1");
 
     // Only some HTTP response codes are checked for
     // http://www.restapitutorial.com/httpstatuscodes.html
@@ -81,7 +75,7 @@ bool HTTPSRedirect::printRedir(void){
       case 200:
       case 201:
         {
-		  Serial.println("***********************************DB0xC8");
+		  //Serial.println("***********************************DB0xC8");
           // final header is discarded
           fetchHeader();
           
@@ -95,14 +89,14 @@ bool HTTPSRedirect::printRedir(void){
             fetchBodyUnChunked(_hF.contentLength);
           
           return true;
-		  Serial.println("***********************************DB0xC8.1");
+		  //Serial.println("***********************************DB0xC8.1");
         }
         break;
         
       case 301:
       case 302:
         {
-		  Serial.println("***********************************DB0xC9");
+		  //Serial.println("***********************************DB0xC9");
           // Get re-direction URL from the 'Location' field in the header
           if (getLocationURL()){
             //stop(); // may not be required
@@ -111,17 +105,17 @@ bool HTTPSRedirect::printRedir(void){
             
             // Make a new connection to the re-direction server
             if (!connect(_redirHost.c_str(), _httpsPort)) {
-              Serial.println("Connection to re-directed URL failed!");
+              //Serial.println("Connection to re-directed URL failed!");
               return false;
             }
 
             // Recursive call to the requested URL on the server
-			Serial.println("***********************************DB0xC9.1");
+			//Serial.println("***********************************DB0xC9.1");
             return printRedir();
 
           }
           else{
-            Serial.println("Unable to retrieve redirection URL!");
+            //Serial.println("Unable to retrieve redirection URL!");
             return false;
             
           }
@@ -129,15 +123,15 @@ bool HTTPSRedirect::printRedir(void){
         break;
         
       default:
-        Serial.print("Error with request. Response status code: ");
-        Serial.println(httpStatus);
+        //Serial.print("Error with request. Response status code: ");
+        //Serial.println(httpStatus);
         return false;
         break;
     } // end of switch
 
-	Serial.println("***********************************DB0xCA");
+	//Serial.println("***********************************DB0xCA");
   }  // end of while
-  Serial.println("***********************************DB0xCB.1");
+  //Serial.println("***********************************DB0xCB.1");
   return false;
   
 }
@@ -159,7 +153,7 @@ void HTTPSRedirect::createGetRequest(const String& url, const char* host){
 // POST headers must be terminated with a "\r\n\r\n"
 // POST requests have 1 single blank like between the end of the header fields and the body payload
 void HTTPSRedirect::createPostRequest(const String& url, const char* host, const String& payload){
-	Serial.println("***********************************DB0xB1");
+	//Serial.println("***********************************DB0xB1");
 
   // Content-Length is mandatory in POST requests
   // Body content will include payload and a newline character
@@ -174,7 +168,7 @@ void HTTPSRedirect::createPostRequest(const String& url, const char* host, const
                           "\r\n" +
                           payload + 
                           "\r\n\r\n";
-  Serial.println("***********************************DB0xB2");
+  //Serial.println("***********************************DB0xB2");
 
   return;
 }
@@ -264,12 +258,12 @@ void HTTPSRedirect::fetchHeader(void){
 }
 
 void HTTPSRedirect::fetchBodyUnChunked(unsigned len){
-	Serial.println("***********************************DB0x01");
+	//Serial.println("***********************************DB0x01");
   String line;
   DPRINTLN("Body:");
 
   while ((connected()) && (len > 0)) {
-	  Serial.println("***********************************DB0x02");
+	  //Serial.println("***********************************DB0x02");
     line = readStringUntil('\n');
     len -= line.length();
     // Content length will include all '\n' terminating characters
@@ -278,8 +272,8 @@ void HTTPSRedirect::fetchBodyUnChunked(unsigned len){
 
 	if (_printResponseBody)
 	{
-		Serial.println(line);
-		Serial.println("***********************************DB0x03");
+		//Serial.println(line);
+		//Serial.println("***********************************DB0x03");
 	}
       
 
@@ -292,12 +286,12 @@ void HTTPSRedirect::fetchBodyUnChunked(unsigned len){
 // Ref: http://mihai.ibanescu.net/chunked-encoding-and-python-requests
 // http://fssnip.net/2t
 void HTTPSRedirect::fetchBodyChunked(void){
-	Serial.println("***********************************DB0xE0");
+	//Serial.println("***********************************DB0xE0");
   String line;
   int chunkSize;
 
   while (connected()){
-	  Serial.println("***********************************DB0xE1");
+	  //Serial.println("***********************************DB0xE1");
     line = readStringUntil('\n');
 
     // Skip any empty lines
@@ -312,9 +306,9 @@ void HTTPSRedirect::fetchBodyChunked(void){
     // Terminating chunk is of size 0
     if (chunkSize == 0)
       break;
-	Serial.println("***********************************DB0xE2");
+	//Serial.println("***********************************DB0xE2");
     while (chunkSize > 0){
-		Serial.println("***********************************DB0xE3");
+		//Serial.println("***********************************DB0xE3");
       line = readStringUntil('\n');
 	  if (_printResponseBody)
 	  {
@@ -329,13 +323,13 @@ void HTTPSRedirect::fetchBodyChunked(void){
       // The line above includes the '\r' character 
       // which is not part of chunk size, so account for it
       --chunkSize;
-	  Serial.println("***********************************DB0xE4");
+	  //Serial.println("***********************************DB0xE4");
     }
     
     // Skip over chunk trailer
     
   }
-  Serial.println("***********************************DB0xE5");
+  //Serial.println("***********************************DB0xE5");
   return;
 
 }
@@ -343,7 +337,7 @@ void HTTPSRedirect::fetchBodyChunked(void){
 unsigned int HTTPSRedirect::getResponseStatus(void){
   // Read response status line
   // ref: https://www.tutorialspoint.com/http/http_responses.htm
-	Serial.println("***********************************DB0xD0");
+	//Serial.println("***********************************DB0xD0");
   unsigned int statusCode;
   String reasonPhrase;
   String line;
@@ -354,18 +348,18 @@ unsigned int HTTPSRedirect::getResponseStatus(void){
 
   // Skip any empty lines
   do{
-	  Serial.println("***********************************DB0xD1");
-	  	if (err_count > 3)
+	  //Serial.println("***********************************DB0xD1");
+	  	if (err_count > 1)
 	{
 		ESP.restart();
 	}
     line = readStringUntil('\n');
 	err_count = err_count + 1;
-	Serial.println("***********************************DB0xD1.1");
+	//Serial.println("***********************************DB0xD1.1");
 
   }while(line.length() == 0);
   
-  Serial.println("***********************************DB0xD2");
+  //Serial.println("***********************************DB0xD2");
   pos = line.indexOf("HTTP/1.1 ");
   pos2 = line.indexOf(" ", 9);
   
@@ -386,7 +380,7 @@ unsigned int HTTPSRedirect::getResponseStatus(void){
   DPRINTLN(statusCode);
   DPRINT("Reason phrase: ");
   DPRINTLN(reasonPhrase);
-  Serial.println("***********************************DB0xD3");
+  //Serial.println("***********************************DB0xD3");
   return statusCode;
 }
 
@@ -432,7 +426,7 @@ bool HTTPSRedirect::POST(const String& url, const char* host, const String& payl
   oldval = _printResponseBody;
   _printResponseBody = disp;
 
-  Serial.println("***********************************DB0x99");
+  //Serial.println("***********************************DB0x99");
 
   // redirected Host and Url need to be initialized in case a 
   // reConnectFinalEndpoint() request is made after an initial request 
@@ -440,31 +434,31 @@ bool HTTPSRedirect::POST(const String& url, const char* host, const String& payl
   _redirHost = host;
   _redirUrl = url;
   
-  Serial.println("***********************************DB0xF0");
+  //Serial.println("***********************************DB0xF0");
   InitResponse();
-  Serial.println("***********************************DB0xF1");
+  //Serial.println("***********************************DB0xF1");
   // Create request packet
   createPostRequest(url, host, payload);
-  Serial.println("***********************************DB0xF2");
+  //Serial.println("***********************************DB0xF2");
 
   // Call request handler
-  Serial.println("***********************************DB0xF3");
+  //Serial.println("***********************************DB0xF3");
   retval = printRedir();
-  Serial.println("***********************************DB0xF4");
+  //Serial.println("***********************************DB0xF4");
 
   _printResponseBody = oldval;
-  Serial.println("***********************************DB0xF5");
+  //Serial.println("***********************************DB0xF5");
   return retval;
 }
 
 void HTTPSRedirect::InitResponse(void){
-	Serial.println("***********************************DB0xA0");
+	//Serial.println("***********************************DB0xA0");
   // Init response data
   _myResponse.body = "";
   _myResponse.statusCode = 0;
   _myResponse.reasonPhrase = "";
   _myResponse.redirected = false;
-  Serial.println("***********************************DB0xA1");
+  //Serial.println("***********************************DB0xA1");
 }
 
 int HTTPSRedirect::getStatusCode(void){
@@ -524,7 +518,7 @@ void HTTPSRedirect::fetchBodyRaw(void){
   while (connected()){
     line = readStringUntil('\n');
     if (_printResponseBody)
-      Serial.println(line);
+      //Serial.println(line);
 
     _myResponse.body += line;
     _myResponse.body += '\n';

@@ -34,6 +34,18 @@
 #define NUMBER_OF_SAMPLE 20
 #define HIGH_POWER
 #define PULSE_TIME_OUT 500000
+#define DISPLAY
+#define LOOP_BACK_PWM
+#define PWM_OUT 0  //D3
+
+#ifdef DISPLAY
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#define OLED_RESET -1
+Adafruit_SSD1306 OLED(OLED_RESET);
+#endif
 
 // for stack analytics
 extern "C" {
@@ -49,10 +61,10 @@ typedef struct
   float power;
 }structPhase;
 
-// Pa = GPIO5 =D1
-// Pb = GPIO4 = D2
-// Pc = GPIO14 = D5
-structPhase phaseID[3] = { {1, 5, 0, 0}, {1, 4, 0, 0}, {1, 14, 0, 0} };
+// Pa = GPIO13 = D7
+// Pb = GPIO14 = D5
+// Pc = GPIO12 = D6
+structPhase phaseID[3] = { {1, 13, 0, 0}, {1, 14, 0, 0}, {1, 12, 0, 0} };
 
 int sw_status = ON;
 int count_connect = 0;
@@ -78,6 +90,7 @@ int log_interval = 5000;  //default 5000 ms
 int polling_interval = 5000; //default 5000 ms
 int measured_flag = 0;
 int count_equation_req = 0;
+int connect_count = 0;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -182,10 +195,12 @@ void pubData()
     String pubMsg;
     String power_str[3];
     String msg_topic;
+    String log_connect_num_str;
     char power_topic[8];
     char Data[64];
     char power_payload[16];
     char encript_payload[32];
+    char log_num[8];
     int i;
 
     for(i = 0; i < NUM_PHASE; i++)
@@ -249,9 +264,54 @@ void pubData()
       printf("Publish data topic %s\r\n", power_topic);
       client.publish(power_topic, power_payload);     
      }
+
+     log_connect_num_str = String(connect_count);
+     log_connect_num_str.toCharArray(log_num, log_connect_num_str.length() + 1);
+     client.publish("log_num/" NID , log_num);
      //Serial.println(pubMsg);
      //pubMsg.toCharArray(encript_payload, pubMsg.length() + 1);
      //client.publish(ENCRIPT_TOPIC, encript_payload);
+}
+
+void calculate_power()
+{
+  int i;
+  
+  for(i = 0; i < NUM_PHASE; i++)
+  {
+    float f = 0, p = 0;
+    if(phaseID[i].duration > T_MIN && phaseID[i].duration < T_MAX)
+    {
+      if(phaseID[i].duration != 0)
+      {
+        f = 1000000.000000/phaseID[i].duration;
+        p = m_slope*f + C_const;     
+      }
+      else
+      {
+        p = 0;
+      }
+    }
+    phaseID[i].power = p;
+    printf("Calculate power: f= %.2f, p= %.2f\r\n", f, phaseID[i].power);  
+  }
+  #ifdef DISPLAY
+  String display_txt[NUM_PHASE];
+  OLED.clearDisplay();
+  OLED.setCursor(0,0);
+  for(i = 0; i < NUM_PHASE; i++)
+  {
+    display_txt[i] = "P" + String(i + 1) + ": " + String(phaseID[i].power) + " W";
+  }
+  
+  for(i = 0; i < NUM_PHASE; i++)
+  {
+    OLED.println(display_txt[i]);
+  }
+  OLED.setCursor(0, 0);
+  OLED.display();
+  
+  #endif
 }
 
 void callback(char* topic, byte* payload, unsigned int length)
@@ -365,6 +425,22 @@ void setup()
   }
   reconnect();
   printf("\r\n");
+
+  #ifdef DISPLAY
+  OLED.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+  OLED.clearDisplay();
+  OLED.setTextColor(WHITE);
+  OLED.setCursor(0, 0);
+  OLED.setTextSize(1);
+  OLED.println("Node: " NID);
+  OLED.display();
+  #endif
+
+  #ifdef LOOP_BACK_PWM
+  Serial.println("PWM\r\n");
+  pinMode(PWM_OUT, OUTPUT);
+  analogWriteFreq(500);
+  #endif
   
 }
 
@@ -414,7 +490,6 @@ void reconnect()
 void spreadsheet()
 {
   static int error_count = 0;
-  static int connect_count = 0;
   static bool flag = false;
 
   String tmpf = tsm_day + "/" + tsm_mon + "/" + tsm_year + "," + tsm_hour + ":" + tsm_min + ":" + tsm_sec;
@@ -491,6 +566,19 @@ void measurement()
 {
     int i;
     unsigned long duration1 = 0, duration2 = 0, duration3 = 0;
+
+    
+    #ifdef LOOP_BACK_PWM
+    int ranf = random(1000);
+    if(ranf == 0)
+    {
+      ranf = 1;
+    }
+    printf("rand_f= %d\r\n", ranf);  
+    analogWriteFreq(ranf);
+    analogWrite(PWM_OUT, 512);
+    #endif
+    
     time_t mnow = time(nullptr);
     struct tm* p_tm = localtime(&mnow);
     printf("Time: %02d:%02d:%02d\r\n",p_tm->tm_hour, p_tm->tm_min, p_tm->tm_sec);
@@ -641,6 +729,8 @@ void measurement()
     }
     
     #endif
+
+    calculate_power();
 }
 
 void loop()
