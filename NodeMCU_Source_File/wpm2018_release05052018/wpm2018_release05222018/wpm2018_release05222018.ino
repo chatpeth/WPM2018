@@ -671,8 +671,8 @@ void loop()
   if((m_slope != 0) && (C_const != 0))
   {
     count_equation_req = 0;
-    // Upload every 5 sec        
-    if(abs( (now - lastMsg) > polling_interval) )
+          
+    if(abs( (now - lastMsg) > (polling_interval - 64)) )
     {
       printf("Period = %d\r\n", now - lastMsg);
       lastMsg = now;
@@ -686,7 +686,7 @@ void loop()
     }
 
     // Log data every log_interval
-    if(abs(now - lastLog) > log_interval - 4)
+    if(abs(now - lastLog) > (log_interval - 64))
     {
       
       printf("Log interval %d ms\r\n", now - lastLog);      
