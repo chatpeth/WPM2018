@@ -70,10 +70,11 @@ typedef struct
   float power;
 }structPhase;
 
-// Pa = GPIO13 = D7
-// Pb = GPIO14 = D5
-// Pc = GPIO12 = D6
-structPhase phaseID[3] = { {1, 13, 0, 0}, {1, 14, 0, 0}, {1, 12, 0, 0} };
+
+//PA = GPIO14 = D5
+//PB = GPIO12 = D6
+//PC = GPIO13 = D7 
+structPhase phaseID[3] = { {1, 14, 0, 0}, {1, 12, 0, 0}, {1, 13, 0, 0} };
 
 int sw_status = ON;
 int count_connect = 0;
