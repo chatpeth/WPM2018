@@ -7,6 +7,7 @@
 #include <AXWIFI.h>
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
+#include "DHT.h"
 
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
@@ -35,10 +36,16 @@
 #define NUMBER_OF_SAMPLE 20
 #define HIGH_POWER
 #define PULSE_TIME_OUT 500000
-#define DISPLAY
+//#define DISPLAY
 #define LOOP_BACK_PWM
 #define PWM_OUT 0  //D3
-#define INTEN 12
+//#define INTEN 12
+#define DIGITAL_OUTPUT "DO/" NID
+#define DO1_PIN 2 //D4
+#define DHTPIN    10       
+#define DHTTYPE   DHT22       
+DHT dht(DHTPIN, DHTTYPE);
+//#define env_monit
 
 #ifdef DISPLAY
 #include <SPI.h>
@@ -94,6 +101,8 @@ int polling_interval = 5000; //default 5000 ms
 int measured_flag = 0;
 int count_equation_req = 0;
 int connect_count = 0;
+float humid = 0;
+float temp  = 0;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -148,18 +157,7 @@ void setup_wifi()
             digitalWrite(LED_BUILTIN, HIGH);
             delay(50);
             count_wifi = count_wifi + 1;
-            if(count_wifi > 100)
-            {
-              #ifdef DISPLAY
-              ax.SledShow(0, 0, 0, INTEN);
-              #endif
-              delay(30000);
-              #ifdef DISPLAY
-              ax.SledShow(0, 0, INTEN, 0);
-              #endif
-              WiFi.begin(ssid, password);
-            }
-            else if(count_wifi > 200)
+            if(count_wifi > 200)
             {
               #ifdef DISPLAY
               ax.SledShow(0, 0, 0, 0);
@@ -183,14 +181,18 @@ void setup_wifi()
   printf("Connecting to %s\r\n", host);
   while( (clientg->connect(host, httpsPort)) != 1)
   {
-    if(count_recon > 15)
+    if(count_recon > 2)
     {
       //wait tcp time out at google script
       delay(30000);
+      setup_wifi();
+    }
+    else if(count_recon > 4)
+    {
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
-    printf("*");
+    printf("#");
     delay(256);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(256);
@@ -338,6 +340,11 @@ void calculate_power()
   {
     OLED.println(display_txt[i]);
   }
+  #ifdef env_monit
+  String env_data = "T: " + String(temp) + " C" + " ,H: " + String(humid);
+  printf("T: %.2f, H: %.2f\r\n", temp, humid);
+  OLED.println(env_data);
+  #endif
   OLED.setCursor(0, 0);
   OLED.display();
 
@@ -404,6 +411,19 @@ void callback(char* topic, byte* payload, unsigned int length)
     polling_interval = payload_str.toInt();
     printf("Polling interval = %d\r\n", polling_interval);
   }
+  else if(topic_str == DIGITAL_OUTPUT)
+  {
+    if(payload_str == "true")
+    {
+      digitalWrite(DO1_PIN, HIGH);
+    }
+
+    else if(payload_str == "false")
+    {
+      digitalWrite(DO1_PIN, LOW);
+    }
+    
+  }
 
   printf("Message arrived [%s] came into callback. The published message from Pi:\r\n", topic);
   for (int i = 0; i < length; i++)
@@ -420,6 +440,7 @@ void setup()
   int timeZone = 7*3600;
 
   pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(DO1_PIN, OUTPUT);
   for(i = 0; i < nid_str.toInt(); i++)
   {
     digitalWrite(LED_BUILTIN, LOW);
@@ -506,6 +527,7 @@ void reconnect()
       client.subscribe(LOG_SETTING);
       client.subscribe(LOG_INTERVAL);
       client.subscribe(POLLING_INTERVAL);
+      client.subscribe(DIGITAL_OUTPUT);
       client.publish(nodeID, "Hello 505atk");
     }
     else
@@ -556,15 +578,12 @@ void spreadsheet()
       while( (clientg->connect(host, httpsPort)) != 1)
       {
         printf("**");
+        
         if(null_err > 2)
         {
           #ifdef DISPLAY
           ax.SledShow(1, 0, INTEN, 0);
           #endif
-          setup_wifi();
-        }
-        else if(null_err > 4)
-        {
           null_err = 0;
           ESP.restart();
         }
@@ -791,6 +810,11 @@ void measurement()
     #endif
 
     calculate_power();
+
+    #ifdef env_monit
+    humid = dht.readHumidity();
+    temp  = dht.readTemperature();
+    #endif
 }
 
 void loop()
