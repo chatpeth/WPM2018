@@ -12,7 +12,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "10"
+#define NID "5"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -41,8 +41,8 @@
 #define PWM_OUT 0  //D3
 #define INTEN 12
 #define DIGITAL_OUTPUT "DO/" NID
-#define DO1_PIN D8 //D8
-#define DHTPIN    D4       
+#define DO1_PIN 2 //D4
+#define DHTPIN    10       
 #define DHTTYPE   DHT22       
 DHT dht(DHTPIN, DHTTYPE);
 #define env_monit
@@ -79,8 +79,8 @@ structPhase phaseID[3] = { {1, 14, 0, 0}, {1, 12, 0, 0}, {1, 13, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "atop802.11x";
-const char* password = "atop3352";
+const char* ssid = "PowerMeterIOT_WiFi";
+const char* password = "password";
 IPAddress ip(192, 168, 0, 140); //set static ip
 IPAddress gateway(192, 168, 0, 100); //set getteway
 IPAddress subnet(255, 255, 255, 0);//set subnet
@@ -184,10 +184,16 @@ void setup_wifi()
   {
     if(count_recon > 2)
     {
+      //wait tcp time out at google script
+      delay(30000);
+      setup_wifi();
+    }
+    else if(count_recon > 4)
+    {
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
-    printf("!!");
+    printf("#");
     delay(256);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(256);
