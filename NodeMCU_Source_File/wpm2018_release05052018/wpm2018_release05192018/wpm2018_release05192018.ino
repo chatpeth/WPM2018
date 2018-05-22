@@ -32,7 +32,7 @@
 #define SHEET_NAME "\"node" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 #define NUMBER_OF_SAMPLE 20
-//#define HIGH_POWER
+#define HIGH_POWER
 
 // for stack analytics
 extern "C" {
@@ -58,9 +58,9 @@ int count_connect = 0;
 char nodeID[5] = NID;
 const char* ssid = "atop802.11x";
 const char* password = "atop3352";
-//IPAddress ip(192, 168, 1, 140); //set static ip
-//IPAddress gateway(192, 168, 1, 1); //set getteway
-//IPAddress subnet(255, 255, 255, 0);//set subnet
+IPAddress ip(192, 168, 1, 140); //set static ip
+IPAddress gateway(192, 168, 1, 1); //set getteway
+IPAddress subnet(255, 255, 255, 0);//set subnet
 const char* mqttServer = "m12.cloudmqtt.com";
 const int mqttPort = 19574;
 const char* mqttUser = "qonihivg";
@@ -114,7 +114,9 @@ void setup_wifi()
   int count_wifi = 0;
   printf("Node %s\r\n", nodeID);
   printf("Connecting to %s\r\n", ssid);
-  //WiFi.config(ip, gateway, subnet);
+  
+  
+  WiFi.config(ip, gateway, subnet);
   Serial.print("MAC: ");
   Serial.println(WiFi.macAddress());
   if (WiFi.begin(ssid, password) != 0)
