@@ -29,8 +29,8 @@
 #define LOG_INTERVAL "log_interval" NID
 #define POLLING_INTERVAL "polling_interval" NID
 #define MAX_EQUATION_REQ 10
-#define DEFAULT_SLOPE 1424
-#define DEFAULT_CONST 204
+#define DEFAULT_SLOPE 60
+#define DEFAULT_CONST -2
 #define SHEET_NAME "\"node" NID "\", \"values\": "
 #define URL_BASE "{\"command\": \"appendRow\",\"sheet_name\": " SHEET_NAME
 #define NUMBER_OF_SAMPLE 20
