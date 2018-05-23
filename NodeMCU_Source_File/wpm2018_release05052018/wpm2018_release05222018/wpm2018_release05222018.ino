@@ -543,7 +543,7 @@ void reconnect()
   #ifdef DISPLAY
   ax.SledShow(0, INTEN, 0, 0);
   #endif
-  measurement();
+  
 }
 
 void spreadsheet()
