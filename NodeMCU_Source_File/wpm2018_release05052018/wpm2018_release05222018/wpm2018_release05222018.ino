@@ -454,7 +454,7 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\r\nAP: 05222018");
+  Serial.println("\r\nAP: 05232018");
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
 
@@ -490,6 +490,8 @@ void setup()
   pinMode(PWM_OUT, OUTPUT);
   analogWriteFreq(500);
   #endif
+
+  measurement();
   
 }
 
@@ -541,6 +543,7 @@ void reconnect()
   #ifdef DISPLAY
   ax.SledShow(0, INTEN, 0, 0);
   #endif
+  measurement();
 }
 
 void spreadsheet()
@@ -864,6 +867,7 @@ void loop()
       digitalWrite(LED_BUILTIN, LOW);
       if((log_setting == 1) && (measured_flag == 1))
       {
+        
         spreadsheet();
       }
       // turn off LED
