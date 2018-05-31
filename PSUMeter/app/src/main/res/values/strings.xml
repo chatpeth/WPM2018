@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">PSU Meter</string>
+    <string name="action_settings">Settings</string>
+    <string name="data">data</string>
+    <string name="pa">PA</string>
+    <string name="pb">PB</string>
+    <string name="pc">PC</string>
+    <string name="e0">EA</string>
+    <string name="et">EB</string>
+    <string name="e2">EC</string>
+    <string name="e1">ET</string>
+    <string name="connect">connect</string>
+    <string name="meterid">1</string>
+    <string name="nid">MeterID</string>
+    <string name="peaka">PeakA</string>
+    <string name="peakb">PeakB</string>
+    <string name="peakc">PeakC</string>
+    <string name="pt">Pt</string>
+    <string name="ptotal">Ptotal</string>
+</resources>

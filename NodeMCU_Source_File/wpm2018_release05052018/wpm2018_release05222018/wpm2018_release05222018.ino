@@ -12,7 +12,7 @@
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
 #define OFF 0
-#define NID "5"
+#define NID "10"
 #define SW "sw" NID
 #define ALM "Alarm" NID
 #define T_MAX 1000000
@@ -79,8 +79,8 @@ structPhase phaseID[3] = { {1, 14, 0, 0}, {1, 12, 0, 0}, {1, 13, 0, 0} };
 int sw_status = ON;
 int count_connect = 0;
 char nodeID[5] = NID;
-const char* ssid = "PowerMeterIoT_WiFi";
-const char* password = "password";
+const char* ssid = "atop802.11x";
+const char* password = "atop3352";
 IPAddress ip(192, 168, 0, 140); //set static ip
 IPAddress gateway(192, 168, 0, 100); //set getteway
 IPAddress subnet(255, 255, 255, 0);//set subnet
@@ -223,7 +223,7 @@ void pubData()
     int i;
 
     #ifdef DISPLAY
-    ax.SledShow(0, INTEN, INTEN, 0);
+    ax.SledShow(0, INTEN, 2*INTEN, 0);
     #endif
 
     for(i = 0; i < NUM_PHASE; i++)
