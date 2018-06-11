@@ -105,7 +105,8 @@ public class SignUp extends AppCompatActivity{
                             value.put(UID + "/DO/do_num", 0);
                             myRef.updateChildren(value);
 
-                            value.put(UID + "default", 0);
+                            value.put(UID + "/default", 0);
+                            myRef.updateChildren(value);
                             Log.d(TAG, "DatabaseCreated");
 
                         }

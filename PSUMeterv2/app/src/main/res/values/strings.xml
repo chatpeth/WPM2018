@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">PSU MLink</string>
+    <string name="signin_btn">Signin</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="or">OR</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="add_email">Email</string>
+    <string name="add_password">Password</string>
+    <string name="register">Register</string>
+    <string name="already_account">Already Account ?</string>
+    <string name="logout">Logout</string>
+    <string name="change_password">Change Password</string>
+    <string name="user">User</string>
+    <string name="current_email">Email</string>
+    <string name="new_password">New Password</string>
+    <string name="change_confirm">Confirm</string>
+    <string name="find_email">Email</string>
+    <string name="reset_password">Enter your registered email</string>
+    <string name="reset_password_btn">Reset</string>
+    <string name="back_from_reset_pass">Back</string>
+    <string name="test">Test</string>
+    <string name="edit">Edit</string>
+    <string name="about">About</string>
+    <string name="path_txt">path e.g. SE5901B/power meter/power</string>
+    <string name="data_txt">data e.g. Phase A</string>
+    <string name="add_data_btn">Add</string>
+    <string name="remove_data_btn">Remove</string>
+    <string name="clear_all">Clear all</string>
+    <string name="output">Output</string>
+    <string name="back">Back</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="digital_output">Output</string>
+    <string name="add_to_do">Add</string>
+    <string name="selecte_output">Selecte Output</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="key">Key</string>
+    <string name="credit">Cr. Chatpeth Kenanan</string>
+    <string name="meter_id">Meter ID</string>
+    <string name="add_meter">Add</string>
+    <string name="remove_meter">Remove</string>
+    <string name="view_meter">Meter</string>
+    <string name="view_id">Meter ID</string>
+
+</resources>

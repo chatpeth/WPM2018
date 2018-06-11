@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -55,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     private static final String TAG = "DB0x01";
     private String meterID = "1";
     private EditText NID;
-    private Button connect_btn;
+    private Button connect_btn, logout_btn;
     private Gauge gauge;
+    private FirebaseAuth auth;
 
 
     @Override
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +99,16 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         NID = (EditText) findViewById(R.id.NID);
         connect_btn = (Button) findViewById(R.id.connect_btn);
         gauge = (Gauge) findViewById(R.id.gauge);
+        logout_btn = (Button) findViewById(R.id.logout_btn);
+
+        //Init Firebase
+        auth = FirebaseAuth.getInstance();
 
 
         // Get firebase database reference
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
-        ValueEventListener codemobiles = myRef.addValueEventListener(new ValueEventListener() {
+        final ValueEventListener codemobiles = myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -183,6 +190,18 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                         mFirebaseTextView.setText(meterID);
                         NID.setEnabled(false);
 
+                    }
+                }
+        );
+
+        logout_btn.setOnClickListener(
+                new Button.OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        Log.d(TAG, "LogoutClicked");
+                        logoutUser();
+                        myRef.removeEventListener(codemobiles);
                     }
                 }
         );
@@ -276,5 +295,15 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logoutUser() {
+        auth.signOut();
+        if(auth.getCurrentUser() == null)
+        {
+            Log.d(TAG, "LoggedOut");
+            startActivity(new Intent(MainActivity.this, SignIn.class));
+            finish();
+        }
     }
 }
