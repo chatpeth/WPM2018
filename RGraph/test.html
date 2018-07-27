@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<canvas id="myChart"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js">
+    
+</script>
+<form>
+  Date:
+  <input type="date" name="ddate" id="selected_date">
+</form>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var power = [];
+var date_lbl = [];
+var date = new Date(Date.now());
+var month_num = date.getMonth();
+var year = date.getYear() + 1900;
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
+var getDaysInMonth = function(month,year) {
+  // Here January is 1 based
+  //Day 0 is the last day in the previous month
+ return new Date(year, month, 0).getDate();
+// Here January is 0 based
+// return new Date(year, month+1, 0).getDate();
+};
+
+for(var i = 0; i < getDaysInMonth(month_num + 1, year); i ++)
+{
+	power[i] = Math.floor((Math.random() * 10) + 1);
+	date_lbl[i] = (i + 1).toString();
+}
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: date_lbl,
+        datasets: [{
+            label: "Power(W): " + month[month_num] + " " + year.toString(),
+            //backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            //data: [Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1)],
+			data: power,
+		}]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
+<br><input onclick="myFunction()" type="button" value="Enter" id="get_data" style="height:50px;width:100px"/>
+
+<script>
+function myFunction() {
+	var tmp_date, tmp_m, tmp_y;
+	tmp_date = document.getElementById("selected_date").value;
+	tmp_m = tmp_date.split("-")[1];
+	tmp_y = tmp_date.split("-")[0];
+	//document.getElementById("get_data").value = tmp_m;
+	year = parseInt(tmp_y);
+	console.log(year);
+	month_num = parseInt(tmp_m) - 1;
+	console.log(month_num);
+	for(var i = 0; i < getDaysInMonth(month_num + 1, year); i ++)
+	{
+		power[i] = Math.floor((Math.random() * 10) + 1);
+		date_lbl[i] = (i + 1).toString();
+	}
+	var chart = new Chart(ctx, {
+		// The type of chart we want to create
+		type: 'line',
+
+		// The data for our dataset
+			data: {
+			labels: date_lbl,
+			datasets: [{
+				label: "Power(W): " + month[month_num] + " " + year.toString(),
+				//backgroundColor: 'rgb(255, 99, 132)',
+				borderColor: 'rgb(255, 99, 132)',
+				//data: [Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1), Math.floor((Math.random() * 10) + 1)],
+				data: power,
+			}]
+		},
+
+		// Configuration options go here
+		options: {}
+	});
+}
+
+	var xml = new XMLHttpRequest();
+	xml.open('GET','2018-7.xml', false);
+	xml.send();
+	var	xmlData = xml.responseXML;
+	//console.log(xmlData);
+	
+		xmlData = (new DOMParser()).parseFromString(xml.responseText, 'text/xml');
+		var data = xmlData.getElementsByTagName("DATA");
+		for(var i = 0; i < 31; i ++)
+		{
+			var day = data[i].getElementsByTagName("DAY")[0].firstChild.data;
+			var power = data[i].getElementsByTagName("POWER")[0].firstChild.data;
+			console.log(day);
+			console.log(power);
+		}
+</script>
+
+</body>

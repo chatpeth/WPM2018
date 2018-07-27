@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Reading XML file</title>
+<script type="text/javascript">
+function readXML()
+{
+	var xml = new XMLHttpRequest();
+	xml.open('GET','2018-7.xml', false);
+	xml.send();
+	var	xmlData = xml.responseText;
+	document.write(xmlData);
+}
+</script>
+<body>
+<h1>XML file</h1>
+<button onclick="readXML()">Read xml</button>
+
+</body>
+</html>

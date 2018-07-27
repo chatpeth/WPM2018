@@ -38,5 +38,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="key">Key</string>
     <string name="credit">Cr. Chatpeth Kenanan, User Guide</string>
+    <string name="value">Value</string>
+    <string name="set">Set</string>
 
 </resources>

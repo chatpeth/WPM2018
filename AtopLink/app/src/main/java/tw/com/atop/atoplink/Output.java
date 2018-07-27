@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,7 @@ public class Output extends AppCompatActivity {
     private Spinner spinner, DO_spinner;
     private TextView selectedItem;
     private TextView outputSelected;
+    private EditText value_txt;
 
     private FirebaseAuth auth;
     public DatabaseReference myRef;
@@ -37,7 +39,7 @@ public class Output extends AppCompatActivity {
 
     private ArrayList<String> list;
     private ArrayList<String> digital_output;
-    private Button add_to_do, on_btn, off_btn;
+    private Button add_to_do, on_btn, off_btn, set_value_btn;
     private String do_num;
     private Map map;
 
@@ -59,6 +61,8 @@ public class Output extends AppCompatActivity {
         off_btn = (Button) findViewById(R.id.off_btn);
         outputSelected = (TextView) findViewById(R.id.selected_do);
         clear_btn = (TextView) findViewById(R.id.clear_output);
+        value_txt = (EditText) findViewById(R.id.value_txt);
+        set_value_btn = (Button) findViewById(R.id.set_value_btn);
 
         //Init Firebase
         auth = FirebaseAuth.getInstance();
@@ -251,6 +255,9 @@ public class Output extends AppCompatActivity {
                         Log.d(TAG, "On: " + tmp_path);
                         value.put(tmp_path, true);
                         myRef.updateChildren(value);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP| Gravity.LEFT, 0, 0);
+                        toast.makeText(Output.this, "ON", toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -266,6 +273,27 @@ public class Output extends AppCompatActivity {
                         Log.d(TAG, "Off: " + tmp_path);
                         value.put(tmp_path, false);
                         myRef.updateChildren(value);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP| Gravity.LEFT, 0, 0);
+                        toast.makeText(Output.this, "OFF", toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        set_value_btn.setOnClickListener(
+                new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Map<String, Object> value = new HashMap<>();
+                        String tmp_path = outputSelected.getText().toString();
+                        tmp_path = tmp_path.replace("@", "/");
+                        tmp_path = UID + "/" + tmp_path;
+                        Log.d(TAG, "Set value");
+                        value.put(tmp_path, value_txt.getText().toString());
+                        myRef.updateChildren(value);
+                        Toast toast = new Toast(getApplicationContext());
+                        toast.setGravity(Gravity.TOP| Gravity.LEFT, 0, 0);
+                        toast.makeText(Output.this, "SET", toast.LENGTH_SHORT).show();
                     }
                 }
         );
