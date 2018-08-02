@@ -43,5 +43,10 @@
     <string name="remove_meter">Remove</string>
     <string name="view_meter">Meter</string>
     <string name="view_id">Meter ID</string>
+    <string name="pavg_field">Pavg</string>
+    <string name="pavg">Pavg</string>
+    <string name="pa_field">PA</string>
+    <string name="pb_field">PB</string>
+    <string name="pc_field">PC</string>
 
 </resources>

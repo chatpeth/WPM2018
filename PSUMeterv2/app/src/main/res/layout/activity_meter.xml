@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Meter">
+    tools:context=".Meter"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/back_meter"
@@ -21,10 +22,10 @@
         android:text="@string/back_from_reset_pass"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.983" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/viewID"
@@ -40,7 +41,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.017" />
@@ -48,7 +49,7 @@
     <ListView
         android:id="@+id/meter_param_list"
         android:layout_width="331dp"
-        android:layout_height="371dp"
+        android:layout_height="133dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -60,5 +61,104 @@
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496" />
+        app:layout_constraintVertical_bias="0.808" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="192dp"
+        android:layout_height="219dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224">
+
+        <LinearLayout
+            android:layout_width="331dp"
+            android:layout_height="133dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pavg_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pavg" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/speedView"
+                android:layout_width="186dp"
+                android:layout_height="169dp"
+                app:sv_maxSpeed="1000"
+                app:sv_minSpeed="0"
+                app:sv_speedometerWidth="20dp"
+                app:sv_tickNumber="0"
+                app:sv_unit="W"
+                app:sv_unitUnderSpeedText="true"
+                app:sv_withTremble="false" />
+
+            <TextView
+                android:id="@+id/p0_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pa_field" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/PA_meter"
+                android:layout_width="186dp"
+                android:layout_height="169dp"
+                app:sv_maxSpeed="1000"
+                app:sv_minSpeed="0"
+                app:sv_speedometerWidth="20dp"
+                app:sv_tickNumber="0"
+                app:sv_unit="W"
+                app:sv_unitUnderSpeedText="true"
+                app:sv_withTremble="false" />
+
+            <TextView
+                android:id="@+id/p1_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pb_field" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/PB_meter"
+                android:layout_width="186dp"
+                android:layout_height="169dp"
+                app:sv_maxSpeed="1000"
+                app:sv_minSpeed="0"
+                app:sv_speedometerWidth="20dp"
+                app:sv_tickNumber="0"
+                app:sv_unit="W"
+                app:sv_unitUnderSpeedText="true"
+                app:sv_withTremble="false" />
+
+            <TextView
+                android:id="@+id/p2_field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pc_field" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/PC_meter"
+                android:layout_width="186dp"
+                android:layout_height="169dp"
+                app:sv_maxSpeed="1000"
+                app:sv_minSpeed="0"
+                app:sv_speedometerWidth="20dp"
+                app:sv_tickNumber="0"
+                app:sv_unit="W"
+                app:sv_unitUnderSpeedText="true"
+                app:sv_withTremble="false" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 </android.support.constraint.ConstraintLayout>

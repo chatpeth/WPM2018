@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.github.anastr.speedviewlib.SpeedView;
+
 public class Meter extends AppCompatActivity {
 
     private TextView back, viewID;
@@ -33,7 +35,7 @@ public class Meter extends AppCompatActivity {
     private String UID;
     private String MID;
     private String TAG =  "DB0x10";
-
+    private SpeedView speedView, p0View, p1View, p2View;
 
 
     @Override
@@ -44,6 +46,11 @@ public class Meter extends AppCompatActivity {
         back = (TextView) findViewById(R.id.back_meter);
         viewID = (TextView) findViewById(R.id.viewID);
         mydata = (ListView) findViewById(R.id.meter_param_list);
+        speedView = (SpeedView) findViewById(R.id.speedView);
+        p0View = (SpeedView)findViewById(R.id.PA_meter);
+        p1View = (SpeedView)findViewById(R.id.PB_meter);
+        p2View = (SpeedView)findViewById(R.id.PC_meter);
+
 
         //get intent
         Intent intent = getIntent();
@@ -122,6 +129,66 @@ public class Meter extends AppCompatActivity {
                 dataLists.add("PeakB: " + peak1 + "W");
                 dataLists.add("PeakC: " + peak2 + "W");
                 dataLists.add("Pavg: " + pavg + "W");
+                float f_pavg = Float.parseFloat(pavg);
+                float f_p0 = Float.parseFloat(p0);
+                float f_p1 = Float.parseFloat(p1);
+                float f_p2 = Float.parseFloat(p2);
+                if(f_pavg > 1000)
+                {
+                    speedView.setUnit("kW");
+                    speedView.setMaxSpeed(30);
+                    f_pavg = f_pavg/1000;
+                }
+                else
+                {
+                    speedView.setUnit("W");
+                    speedView.setMaxSpeed(1000);
+                }
+                //End Pavg
+
+                if(f_p0 > 1000)
+                {
+                    p0View.setUnit("kW");
+                    p0View.setMaxSpeed(30);
+                    f_p0 = f_p0/1000;
+                }
+                else
+                {
+                    p0View.setUnit("W");
+                    p0View.setMaxSpeed(1000);
+                }
+                //End P0
+
+                if(f_p1 > 1000)
+                {
+                    p1View.setUnit("kW");
+                    p1View.setMaxSpeed(30);
+                    f_p1 = f_p1/1000;
+                }
+                else
+                {
+                    p1View.setUnit("W");
+                    p1View.setMaxSpeed(1000);
+                }
+                //End P1
+
+                if(f_p2 > 1000)
+                {
+                    p2View.setUnit("kW");
+                    p2View.setMaxSpeed(30);
+                    f_p2 = f_p2/1000;
+                }
+                else
+                {
+                    p2View.setUnit("W");
+                    p2View.setMaxSpeed(1000);
+                }
+                //End P2
+
+                speedView.speedTo(f_pavg);
+                p0View.speedTo(f_p0);
+                p1View.speedTo(f_p1);
+                p2View.speedTo(f_p2);
 
                 mydata.invalidateViews();
             }
