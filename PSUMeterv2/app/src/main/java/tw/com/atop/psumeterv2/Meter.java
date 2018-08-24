@@ -125,14 +125,20 @@ public class Meter extends AppCompatActivity {
                 String peak1 = String.valueOf(peak.get(MID + "_PB"));
                 String peak2 = String.valueOf(peak.get(MID + "_PC"));
                 String pavg = String.valueOf(peak.get(MID + "_Pavg"));
+
                 dataLists.add("PeakA: " + peak0 + "W");
                 dataLists.add("PeakB: " + peak1 + "W");
                 dataLists.add("PeakC: " + peak2 + "W");
-                dataLists.add("Pavg: " + pavg + "W");
+
                 float f_pavg = Float.parseFloat(pavg);
                 float f_p0 = Float.parseFloat(p0);
                 float f_p1 = Float.parseFloat(p1);
                 float f_p2 = Float.parseFloat(p2);
+                float f_total = f_p0 + f_p1 + f_p2;
+                String ptotal = String.valueOf(f_total);
+                dataLists.add("Ptotal: " + ptotal + "W");
+                dataLists.add("Pavg: " + pavg + "W");
+                /*
                 if(f_pavg > 1000)
                 {
                     speedView.setUnit("kW");
@@ -145,6 +151,18 @@ public class Meter extends AppCompatActivity {
                     speedView.setMaxSpeed(1000);
                 }
                 //End Pavg
+                */
+                if(f_total > 1000)
+                {
+                    speedView.setUnit("kW");
+                    speedView.setMaxSpeed(100);
+                    f_total = f_total/1000;
+                }
+                else
+                {
+                    speedView.setUnit("W");
+                    speedView.setMaxSpeed(1000);
+                }
 
                 if(f_p0 > 1000)
                 {
@@ -185,7 +203,7 @@ public class Meter extends AppCompatActivity {
                 }
                 //End P2
 
-                speedView.speedTo(f_pavg);
+                speedView.speedTo(f_total);
                 p0View.speedTo(f_p0);
                 p1View.speedTo(f_p1);
                 p2View.speedTo(f_p2);

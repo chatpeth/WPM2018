@@ -1,0 +1,36 @@
+if(abs( (now - lastMsg) > (polling_interval - 64)) )
+    {
+      printf("Period = %d\r\n", now - lastMsg);
+      lastMsg = now;
+      // Check that node know the equition for calculating power, P = mf + c    
+      // turn on LED
+      digitalWrite(LED_BUILTIN, LOW);
+      measured_flag = 1;
+      pubData();
+      // turn off LED
+      digitalWrite(LED_BUILTIN, HIGH);  
+    }
+
+    // Log data every log_interval
+    if(abs(now - lastLog) > (log_interval - 64))
+    {
+      
+      printf("Log interval %d ms\r\n", now - lastLog);      
+      lastLog = now;
+      // turn on LED
+      digitalWrite(LED_BUILTIN, LOW);
+      if((log_setting == 1) && (measured_flag == 1))
+      {
+        
+        spreadsheet();
+      }
+      // turn off LED
+      digitalWrite(LED_BUILTIN, HIGH);
+    }
+
+    if(abs (now - lastMeasure) > 1000)
+    {
+      measurement();
+      lastMeasure = now;
+    }
+  }

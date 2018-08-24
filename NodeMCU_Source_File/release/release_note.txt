@@ -12,3 +12,5 @@ Digital output:
 D8
 Env sensor:
 D4
+
+ver.08242018 remove zero and null timestamp trow bug by move measurement to upper.
