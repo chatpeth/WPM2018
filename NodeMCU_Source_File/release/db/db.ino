@@ -8,6 +8,7 @@
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
 #include "DHT.h"
+#include <ESP8266Ping.h>
 
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
@@ -21,7 +22,7 @@
 #define CLID "fff" NID
 #define NUM_PHASE 3
 #define MAX_ERR 3
-#define TIME_OUT 10000
+#define TIME_OUT 6000
 #define SLOPE "m" NID
 #define CONST "C" NID
 #define ENCRIPT_TOPIC "fff" NID
@@ -46,6 +47,7 @@
 #define DHTTYPE   DHT22       
 DHT dht(DHTPIN, DHTTYPE);
 #define env_monit
+#define MAX_PING 50
 
 #ifdef DISPLAY
 #include <SPI.h>
@@ -56,11 +58,13 @@ DHT dht(DHTPIN, DHTTYPE);
 Adafruit_SSD1306 OLED(OLED_RESET);
 #endif
 
+#ifdef ESP2.40
 // for stack analytics
 extern "C" {
 #include <cont.h>
   extern cont_t g_cont;
 }
+#endif
 
 typedef struct
 {
@@ -125,8 +129,10 @@ HTTPSRedirect* clientg = nullptr;
 // before the HTTPSRedirect object is instantiated
 // so that they can be written to Google sheets
 // upon instantiation
+#ifdef ESP2.40
 unsigned int free_heap_before = 0;
 unsigned int free_stack_before = 0;
+#endif
 // time stamp
 String tsm_year = "";
 String tsm_mon = "";
@@ -134,6 +140,7 @@ String tsm_day = "";
 String tsm_hour = "";
 String tsm_min = "";
 String tsm_sec = "";
+const IPAddress remote_ip(8, 8, 8, 8);
 
 void setup_wifi()
 { 
@@ -174,7 +181,31 @@ void setup_wifi()
   #endif
   printf("WiFi connected. IP address:\r\n");
   Serial.println(WiFi.localIP());
+
+  int pingResult;
+  int pingErr = 0;
+  do{
+    pingResult = Ping.ping(remote_ip);
+    Serial.print("Pinging ip ");
+    Serial.println(remote_ip);
+
+    if(pingResult != 0) {
+      Serial.println("Internet connection okay");
+    }
+    else
+    {
+      Serial.println("Check internet connection!!");
+      pingErr = pingErr + 1;
+    }
+    if(pingErr > MAX_PING)
+     {
+        ESP.restart();
+     }
+  }while(pingResult == 0);
   
+
+  delete clientg;
+  clientg = nullptr;
 
   clientg = new HTTPSRedirect(httpsPort);
   clientg->setPrintResponseBody(true);
@@ -182,12 +213,12 @@ void setup_wifi()
   printf("Connecting to %s\r\n", host);
   while( (clientg->connect(host, httpsPort)) != 1)
   {
+    printf("!!");
     if(count_recon > 2)
     {
       ESP.restart();
     }
     digitalWrite(LED_BUILTIN, LOW);
-    printf("!!");
     delay(256);
     digitalWrite(LED_BUILTIN, HIGH);
     delay(256);
@@ -455,8 +486,10 @@ void setup()
   
   Serial.begin(115200);
   Serial.println("\r\nAP: 05232018");
+  #ifdef ESP2.40
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
+  #endif
 
   setup_wifi();
   
@@ -557,8 +590,10 @@ void spreadsheet()
 
   if (!flag)
   {
+    #ifdef ESP2.40
     free_heap_before = ESP.getFreeHeap();
     free_stack_before = cont_get_free_stack(&g_cont);
+    #endif
     clientg = new HTTPSRedirect(httpsPort);
     flag = true;
     clientg->setPrintResponseBody(true);

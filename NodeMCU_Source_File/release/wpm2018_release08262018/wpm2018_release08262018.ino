@@ -1,5 +1,6 @@
 // Cr. CHATPETH KENANAN
 // Contact: eechatpeth@gmail.com
+// ESP2.4.2 or over
 
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
@@ -8,6 +9,8 @@
 #include "HTTPSRedirect.h"
 #include "DebugMacros.h"
 #include "DHT.h"
+#include <ESP8266Ping.h>
+#include <FirebaseArduino.h>
 
 //#define SIM_MODE        // Define, If need to simulation pulse in.
 #define ON 1
@@ -21,14 +24,14 @@
 #define CLID "fff" NID
 #define NUM_PHASE 3
 #define MAX_ERR 3
-#define TIME_OUT 10000
+#define TIME_OUT 6000
 #define SLOPE "m" NID
 #define CONST "C" NID
 #define ENCRIPT_TOPIC "fff" NID
 #define LOG_SETTING "log_enable" NID
 #define LOG_INTERVAL "log_interval" NID
 #define POLLING_INTERVAL "polling_interval" NID
-#define MAX_EQUATION_REQ 10
+#define MAX_EQUATION_REQ 0
 #define DEFAULT_SLOPE 60
 #define DEFAULT_CONST -2
 #define SHEET_NAME "\"node" NID "\", \"values\": "
@@ -46,6 +49,12 @@
 #define DHTTYPE   DHT22       
 DHT dht(DHTPIN, DHTTYPE);
 #define env_monit
+#define MAX_PING 20
+#define FIREBASE_HOST "eepdb-5d383.firebaseio.com"
+#define FIREBASE_AUTH "kpX7PLwIvmhddvjzwrcU5t5bBGTl4jQlZ6jHRxvH"
+#define AUTH_KEY "testnode"
+//#define ESP2.40
+#define FW_VERSION "08262018"
 
 #ifdef DISPLAY
 #include <SPI.h>
@@ -56,11 +65,13 @@ DHT dht(DHTPIN, DHTTYPE);
 Adafruit_SSD1306 OLED(OLED_RESET);
 #endif
 
+#ifdef ESP2.40
 // for stack analytics
 extern "C" {
 #include <cont.h>
   extern cont_t g_cont;
 }
+#endif
 
 typedef struct
 {
@@ -91,9 +102,9 @@ const char* mqttPassword = "UNIemBQQpGw8";
 const char* client_id = CLID;
 
 unsigned long now;
-long lastMsg = 0;
-long lastLog = 0;
-long lastMeasure = 0;
+unsigned long lastMsg = 0;
+unsigned long lastLog = 0;
+unsigned long lastMeasure = 0;
 float m_slope = 0;
 float C_const = 0;
 int log_setting = 1;  //Log enable by default
@@ -125,8 +136,10 @@ HTTPSRedirect* clientg = nullptr;
 // before the HTTPSRedirect object is instantiated
 // so that they can be written to Google sheets
 // upon instantiation
+#ifdef ESP2.40
 unsigned int free_heap_before = 0;
 unsigned int free_stack_before = 0;
+#endif
 // time stamp
 String tsm_year = "";
 String tsm_mon = "";
@@ -134,77 +147,29 @@ String tsm_day = "";
 String tsm_hour = "";
 String tsm_min = "";
 String tsm_sec = "";
+const IPAddress remote_ip(8, 8, 8, 8);
+FirebaseArduino *mfirebase = nullptr;
 
-void setup_wifi()
+// Function prototype
+void setupInternet();
+void pubData();
+void callback(char* topic, byte* payload, unsigned int length);
+void setup();
+void reconnect();
+void spreadsheet();
+void measurement();
+void firebase(unsigned long eduration);
+void checkWifi();
+void checkInternet();
+void checkSheet();
+
+
+void setupInternet()
 { 
-  int count_recon = 0;
-  int count_wifi = 0;
-  printf("Node %s\r\n", nodeID);
-  printf("Connecting to %s\r\n", ssid);
-  #ifdef DISPLAY
-  ax.SledShow(0, 0, INTEN, 0);
-  #endif
   
-  //WiFi.config(ip, gateway, subnet);
-  Serial.print("MAC: ");
-  Serial.println(WiFi.macAddress());
-  if (WiFi.begin(ssid, password) != 0)
-  {
-        while (WiFi.status() != WL_CONNECTED)
-        {
-            digitalWrite(LED_BUILTIN, LOW);
-            delay(50);
-            Serial.print(".");
-            digitalWrite(LED_BUILTIN, HIGH);
-            delay(50);
-            count_wifi = count_wifi + 1;
-            if(count_wifi > 200)
-            {
-              #ifdef DISPLAY
-              ax.SledShow(0, 0, 0, 0);
-              #endif
-              ESP.restart();
-            }
-        }
-          
-   }
-
-  #ifdef DISPLAY
-  ax.SledShow(0, INTEN, 0, 0);
-  #endif
-  printf("WiFi connected. IP address:\r\n");
-  Serial.println(WiFi.localIP());
-  
-
-  clientg = new HTTPSRedirect(httpsPort);
-  clientg->setPrintResponseBody(true);
-  clientg->setContentTypeHeader("application/json");
-  printf("Connecting to %s\r\n", host);
-  while( (clientg->connect(host, httpsPort)) != 1)
-  {
-    if(count_recon > 2)
-    {
-      ESP.restart();
-    }
-    digitalWrite(LED_BUILTIN, LOW);
-    printf("!!");
-    delay(256);
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(256);
-    count_recon = count_recon + 1;
-  }
-  printf("Connected");
-  if (clientg->verify(fingerprint, host)) 
-  {
-    printf("Certificate match\r\n");
-  }
-  else 
-  {
-    printf("Certificate mis-match\r\n");
-  }
-  
-  delete clientg;
-  clientg = nullptr;
+  checkWifi();
+  checkInternet();
+  checkSheet();
   
 }
 
@@ -454,11 +419,13 @@ void setup()
   #endif
   
   Serial.begin(115200);
-  Serial.println("\r\nAP: 05232018");
+  Serial.println("\r\nAP: " FW_VERSION);
+  #ifdef ESP2.40
   free_heap_before = ESP.getFreeHeap();
   free_stack_before = cont_get_free_stack(&g_cont);
+  #endif
 
-  setup_wifi();
+  setupInternet();
   
   client.setServer(mqttServer, mqttPort);
   client.setCallback(callback);
@@ -492,7 +459,12 @@ void setup()
   #endif
 
   measurement();
-  
+
+  printf("Starting firebase\r\n");
+  mfirebase = new FirebaseArduino();
+  mfirebase->begin(FIREBASE_HOST, FIREBASE_AUTH);
+  printf("Firebase started\r\n");
+
 }
 
 void reconnect()
@@ -510,7 +482,7 @@ void reconnect()
     }
     else if(err_reconnect > 5)
     {
-      setup_wifi();
+      setupInternet();
     }
     printf("Attempting MQTT connection... "); 
     // Attempt to connect
@@ -555,10 +527,21 @@ void spreadsheet()
 
   payload = payload_base + "\"" + phaseID[0].power + "," + phaseID[1].power + "," + phaseID[2].power + "," + tmpf + "\"}";
 
+  #ifdef ESP2.40
+  free_heap_before = ESP.getFreeHeap();
+  free_stack_before = cont_get_free_stack(&g_cont);
+  Serial.println(free_heap_before);
+  Serial.println(free_stack_before);
+  #endif
+    
   if (!flag)
   {
+    printf("Create spreadsheet()\r\n");
+    
+    #ifdef ESP2.40
     free_heap_before = ESP.getFreeHeap();
     free_stack_before = cont_get_free_stack(&g_cont);
+    #endif
     clientg = new HTTPSRedirect(httpsPort);
     flag = true;
     clientg->setPrintResponseBody(true);
@@ -569,6 +552,11 @@ void spreadsheet()
   if (clientg != nullptr)
   {
     int null_err = 0;
+    #ifdef ESP2.40
+    Serial.printf("Free heap before: %u\n", ESP.getFreeHeap());
+    Serial.printf("unmodified stack   = %4d\n", cont_get_free_stack(&g_cont));
+    #endif
+    
     if (!clientg->connected())
     {
       printf("DB0xff:Reconnecting to %s\r\n", host);
@@ -589,6 +577,11 @@ void spreadsheet()
       } 
       
     }
+
+    #ifdef ESP2.40
+    Serial.printf("Free heap after: %u\n", ESP.getFreeHeap());
+    Serial.printf("unmodified stack   = %4d\n", cont_get_free_stack(&g_cont));
+    #endif
     printf("POST data to spreadsheet\r\n");
     Serial.println(payload);
     #ifdef DISPLAY
@@ -613,7 +606,7 @@ void spreadsheet()
       #ifdef DISPLAY
       ax.SledShow(1, 0, INTEN, 0);
       #endif
-      setup_wifi();
+      setupInternet();
       return;
     }
   }
@@ -637,6 +630,9 @@ void spreadsheet()
     flag = false;
     printf("Reset cause post error over MAX_ERR\r\n");
   }
+
+
+ 
 }
 
 void measurement()
@@ -815,6 +811,191 @@ void measurement()
     #endif
 }
 
+void firebase(unsigned long eduration)
+{
+    String msg;
+    float lastEnergy = 0;
+    float curEnergy;
+    int i;
+
+    printf("Realtime database\r\n");
+    #ifdef ESP2.40
+    Serial.printf("Free heap before: %u\n", ESP.getFreeHeap());
+    Serial.printf("unmodified stack   = %4d\n", cont_get_free_stack(&g_cont));
+    #endif
+    msg = mfirebase->getString(AUTH_KEY "/msg");
+    // handle error
+    if (mfirebase->failed()) {
+      Serial.print("get msg failed:");
+      Serial.println(mfirebase->error());  
+      setupInternet();
+    }
+    else
+    {
+      Serial.print("##msg: ");
+      Serial.println(msg);
+    }
+
+    //Get lastEnergy
+    for(i = 0; i < NUM_PHASE; i++)
+    {
+      lastEnergy = mfirebase->getFloat(AUTH_KEY "/energy/e" + String(i));
+      if (mfirebase->failed())
+      {
+        printf("get lastEnergy failed:\r\n");
+        Serial.println(mfirebase->error());  
+        setupInternet();
+      }
+      else
+      {
+        printf("#####Last energy%d= %.2f kWh\r\n", i, lastEnergy);
+        //dE(kWh) = dP(kW)*dt(hr)
+        // E = Ec + dE
+        // phaseID[i].power
+        //dE  
+        printf("#####phase%d power= %.2f W\r\n", i, phaseID[i].power);
+        curEnergy = ((phaseID[i].power/1000)*eduration)/(1000*3600); 
+        printf("#####dE%d= %.4f\r\n kWh", i, curEnergy);
+        curEnergy = curEnergy + lastEnergy;
+        printf("#####E%d= %.4f\r\n kWh", i, curEnergy);
+        delay(1);
+        mfirebase->setFloat(AUTH_KEY "/energy/e" + String(i), curEnergy);
+        // handle error
+        if (mfirebase->failed())
+        {
+          Serial.print("setting /number failed:\r\n");
+          Serial.println(mfirebase->error());  
+        }
+      }     
+    }
+    
+    
+    
+    
+}
+
+void checkInternet()
+{
+  int pingResult;
+  int pingErr = 0;
+  do{
+    pingResult = Ping.ping(remote_ip);
+    Serial.print("Pinging ip ");
+    Serial.println(remote_ip);
+
+    if(pingResult != 0) {
+      Serial.println("Internet connection okay");
+    }
+    else
+    {
+      Serial.println("Check internet connection!!");
+      pingErr = pingErr + 1;
+    }
+    if(pingErr > MAX_PING)
+     {
+        checkWifi();
+     }
+  }while(pingResult == 0);
+  
+}
+
+void checkWifi()
+{
+  int count_wifi = 0;
+  printf("Node %s\r\n", nodeID);
+  printf("Connecting to %s\r\n", ssid);
+  #ifdef DISPLAY
+  ax.SledShow(0, 0, INTEN, 0);
+  #endif
+  
+  //WiFi.config(ip, gateway, subnet);
+  Serial.print("MAC: ");
+  Serial.println(WiFi.macAddress());
+  if (WiFi.begin(ssid, password) != 0)
+  {
+        while (WiFi.status() != WL_CONNECTED)
+        {
+            digitalWrite(LED_BUILTIN, LOW);
+            delay(50);
+            Serial.print(".");
+            digitalWrite(LED_BUILTIN, HIGH);
+            delay(50);
+            count_wifi = count_wifi + 1;
+            if(count_wifi > 200)
+            {
+              #ifdef DISPLAY
+              ax.SledShow(0, 0, 0, 0);
+              #endif
+              ESP.restart();
+            }
+        }
+          
+   }
+
+  #ifdef DISPLAY
+  ax.SledShow(0, INTEN, 0, 0);
+  #endif
+  printf("WiFi connected. IP address:\r\n");
+  Serial.println(WiFi.localIP());
+}
+
+void checkSheet()
+{
+  int count_recon = 0;
+  
+  delete clientg;
+  clientg = nullptr;
+
+  #ifdef ESP2.40
+  free_heap_before = ESP.getFreeHeap();
+  free_stack_before = cont_get_free_stack(&g_cont);
+  Serial.printf("Free heap before: %u\n", free_heap_before);
+  Serial.printf("unmodified stack   = %4d\n", free_stack_before);
+  #endif
+
+  clientg = new HTTPSRedirect(httpsPort);
+  clientg->setPrintResponseBody(true);
+  clientg->setContentTypeHeader("application/json");
+  printf("Connecting to %s\r\n", host);
+  while( (clientg->connect(host, httpsPort)) != 1)
+  {
+    printf("!!");
+    if(count_recon > 2)
+    {
+      ESP.restart();
+    }
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(256);
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(256);
+    count_recon = count_recon + 1;
+  }
+  printf("Connected");
+  if (clientg->verify(fingerprint, host)) 
+  {
+    printf("Certificate match\r\n");
+  }
+  else 
+  {
+    printf("Certificate mis-match\r\n");
+  }
+
+  #ifdef ESP2.40
+  Serial.printf("Free heap before: %u\n", ESP.getFreeHeap());
+  Serial.printf("unmodified stack   = %4d\n", cont_get_free_stack(&g_cont));
+  printf("free()\r\n");
+  #endif
+  delete clientg;
+  clientg = nullptr;
+
+  #ifdef ESP2.40
+  Serial.printf("Free heap after: %u\n", ESP.getFreeHeap());
+  Serial.printf("unmodified stack   = %4d\n", cont_get_free_stack(&g_cont));
+  #endif
+}
+
+
+
 void loop()
 {
 
@@ -861,24 +1042,31 @@ void loop()
       
       pubData();
       // turn off LED
-      digitalWrite(LED_BUILTIN, HIGH);  
+      digitalWrite(LED_BUILTIN, HIGH);
+      
     }
 
     // Log data every log_interval
+    unsigned long energyDuration;
     if(abs(now - lastLog) > (log_interval - 64))
     {
       
       printf("Log interval %d ms\r\n", now - lastLog);      
-      lastLog = now;
+      
       // turn on LED
       digitalWrite(LED_BUILTIN, LOW);
       if((log_setting == 1) && (measured_flag == 1))
-      {
-        
-        spreadsheet();
+      {        
+        spreadsheet();             
       }
       // turn off LED
       digitalWrite(LED_BUILTIN, HIGH);
+      //make sure stack are available
+      delay(1);
+      energyDuration = abs(now - lastLog);
+      printf("#####Energy duration= %d\r\n", energyDuration);
+      lastLog = now;
+      firebase(energyDuration); 
     }
 
     
