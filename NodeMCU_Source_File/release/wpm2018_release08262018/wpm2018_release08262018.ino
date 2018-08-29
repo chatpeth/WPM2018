@@ -31,7 +31,7 @@
 #define LOG_SETTING "log_enable" NID
 #define LOG_INTERVAL "log_interval" NID
 #define POLLING_INTERVAL "polling_interval" NID
-#define MAX_EQUATION_REQ 0
+#define MAX_EQUATION_REQ 6
 #define DEFAULT_SLOPE 60
 #define DEFAULT_CONST -2
 #define SHEET_NAME "\"node" NID "\", \"values\": "
